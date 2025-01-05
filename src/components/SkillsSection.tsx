@@ -11,22 +11,23 @@ export default function SkillsSection() {
             { name: "TypeScript", logoPath: `${prefix}/skills/ts.jpeg` },
             { logoPath: `${prefix}/skills/csharp.jpeg` },
         ],
-        "Data Science": [
+        "Data": [
             { name: "sklearn", logoPath: `${prefix}/skills/sklearn.jpeg` },
             { logoPath: `${prefix}/skills/pandas.jpeg` },
+            { logoPath: `${prefix}/skills/kafka.jpeg` },
             { logoPath: `${prefix}/skills/spark.jpeg` },
             { name: "Data Engineering", },
             { name: "Machine Learning", },
         ],
         "Databases": [
-            { logoPath: `${prefix}/skills/neo4j.jpeg` },
-            { logoPath: `${prefix}/skills/aws.jpeg` },
             { logoPath: `${prefix}/skills/firebase.jpeg` },
+            { logoPath: `${prefix}/skills/neo4j.jpeg` },
             { name: "PostgreSQL", logoPath: `${prefix}/skills/postgresql.jpeg` },
             { logoPath: `${prefix}/skills/mongodb.jpeg` },
             { logoPath: `${prefix}/skills/cassandra.jpeg` },
+
         ],
-        "Frameworks": [
+        "Development": [
             { logoPath: `${prefix}/skills/nextjs.jpeg` },
             { logoPath: `${prefix}/skills/flutter.jpeg` },
             { logoPath: `${prefix}/skills/django.jpeg` },
@@ -37,7 +38,6 @@ export default function SkillsSection() {
         "Cloud & DevOps": [
             { logoPath: `${prefix}/skills/aws.jpeg` },
             { name: "Serverless Framework", logoPath: `${prefix}/skills/serverless.jpeg` },
-            { logoPath: `${prefix}/skills/firebase.jpeg` },
             { name: "GitHub", logoPath: `${prefix}/skills/github.jpeg` },
             { name: "Docker", logoPath: `${prefix}/skills/docker.jpeg` },
             { logoPath: `${prefix}/skills/circleci.jpeg` },
@@ -45,8 +45,8 @@ export default function SkillsSection() {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(135deg, #ffffff, #f0f0f0)' }}>
-            <span className="block text-center text-2xl font-bold py-4 text-gray-800">Skills & Tools I Use:</span>
+        <div className='py-8' style={{ background: 'linear-gradient(135deg, #ffffff, #f0f0f0)' }}>
+            <span className="block text-center text-2xl font-bold py-2 text-gray-800">Skills & Tools I Use:</span>
             {Object.values(skillGroups).map((skills, index) => (
                 <MovingSkills key={index} items={skills} />
             ))}

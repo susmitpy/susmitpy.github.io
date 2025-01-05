@@ -21,7 +21,7 @@ export const SkillCard = ({
                 <img
                     src={logoPath}
                     alt={text}
-                    className="h-10 md:h-12"
+                    className="h-10 md:h-12 sm:h-14 w-auto"
                 />
             )}
             {text && <span>{text}</span>}
