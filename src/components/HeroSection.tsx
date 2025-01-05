@@ -33,10 +33,10 @@ export default function HeroSection() {
                 <h1 className="text-4xl md:text-7xl font-bold text-center text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                     Myself, <br /> Susmit Vengurlekar (susmitpy)
                 </h1>
-                <p className="mt-4 font-normal text-base text-white max-w-lg text-center mx-auto">
-                    I am a Passionate Techie who builds Problem-Solving Tech Solutions,
+                <p className="mt-4 font-normal text-lg md:text-xl text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 max-w-lg text-center mx-auto">
+                    A Passionate Techie who builds Problem-Solving Tech Solutions,
                 </p>
-                <p className="mt-1 font-normal text-base text-white max-w-lg text-center mx-auto">
+                <p className="mt-1 font-normal text-lg md:text-xl text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 max-w-lg text-center mx-auto">
                     Having 8+ YoE (4+ YoE after graduation)
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center text-center gap-4 md:gap-6 lg:gap-8">
