@@ -1,102 +1,70 @@
-// "use client";
-// import React from "react";
-// import { HeroParallax } from "../ui/hero-parallax";
+import React, { useState, useEffect } from 'react';
+import { LiveProjectCard } from '@/components/LiveProjectCard'; // Import the LiveProjectCard component
 
-// export function HeroParallaxDemo() {
-//     return <HeroParallax products={products} />;
-// }
-// export const products = [
-//     {
-//         title: "Moonbeam",
-//         link: "https://gomoonbeam.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
-//     },
-//     {
-//         title: "Cursor",
-//         link: "https://cursor.so",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-//     },
-//     {
-//         title: "Rogue",
-//         link: "https://userogue.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-//     },
+export default function LiveProjects() {
+    const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
-//     {
-//         title: "Editorially",
-//         link: "https://editorially.org",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/editorially.png",
-//     },
-//     {
-//         title: "Editrix AI",
-//         link: "https://editrix.ai",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/editrix.png",
-//     },
-//     {
-//         title: "Pixel Perfect",
-//         link: "https://app.pixelperfect.quest",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
-//     },
+    useEffect(() => {
+        const checkDevice = () => {
+            const width = window.innerWidth;
+            setIsMobileOrTablet(width <= 1024);
+        };
 
-//     {
-//         title: "Algochurn",
-//         link: "https://algochurn.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
-//     },
-//     {
-//         title: "Aceternity UI",
-//         link: "https://ui.aceternity.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
-//     },
-//     {
-//         title: "Tailwind Master Kit",
-//         link: "https://tailwindmasterkit.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-//     },
-//     {
-//         title: "SmartBridge",
-//         link: "https://smartbridgetech.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-//     },
-//     {
-//         title: "Renderwork Studio",
-//         link: "https://renderwork.studio",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-//     },
+        checkDevice();
+        window.addEventListener('resize', checkDevice);
+        return () => window.removeEventListener('resize', checkDevice);
+    }, []);
 
-//     {
-//         title: "Creme Digital",
-//         link: "https://cremedigital.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-//     },
-//     {
-//         title: "Golden Bells Academy",
-//         link: "https://goldenbellsacademy.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-//     },
-//     {
-//         title: "Invoker Labs",
-//         link: "https://invoker.lol",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-//     },
-//     {
-//         title: "E Free Invoice",
-//         link: "https://efreeinvoice.com",
-//         thumbnail:
-//             "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-//     },
-// ];
+    const projects = [
+        {
+            "name": "Pick A Chit",
+            "description": "Digital Solution for the age-old game of Chits",
+            "link": "https://pickachit.web.app",
+            "imagePath": "/projects/pickachit.jpeg",
+            "gifPath": "/projects/pickachit.gif"
+        },
+        {
+            "name": "Cloud File Viewer",
+            "description": "AWS S3 File Viewer",
+            "link": "https://cloudfileviewer.web.app",
+            "imagePath": "/projects/pickachit.jpeg",
+            "gifPath": "/projects/pickachit.gif"
+        },
+        {
+            "name": "Mention It",
+            "description": "Templated LinkedIn, Tweets for Events",
+            "link": "https://mention-it.web.app",
+            "imagePath": "/projects/pickachit.jpeg",
+            "gifPath": "/projects/pickachit.gif"
+        },
+        {
+            "name": "Local Todos",
+            "description": "Todo App, Data on Device",
+            "link": "https://locally-todosweb.app",
+            "imagePath": "/projects/pickachit.jpeg",
+            "gifPath": "/projects/pickachit.gif"
+        }
+    ]
+
+    return (
+        <div className="bg-gray-800 p-8"> {/* Added dark background */}
+            {isMobileOrTablet ? (
+                <h6 className="text-gray-100 text-center mb-4">Long Press over card to see demo</h6>
+            ) : (
+                <h6 className="text-gray-100 text-center mb-4">Hover over card to see demo</h6>
+            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center">
+                {projects.map((project) => (
+                    <LiveProjectCard
+                        key={project.name}
+                        name={project.name}
+                        description={project.description}
+                        link={project.link}
+                        imagePath={project.imagePath}
+                        gifPath={project.gifPath}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
