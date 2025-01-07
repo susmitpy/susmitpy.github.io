@@ -27,8 +27,8 @@ export default function LiveProjects() {
             "name": "Cloud File Viewer",
             "description": "AWS S3 File Viewer",
             "link": "https://cloudfileviewer.web.app",
-            "imagePath": "/projects/pickachit.jpeg",
-            "gifPath": "/projects/pickachit.gif"
+            "imagePath": "/projects/cloudfileviewer.jpeg",
+            "gifPath": "/projects/cloudfileviewer.gif"
         },
         {
             "name": "Mention It",
@@ -41,7 +41,7 @@ export default function LiveProjects() {
             "name": "Local Todos",
             "description": "Todo App, Data on Device",
             "link": "https://locally-todosweb.app",
-            "imagePath": "/projects/pickachit.jpeg",
+            "imagePath": "/projects/localtodos.jpeg",
             "gifPath": "/projects/pickachit.gif"
         }
     ]
