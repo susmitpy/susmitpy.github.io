@@ -34,15 +34,15 @@ export default function LiveProjects() {
             "name": "Mention It",
             "description": "Templated LinkedIn, Tweets for Events",
             "link": "https://mention-it.web.app",
-            "imagePath": "/projects/pickachit.jpeg",
-            "gifPath": "/projects/pickachit.gif"
+            "imagePath": "/projects/mentionit.jpeg",
+            "gifPath": "/projects/mentionit.gif"
         },
         {
             "name": "Local Todos",
             "description": "Todo App, Data on Device",
             "link": "https://locally-todosweb.app",
             "imagePath": "/projects/localtodos.jpeg",
-            "gifPath": "/projects/pickachit.gif"
+            "gifPath": "/projects/localtodos.gif"
         }
     ]
 
