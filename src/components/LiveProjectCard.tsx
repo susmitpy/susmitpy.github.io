@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { BackgroundGradient } from "./ui/background-gradient";
+import { FaExternalLinkAlt } from 'react-icons/fa'; // Add icon import
 
 interface CardProps {
     name: string;
@@ -13,17 +12,14 @@ interface CardProps {
 
 export function LiveProjectCard({ name, description, link, imagePath, gifPath }: CardProps) {
     return (
-
         <div className="max-w-xs w-full">
-            <BackgroundGradient className="rounded-[22px] max-w-sm p-1 bg-gray-800 dark:bg-zinc-900" animate={false}>
             <div
                 className={cn(
-                    "group w-full cursor-pointer overflow-hidden relative card h-70 rounded-md shadow-xl mx-auto p-4",
-                    "bg-gray-700",
-                    "border border-transparent dark:border-transparent",
+                    "group w-full cursor-pointer overflow-hidden relative card h-70 rounded-md shadow-xl mx-auto p-4", // Changed h-75 to h-80 for fixed height
+                    "bg-gray-700", // Changed to darker grey background
+                    "border border-transparent dark:border-transparent", // Removed existing border
                     "transition-transform duration-500 transform hover:scale-105",
-                    "hover:border-gradient"
-
+                    "hover:border-gradient" // Added gradient border on hover
                 )}
                 onClick={() => window.open(link, '_blank')}
             >
@@ -41,7 +37,7 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
                 <img
                     src={imagePath}
                     alt={name}
-                        className="object-contain transition-opacity duration-500 group-hover:opacity-0 py-2 h-40 w-full"
+                    className="object-contain transition-opacity duration-500 group-hover:opacity-0 py-2 h-40 w-full" // Added fixed height and width
                 />
 
                 {/* GIF Overlay */}
@@ -61,8 +57,6 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
                     </button>
                 </a>
             </div>
-            </BackgroundGradient>
-        </div >
-
+        </div>
     );
 }

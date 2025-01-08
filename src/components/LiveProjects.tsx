@@ -18,7 +18,7 @@ export default function LiveProjects() {
     const projects = [
         {
             "name": "Pick A Chit",
-            "description": "Digital Solution for age-old game of Chits",
+            "description": "Digital Solution for the age-old game of Chits",
             "link": "https://pickachit.web.app",
             "imagePath": "/projects/pickachit.jpeg",
             "gifPath": "/projects/pickachit.gif"

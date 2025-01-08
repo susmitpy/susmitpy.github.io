@@ -45,7 +45,7 @@ export default function SkillsSection() {
     };
 
     return (
-        <div className='py-8' style={{ background: 'linear-gradient(135deg, #ffffff, #f0f0f0)' }}>
+        <div className='py-8 bg-zinc-300'>
             <span className="block text-center text-2xl font-bold py-2 text-gray-800">Skills & Tools I Use:</span>
             {Object.values(skillGroups).map((skills, index) => (
                 <MovingSkills key={index} items={skills} />

@@ -2,6 +2,7 @@
 
 import HeroSection from '@/components/HeroSection';
 import LiveProjects from '@/components/LiveProjects';
+import Repos from '@/components/Repos';
 import SkillsSection from '@/components/SkillsSection';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <SkillsSection />
       <LiveProjects />
+      <Repos />
     </main>
   );
 }
