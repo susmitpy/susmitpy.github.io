@@ -39,8 +39,8 @@ export default function Repos() {
 
     return (
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8">
-            <h2 className="text-white text-center mb-4 text-2xl font-semibold">GitHub Repositories</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+            <span className="block text-center text-2xl font-bold py-2 text-gray-200">GitHub Repositories</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center mt-4">
                 {repos.map((repo, index) => (
                     <RepoCard
                         key={index}

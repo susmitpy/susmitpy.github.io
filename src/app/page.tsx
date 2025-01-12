@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import LiveProjects from '@/components/LiveProjects';
 import Repos from '@/components/Repos';
 import SkillsSection from '@/components/SkillsSection';
+import { TalksSection } from '@/components/Talks';
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
       <LiveProjects />
       <Repos />
       <BlogsSection />
+      <TalksSection />
     </main>
   );
 }

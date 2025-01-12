@@ -45,9 +45,7 @@ const blogs = [
 export function BlogsSection() {
     return (
         <div className="py-8 bg-zinc-700">
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">
-                Tech Blogs
-            </span>
+            <span className="block text-center text-2xl font-bold py-2 text-gray-200">Tech Blogs</span>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center justify-items-center">
                 {blogs.map((blog) => (
                     <div
