@@ -53,12 +53,12 @@ export function BlogsSection() {
                     <div
                         onClick={() => window.open(blog.link, "_blank")}
                         key={blog.title}
-                        className="w-full relative rounded-3xl overflow-hidden max-w-md mx-auto bg-gradient-to-r from-[#1D2235] to-[#121318] p-8 my-10"
+                        className="w-full relative rounded-3xl overflow-hidden max-w-md mx-auto bg-gradient-to-r from-[#1D2235] to-[#121318] p-8 my-10 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         <Rays />
                         <Beams />
                         <div className="relative z-10 justify-items-center mb-2">
-                            <img src={blog.img} className="h-44 rounded-2xl obj" />
+                            <img src={blog.img} className="h-44 rounded-2xl justify-items-center" />
                         </div>
 
                         <h2 className="text-white text-2xl text-left font-bold">
