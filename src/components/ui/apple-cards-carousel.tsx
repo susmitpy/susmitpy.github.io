@@ -168,7 +168,8 @@ export const Card = ({
     <>
       <motion.div
         layoutId={layout ? `card-${card.title}` : undefined}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-52 w-48 md:h-[30rem] md:w-72 overflow-hidden flex flex-col items-start justify-start relative z-10 hover:scale-105 transition-transform cursor-pointer" // Added hover and cursor styles
+        whileHover={{ scale: 1.1 }} // Expand card on hover
+        className="h-52 w-48 md:h-[30rem] md:w-72 overflow-hidden flex flex-col items-start justify-start relative z-10 hover:scale-105 transition-transform cursor-pointer" // Added hover and cursor styles
         onClick={() => window.open(card.link, "_blank")} // Made card clickable
       >
         {card.onYoutube && (
@@ -190,10 +191,9 @@ export const Card = ({
             {card.title}
           </motion.p>
         </div>
-        <BlurImage
+        <img
           src={card.src}
           alt={card.title}
-          fill
           className="object-contain absolute z-10 inset-0"
         />
       </motion.div>
@@ -201,31 +201,3 @@ export const Card = ({
   );
 };
 
-export const BlurImage = ({
-  height,
-  width,
-  src,
-  className,
-  alt,
-  ...rest
-}: ImageProps) => {
-  const [isLoading, setLoading] = useState(true);
-  return (
-    <Image
-      className={cn(
-        "transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className
-      )}
-      onLoad={() => setLoading(false)}
-      src={src}
-      width={width}
-      height={height}
-      loading="lazy"
-      decoding="async"
-      blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt ? alt : "Background of a beautiful view"}
-      {...rest}
-    />
-  );
-};
