@@ -38,7 +38,7 @@ const data: Talk[] = [
     {
         title: "Firestore Security Rules",
         category: "DevFest Mumbai 2024",
-        src: `${prefix}/talks/devfest.jpg`,
+        src: `${prefix}/projects/cloudfileviewer.jpeg`,
         link: "https://susmitpy.github.io/talks/firestore_rules",
         onYoutube: false
     },
