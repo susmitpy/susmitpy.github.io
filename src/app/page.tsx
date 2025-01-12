@@ -1,9 +1,12 @@
 "use client"
 
+import { BlogsSection } from '@/components/Blogs';
 import HeroSection from '@/components/HeroSection';
 import LiveProjects from '@/components/LiveProjects';
 import Repos from '@/components/Repos';
 import SkillsSection from '@/components/SkillsSection';
+
+
 
 export default function Home() {
   return (
@@ -12,6 +15,7 @@ export default function Home() {
       <SkillsSection />
       <LiveProjects />
       <Repos />
+      <BlogsSection />
     </main>
   );
 }
