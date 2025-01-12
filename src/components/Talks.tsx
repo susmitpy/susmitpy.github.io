@@ -38,14 +38,14 @@ const data: Talk[] = [
     {
         title: "Firestore Security Rules",
         category: "DevFest Mumbai 2024",
-        src: `${prefix}/projects/cloudfileviewer.jpeg`,
+        src: `${prefix}/speaker/devfest.jpg`,
         link: "https://susmitpy.github.io/talks/firestore_rules",
         onYoutube: false
     },
     {
         title: "Github Actions in Action",
         category: "Git Together - Oct 2024",
-        src: `${prefix}/talks/github_actions_in_action.jpeg`,
+        src: `${prefix}/speaker/github_actions_in_action.jpeg`,
         link: "https://www.youtube.com/watch?v=_SCigi0XPG0",
         onYoutube: true
     },
@@ -53,28 +53,28 @@ const data: Talk[] = [
         title: "Recommendation Engine using Neo4j",
         category: "Global Azure Bootcamp 2024",
         link: "https://www.youtube.com/watch?v=V05Pz1tVovs",
-        src: `${prefix}/talks/azure_neo4j.jpeg`,
+        src: `${prefix}/speaker/azure_neo4j.jpeg`,
         onYoutube: true
     },
     {
         title: "Tracking Changes with MongoDB Change Stream",
         category: "Mumbai MUG",
         link: "https://youtu.be/kfMux6R-SXw",
-        src: `${prefix}/talks/mongo_change.jpg`,
+        src: `${prefix}/speaker/mongo_change.jpg`,
         onYoutube: true,
     },
     {
         title: "Apache Kafka in Short",
         category: "Kafka Meetup",
         link: "https://susmitpy.github.io/talks/kafka",
-        src: `${prefix}/talks/kafka.jpeg`,
+        src: `${prefix}/speaker/kafka.jpeg`,
         onYoutube: false,
     },
     {
         title: "Bloom Filter",
         category: "Impromptu Talk at Kafka Meetup",
         link: "https://blog.det.life/bloom-filter-in-short-339890f84e1b",
-        src: `${prefix}/talks/bloom.jpg`,
+        src: `${prefix}/speaker/bloom.jpg`,
         onYoutube: false,
     }
 ]
