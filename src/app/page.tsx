@@ -8,6 +8,7 @@ import Repos from '@/components/Repos';
 import SkillsSection from '@/components/SkillsSection';
 import { TalksSection } from '@/components/Talks';
 import TestimonialsSections from '@/components/TestimonialsSection';
+import { WorkExp } from '@/components/WorkExperience';
 
 
 
@@ -22,6 +23,7 @@ export default function Home() {
       <TalksSection />
       <TestimonialsSections />
       <Connect />
+      <WorkExp />
     </main>
   );
 }

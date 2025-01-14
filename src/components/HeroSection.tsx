@@ -10,7 +10,7 @@ export default function HeroSection() {
         "Data Scientist",
         "Database Engineer",
         "AWS Cloud Architect",
-        "Full Stack Developer",
+        "Backend Developer",
     ]
 
     const secondTitles = [
