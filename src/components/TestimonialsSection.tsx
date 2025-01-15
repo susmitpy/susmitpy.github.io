@@ -10,20 +10,14 @@ export default function TestimonialsSections() {
             name: "Nikhil Gupta",
             designation: "Partner, Xcellen",
             review:
-                "Susmit  would be an excellent addition to any team and would bring a great deal of value. He consistently demonstrated a strong work ethic, attention to detail, and a commitment to achieving the highest level of quality in his work. I believe that he would be an asset to any organization that is looking for a dedicated, hard-working, and highly skilled individual. I highly recommend him for any position that he may be applying for.",
+                "Susmit would be an excellent addition to any team and would bring a great deal of value. He consistently demonstrated a strong work ethic, attention to detail, and a commitment to achieving the highest level of quality in his work. I believe that he would be an asset to any organization that is looking for a dedicated, hard-working, and highly skilled individual. I highly recommend him for any position that he may be applying for.",
         },
         {
             name: "Principal",
             designation: "KC College",
             review:
                 "Thank you for the software enabling SYJC student's information to be uploaded on the HSC Board website. It is a fairly useful program.",
-        },
-        {
-            name: "Devin Petersohn",
-            designation: "Modin Repo Contributor on GitHub",
-            review:
-                "Thanks for the report! The fix is underway, I just wanted to let you know! Thanks again for the detailed and nicely reproducible report, it helps us out a lot.",
-        },
+        }
     ];
 
     return (
