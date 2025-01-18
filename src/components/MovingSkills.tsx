@@ -15,7 +15,7 @@ export const SkillCard = ({
         <HoverBorderGradient
             containerClassName="rounded-full"
             as="div"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="dark:bg-gray-800 bg-gray-700 text-white flex items-center space-x-2 hover:bg-turquoise-500"
         >
             {logoPath && (
                 <img
@@ -24,7 +24,7 @@ export const SkillCard = ({
                     className="h-10 md:h-12 sm:h-14 w-auto"
                 />
             )}
-            {text && <span>{text}</span>}
+            {text && <span className="text-gray-100">{text}</span>}
         </HoverBorderGradient>
     );
 };
@@ -95,7 +95,7 @@ export const MovingSkills = ({
         <div
             ref={containerRef}
             className={cn(
-                "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+                "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] flex flex-wrap",
                 className
             )}
         >
