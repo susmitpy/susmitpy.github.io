@@ -35,7 +35,7 @@ export function RepoCard({
                         e.stopPropagation();
                         window.open(link, '_blank');
                     }}
-                    className="flex items-center bg-[#40E0D0] text-white px-4 py-2 rounded-lg border border-[#40E0D0] transition-colors duration-300 hover:bg-white hover:text-[#40E0D0]"
+                    className="flex items-center text-[#40E0D0] px-4 py-2 rounded-lg border border-[#40E0D0] "
                 >
                     <FaGithub className="mr-2" />
                     Explore

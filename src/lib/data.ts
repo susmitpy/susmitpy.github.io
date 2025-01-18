@@ -319,7 +319,8 @@ export const ExpData = {
         education: [
             "B.Sc. in Information Technology from DG Ruparel College, Mumbai University (2018 - 2021) - CGPA: 9.73",
             "HSC Commerce from D.G. Ruparel College of Arts, Science and Commerce - 86.46%",
-            "FYJC (11th Std.) - 82.15% | SSC - 91.4%"
+            "FYJC (11th Std.) - 82.15%",
+            "SSC - 91.4%" 
         ]
     }
 

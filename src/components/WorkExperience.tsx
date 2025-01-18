@@ -76,7 +76,7 @@ export function WorkExp() {
     ];
 
     return (
-        <div className="w-full bg-[#2f2f2f]">
+        <div className="w-full bg-[#2f2f2f] py-20 min-h-[600px]">
             <div className="text-center space-y-2 mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold font-montserrat pt-4 text-[#40E0D0]">
                     {ExpData.heading}

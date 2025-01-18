@@ -53,7 +53,7 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
 
                     {/* Visit Button */}
                     <a href={link} target="blank" className="pt-2 flex items-center justify-center">
-                        <button className="px-2 py-1 bg-[#40E0D0] text-white rounded flex items-center text-sm transition-colors duration-300 hover:bg-white hover:text-[#40E0D0]">
+                        <button className="px-2 py-1 text-[#40E0D0] bg-transparent rounded flex items-center text-sm transition-colors duration-300 hover:bg-white hover:text-[#40E0D0]">
                             <FaExternalLinkAlt className="mr-2" />
                             Visit
                         </button>

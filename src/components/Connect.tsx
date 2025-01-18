@@ -5,9 +5,9 @@ import { ConnectData } from "@/lib/data";
 
 export function Connect() {
     return (
-        <div className="w-full mx-auto h-[50rem] overflow-hidden bg-[#2f2f2f]">
+        <div className="w-full mx-auto h-[20rem] overflow-hidden bg-[#2f2f2f]">
             <Vortex
-                className="flex flex-col items-center justify-center space-y-4 px-4 md:px-10 py-4 w-full h-full"
+                className="flex flex-col items-center justify-center space-y-4 px-4 md:px-10 w-full h-full"
             >
                 <h2 className="text-white text-2xl md:text-6xl font-bold font-montserrat text-center">
                     {ConnectData.heading}
