@@ -29,13 +29,16 @@ export default function HeroSection() {
                             {HeroData.subHeadline}
                         </p>
                     </div>
-                    {/* Right Section */}
+                    {/* Right Section */} 
                     <div className="w-full lg:w-1/2 p-4">
                         <div className="mt-6 relative">
                             <div className="z-20 bg-white shadow-lg rounded-lg p-6 transform translate-y-0">
                                 <h2 className="text-2xl font-semibold mb-2">{HeroData.aboutTitle}</h2>
-                                <p className={`text-gray-700 lg:block`}>
-                                    {isAboutExpanded ? HeroData.about : `${HeroData.about.split('. ').slice(0, 2).join('. ')}...`}
+                                <p className="text-gray-700">
+                                    <span className="hidden lg:block">{HeroData.about}</span>
+                                    <span className="block lg:hidden">
+                                        {isAboutExpanded ? HeroData.about : `${HeroData.about.split('. ').slice(0, 2).join('. ')}...`}
+                                    </span>
                                 </p>
                                 <button
                                     className="mt-2 text-blue-500 lg:hidden"
