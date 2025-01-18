@@ -175,6 +175,64 @@ export const BlogsData = {
     footer: "View All"
 }
 
+export interface Talk {
+    title: string;
+    category: string;
+    src: string;
+    link: string;
+    onYoutube: boolean;
+}
+
+
+export const TalksData = {
+    headline: "Opportunities to Speak",
+    viewAll: "View All Slide Decks",
+    talks: [
+        {
+            title: "Firestore Security Rules",
+            category: "DevFest Mumbai 2024",
+            src: `${prefix}/speaker/devfest.jpg`,
+            link: "https://susmitpy.github.io/talks/firestore_rules",
+            onYoutube: false
+        },
+        {
+            title: "Github Actions in Action",
+            category: "Git Together - Oct 2024",
+            src: `${prefix}/speaker/github_actions_in_action.jpeg`,
+            link: "https://www.youtube.com/watch?v=_SCigi0XPG0",
+            onYoutube: true
+        },
+        {
+            title: "Recommendation Engine using Neo4j",
+            category: "Global Azure Bootcamp 2024",
+            link: "https://www.youtube.com/watch?v=V05Pz1tVovs",
+            src: `${prefix}/speaker/azure_neo4j.jpeg`,
+            onYoutube: true
+        },
+        {
+            title: "Tracking Changes with MongoDB Change Stream",
+            category: "Mumbai MUG",
+            link: "https://youtu.be/kfMux6R-SXw",
+            src: `${prefix}/speaker/mongo_change.jpg`,
+            onYoutube: true,
+        },
+        {
+            title: "Apache Kafka in Short",
+            category: "Kafka Meetup",
+            link: "https://susmitpy.github.io/talks/kafka",
+            src: `${prefix}/speaker/kafka.jpeg`,
+            onYoutube: false,
+        },
+        {
+            title: "Bloom Filter",
+            category: "Impromptu Talk at Kafka Meetup",
+            link: "https://blog.det.life/bloom-filter-in-short-339890f84e1b",
+            src: `${prefix}/speaker/bloom.jpg`,
+            onYoutube: false,
+        }
+    ] as Talk[]
+}
+
 export const TestimonialsData = {
     heading: "What People Say",
     testimonials: [

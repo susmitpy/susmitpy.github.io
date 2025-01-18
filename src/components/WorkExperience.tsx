@@ -7,133 +7,81 @@ export function WorkExp() {
         {
             title: "2025",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.aidax.heading}
-                        <span className="block text-sm font-normal text-neutral-600 dark:text-neutral-400 mt-1">
-                            {ExpData.exp.aidax.timeline}
-                        </span>
-                    </h3>
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.aidax.points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.aidax.heading}
+                    timeline={ExpData.exp.aidax.timeline}
+                    points={ExpData.exp.aidax.points}
+                />
             ),
         },
         {
             title: "2024",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.xcellen.heading}
-                        <span className="block text-sm font-normal text-neutral-600 dark:text-neutral-400 mt-1">
-                            {ExpData.exp.xcellen.timeline}
-                        </span>
-                    </h3>
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.xcellen.points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.xcellen.heading}
+                    timeline={ExpData.exp.xcellen.timeline}
+                    points={ExpData.exp.xcellen.points}
+                />
             ),
         },
         {
             title: "2023",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.zeza_lead.heading}
-                        <span className="block text-sm font-normal text-neutral-600 dark:text-neutral-400 mt-1">
-                            {ExpData.exp.zeza_lead.timeline}
-                        </span>
-                    </h3>
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.zeza_lead.points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.zeza_lead.heading}
+                    timeline={ExpData.exp.zeza_lead.timeline}
+                    points={ExpData.exp.zeza_lead.points}
+                />
             ),
         },
         {
             title: "2022",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.fusebytes.heading}
-                    </h3>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.fusebytes.heading}
+                />
             ),
         },
         {
             title: "2021",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.zeza.heading}
-                        <span className="block text-sm font-normal text-neutral-600 dark:text-neutral-400 mt-1">
-                            {ExpData.exp.zeza.timeline}
-                        </span>
-                    </h3>
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.zeza.points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.zeza.heading}
+                    timeline={ExpData.exp.zeza.timeline}
+                    points={ExpData.exp.zeza.points}
+                />
             ),
         },
-
         {
             title: "2020-2021",
             content: (
-                <div className="space-y-4">
-                    <h3 className="text-neutral-800 dark:text-neutral-200 text-lg md:text-xl font-bold">
-                        {ExpData.exp.flyer.heading}
-                    </h3>
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.flyer.points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <TimelineContent
+                    heading={ExpData.exp.flyer.heading}
+                    points={ExpData.exp.flyer.points}
+                />
             ),
         },
         {
             title: "Education",
             content: (
                 <div className="space-y-4">
-                    <ul className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base space-y-2 list-disc list-inside">
-                        {
-                            ExpData.exp.education.map((point, index) => (
-                                <li key={index}>{point}</li>
-                            ))
-                        }
+                    <ul className="text-gray-300 text-sm md:text-base space-y-2 list-disc list-inside font-montserrat">
+                        {ExpData.exp.education.map((point, index) => (
+                            <li key={index}>{point}</li>
+                        ))}
                     </ul>
                 </div>
             ),
         },
     ];
+
     return (
-        <div className="w-full">
+        <div className="w-full bg-[#2f2f2f]">
             <div className="text-center space-y-2 mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200">
+                <h2 className="text-3xl md:text-4xl font-bold font-montserrat pt-4 text-[#40E0D0]">
                     {ExpData.heading}
                 </h2>
-                <p className="text-neutral-600 dark:text-neutral-400">
+                <p className="text-gray-300 font-montserrat">
                     {ExpData.subHeading}
                 </p>
             </div>
@@ -141,3 +89,29 @@ export function WorkExp() {
         </div>
     );
 }
+
+interface TimelineContentProps {
+    heading: string;
+    timeline?: string;
+    points?: string[];
+}
+
+const TimelineContent: React.FC<TimelineContentProps> = ({ heading, timeline, points }) => (
+    <div className="space-y-4">
+        <h3 className="text-white text-lg md:text-xl font-bold font-montserrat">
+            {heading}
+            {timeline && (
+                <span className="block text-sm font-normal text-gray-300 mt-1 font-montserrat">
+                    {timeline}
+                </span>
+            )}
+        </h3>
+        {points && (
+            <ul className="text-gray-300 text-sm md:text-base space-y-2 list-disc list-inside font-montserrat">
+                {points.map((point, index) => (
+                    <li key={index}>{point}</li>
+                ))}
+            </ul>
+        )}
+    </div>
+);

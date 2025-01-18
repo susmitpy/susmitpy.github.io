@@ -2,21 +2,21 @@ import { TestimonialsData } from "@/lib/data";
 
 export default function TestimonialsSections() {
     return (
-        <div className="mx-auto px-4 py-16 bg-slate-800">
-            <h2 className="text-3xl font-bold text-center mb-12 text-white">{TestimonialsData.heading}</h2>
+        <div className="mx-auto px-4 py-16 bg-[#2f2f2f]">
+            <h2 className="text-3xl font-bold text-center mb-12 text-[#40E0D0]">{TestimonialsData.heading}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {TestimonialsData.testimonials.map((testimonial, index) => (
                     <div
                         key={index}
-                        className="bg-white/5 backdrop-blur-sm rounded-lg p-6 hover:bg-white/10 transition-all duration-300 border border-white/10"
+                        className="bg-[#3a3a3a] backdrop-blur-sm rounded-lg p-6 hover:bg-[#40E0D0] hover:bg-opacity-10 transition-all duration-300 border border-[#40E0D0] border-opacity-30"
                     >
                         <div className="flex flex-col h-full">
-                            <p className="text-gray-300 mb-4 flex-grow italic">
+                            <p className="text-gray-300 mb-4 flex-grow font-normal italic font-montserrat">
                                 "{testimonial.review}"
                             </p>
                             <div>
-                                <h3 className="font-semibold text-white">{testimonial.name}</h3>
-                                <p className="text-gray-400 text-sm">
+                                <h3 className="font-semibold text-gray-100 font-montserrat">{testimonial.name}</h3>
+                                <p className="text-gray-500 text-sm font-montserrat">
                                     {testimonial.designation}
                                 </p>
                             </div>

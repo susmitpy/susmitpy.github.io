@@ -15,24 +15,22 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
     return (
 
         <div className="max-w-xs w-full">
-            <BackgroundGradient className="rounded-[22px] max-w-sm p-1 bg-gray-800 dark:bg-zinc-900" animate={false}>
+            <BackgroundGradient className="rounded-[22px] max-w-sm p-4 bg-gray-800 dark:bg-zinc-900" animate={false}>
                 <div
                     className={cn(
                         "group w-full cursor-pointer overflow-hidden relative card h-70 rounded-md shadow-xl mx-auto p-4",
-                        "bg-gray-700",
-                        "border border-transparent dark:border-transparent",
+                        "bg-[#2f2f2f]",
                         "transition-transform duration-500 transform hover:scale-105",
                         "hover:border-gradient"
-
                     )}
                     onClick={() => window.open(link, '_blank')}
                 >
                     {/* Text Content */}
                     <div className="text-center relative z-10 transition-opacity duration-500 group-hover:opacity-0">
-                        <h2 className="text-lg font-semibold text-white">
+                        <h2 className="text-xl font-bold text-white font-montserrat">
                             {name}
                         </h2>
-                        <p className="text-sm text-gray-300 mt-1">
+                        <p className="text-sm font-normal text-gray-300 font-montserrat">
                             {description}
                         </p>
                     </div>
@@ -41,7 +39,7 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
                     <img
                         src={imagePath}
                         alt={name}
-                        className="object-contain transition-opacity duration-500 group-hover:opacity-0 py-2 h-40 w-full"
+                        className="object-contain transition-opacity duration-500 group-hover:opacity-0 h-40 w-full"
                     />
 
                     {/* GIF Overlay */}
@@ -54,8 +52,8 @@ export function LiveProjectCard({ name, description, link, imagePath, gifPath }:
                     ></div>
 
                     {/* Visit Button */}
-                    <a href={link} target="blank" className="pt-2 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-500">
-                        <button className="px-2 py-1 bg-blue-500 text-white rounded flex items-center text-sm">
+                    <a href={link} target="blank" className="pt-2 flex items-center justify-center">
+                        <button className="px-2 py-1 bg-[#40E0D0] text-white rounded flex items-center text-sm transition-colors duration-300 hover:bg-white hover:text-[#40E0D0]">
                             <FaExternalLinkAlt className="mr-2" />
                             Visit
                         </button>

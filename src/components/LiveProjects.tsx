@@ -18,8 +18,8 @@ export default function LiveProjects() {
 
 
     return (
-        <div className="bg-gray-800 p-8"> {/* Added dark background */}
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">{ProjectsData.heading}</span>
+        <div className="bg-[#2f2f2f] p-8"> {/* Updated background color */}
+            <span className="block text-center text-2xl font-bold py-2 text-[#40E0D0]">{ProjectsData.heading}</span>
             {isMobileOrTablet ? (
                 <h6 className="text-gray-100 text-center mb-4">{ProjectsData.mobileMessage}</h6>
             ) : (

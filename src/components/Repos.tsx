@@ -5,9 +5,9 @@ import { ReposData } from '@/lib/data';
 
 export default function Repos() {
     return (
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8">
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">{ReposData.heading}</span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center mt-4">
+        <div className="bg-[#2f2f2f] p-8">
+            <span className="block text-center text-2xl font-bold py-2 text-[#40E0D0]">{ReposData.heading}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center mt-4">
                 {ReposData.repos.map((repo, index) => (
                     <RepoCard
                         key={index}
@@ -18,7 +18,5 @@ export default function Repos() {
                 ))}
             </div>
         </div>
-
-
     );
 }

@@ -29,8 +29,8 @@ export const Vortex = (props: VortexProps) => {
   const rangeSpeed = props.rangeSpeed || 1.5;
   const baseRadius = props.baseRadius || 1;
   const rangeRadius = props.rangeRadius || 2;
-  const baseHue = props.baseHue || 200; // Adjusted to include turquoise and purples
-  const rangeHue = 160; // Increased range for multiple colors
+  const baseHue = props.baseHue || 174; // Turquoise hue
+  const rangeHue = 20; // Smaller range to stay within turquoise shades
   const noiseSteps = 3;
   const xOff = 0.00125;
   const yOff = 0.00125;

@@ -15,7 +15,7 @@ export const SkillCard = ({
         <HoverBorderGradient
             containerClassName="rounded-full"
             as="div"
-            className="dark:bg-gray-800 bg-gray-700 text-white flex items-center space-x-2 hover:bg-turquoise-500"
+            className="dark:bg-[#2f2f2f] bg-[#2f2f2f] text-white flex items-center space-x-2 hover:bg-[#40E0D0]"
         >
             {logoPath && (
                 <img

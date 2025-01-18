@@ -6,25 +6,25 @@ import React from "react";
 
 export function BlogsSection() {
     return (
-        <div className="py-8 bg-zinc-700">
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">{BlogsData.heading}</span>
+        <div className="py-8 bg-[#2f2f2f]">
+            <span className="block text-center text-2xl font-bold py-2 text-[#40E0D0]">{BlogsData.heading}</span>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center justify-items-center">
                 {BlogsData.blogs.map((blog) => (
                     <div
                         onClick={() => window.open(blog.link, "_blank")}
                         key={blog.title}
-                        className="w-full relative rounded-3xl overflow-hidden max-w-md mx-auto bg-gradient-to-r from-[#1D2235] to-[#121318] p-8 my-10 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                        className="w-full relative rounded-3xl overflow-hidden max-w-md mx-auto bg-gradient-to-r from-[#252525] to-[#1f1f1f] p-8 my-10 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         <Rays />
                         <Beams />
                         <div className="relative z-10 justify-items-center mb-2">
-                            <img src={blog.img} className="h-44 rounded-2xl justify-items-center" />
+                            <img src={blog.img} className="h-44 w-full object-contain rounded-2xl justify-items-center" />
                         </div>
 
-                        <h2 className="text-white text-2xl text-left font-bold">
+                        <h2 className="text-white text-3xl font-extrabold font-montserrat">
                             {blog.title}
                         </h2>
-                        <p className="text-neutral-200 text-left  mt-4">
+                        <p className="text-gray-300 text-base font-montserrat mt-4">
                             {blog.description}
                         </p>
                     </div>
@@ -33,9 +33,9 @@ export function BlogsSection() {
             <div className="text-center mt-6">
                 <button
                     onClick={() => window.open("https://susmitpy.medium.com/", "_blank")}
-                    className="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors shadow-md"
+                    className="px-6 py-3 bg-[#40E0D0] text-white rounded hover:bg-[#2fb3a6] transition-colors shadow-md"
                 >
-                    {BlogsData.footer}
+                    View All
                 </button>
             </div>
         </div>
@@ -54,13 +54,13 @@ const Beams = () => {
             className="absolute top-0 left-1/2 -translate-x-1/2 w-full pointer-events-none"
         >
             <g filter="url(#filter0_f_120_7473)">
-                <circle cx="34" cy="52" r="114" fill="#6925E7" />
+                <circle cx="34" cy="52" r="114" fill="#40E0D0" />
             </g>
             <g filter="url(#filter1_f_120_7473)">
-                <circle cx="332" cy="24" r="102" fill="#8A4BFF" />
+                <circle cx="332" cy="24" r="102" fill="#40E0D0" />
             </g>
             <g filter="url(#filter2_f_120_7473)">
-                <circle cx="191" cy="53" r="102" fill="#802FE3" />
+                <circle cx="191" cy="53" r="102" fill="#40E0D0" />
             </g>
             <defs>
                 <filter
@@ -394,8 +394,8 @@ const Rays = ({ className }: { className?: string }) => {
                     y2="351.523"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.214779" stopColor="#AF53FF" />
-                    <stop offset="0.781583" stopColor="#B253FF" stopOpacity="0" />
+                    <stop offset="0.214779" stopColor="#40E0D0" />
+                    <stop offset="0.781583" stopColor="#40E0D0" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                     id="paint1_linear_120_7480"
@@ -405,8 +405,8 @@ const Rays = ({ className }: { className?: string }) => {
                     y2="379.765"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.214779" stopColor="#AF53FF" />
-                    <stop offset="0.781583" stopColor="#9E53FF" stopOpacity="0" />
+                    <stop offset="0.214779" stopColor="#40E0D0" />
+                    <stop offset="0.781583" stopColor="#40E0D0" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                     id="paint2_linear_120_7480"
@@ -416,8 +416,8 @@ const Rays = ({ className }: { className?: string }) => {
                     y2="342.58"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.214779" stopColor="#9D53FF" />
-                    <stop offset="0.781583" stopColor="#A953FF" stopOpacity="0" />
+                    <stop offset="0.214779" stopColor="#40E0D0" />
+                    <stop offset="0.781583" stopColor="#40E0D0" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient
                     id="paint3_linear_120_7480"

@@ -16,11 +16,11 @@ export function Connect() {
                     {ConnectData.description}
                 </p>
                 <div className="flex space-x-4 mt-6 bg-gray-800 p-2 rounded">
-                    <FaLinkedin className="text-white cursor-pointer transition-colors duration-200 hover:text-turquoise" size={30} onClick={() => window.open(ConnectData.socials.linkedin)} />
-                    <FaGithub className="text-white cursor-pointer transition-colors duration-200 hover:text-turquoise" size={30} onClick={() => window.open(ConnectData.socials.github)} />
-                    <FaMedium className="text-white cursor-pointer transition-colors duration-200 hover:text-turquoise" size={30} onClick={() => window.open(ConnectData.socials.medium)} />
-                    <FaHackerrank className="text-white cursor-pointer transition-colors duration-200 hover:text-turquoise" size={30} onClick={() => window.open(ConnectData.socials.hackerrank)} />
-                    <FaEnvelope className="text-white cursor-pointer transition-colors duration-200 hover:text-turquoise" size={30} onClick={() => window.location.href = ConnectData.socials.email} />
+                    <FaLinkedin className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.linkedin)} />
+                    <FaGithub className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.github)} />
+                    <FaMedium className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.medium)} />
+                    <FaHackerrank className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.hackerrank)} />
+                    <FaEnvelope className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.location.href = ConnectData.socials.email} />
                 </div>
             </Vortex>
         </div>
