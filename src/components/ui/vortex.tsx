@@ -35,7 +35,6 @@ export const Vortex = (props: VortexProps) => {
   const xOff = 0.00125;
   const yOff = 0.00125;
   const zOff = 0.0005;
-  const backgroundColor = "#2f2f2f";
   let tick = 0;
   const noise3D = createNoise3D();
   let particleProps = new Float32Array(particlePropsLength);
@@ -101,7 +100,7 @@ export const Vortex = (props: VortexProps) => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // ctx.fillStyle = backgroundColor;
+    ctx.fillStyle = "rgb(47, 47, 47,0)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawParticles(ctx);
