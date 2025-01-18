@@ -1,7 +1,7 @@
 import { prefix } from "./prefix"
 
 export const HeroData = {
-    name: "Susmit Vengurlekar (susmitpy)",
+    name: "Susmit Vengurlekar",
     headline: "A Passionate Techie who builds Problem-Solving Tech Solutions",
     subHeadline: "Having 8+ YoE (4+ YoE after graduation)",
     aboutTitle: "About Me",
