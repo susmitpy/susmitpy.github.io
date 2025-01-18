@@ -1,53 +1,15 @@
 "use client";
+import { BlogsData } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import React from "react";
-import { prefix } from '@/lib/prefix';
 
-const blogs = [
-    {
-        title: "Bloom Filter in Short",
-        description: "Set.contains() at scale with some False Positives",
-        link: "https://blog.det.life/bloom-filter-in-short-339890f84e1b",
-        img: "https://miro.medium.com/v2/resize:fit:1302/format:webp/1*FwFWbVC5afSD_5WK2znXcg.gif"
-    },
-    {
-        title: "Apache Kafka: In-Short",
-        description: "Fundamental Concepts explained concisely",
-        link: "https://blog.det.life/apache-kafka-in-short-fa56cc197114",
-        img: "https://miro.medium.com/v2/resize:fit:962/format:webp/1*6cn-HSF482J9qU-VFZlwjg.png"
-    },
-    {
-        title: "Data Engineering and ML Platform",
-        description: "Platform Architecture, Codebase, and Interesting Features",
-        link: "https://medium.com/zeza-tech/data-engineering-and-ml-platform-part-1-platform-architecture-e5d869cae94f",
-        img: `${prefix}/blogs/data_eng_ml_blog.gif`
-    },
-    {
-        title: "Building a Recommendation Engine Using Neo4j Hands-On",
-        description: "From Data Model to Loading Data to Making Recommendations",
-        link: "https://medium.com/neo4j/building-a-recommender-system-using-neo4j-hands-on-part-1-e82bcd881906",
-        img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*8Xxbom2nonrSVLLpeg832A.png"
-    },
-    {
-        title: "Apache Spark Architecture",
-        description: "Commence on the path of becoming a sparkling big data engineer",
-        link: "https://medium.com/zeza-tech/apache-spark-architecture-411565908a1",
-        img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*pE5zBQR9Js_eVjvrQ6BzgA.png"
-    },
-    {
-        title: "Using date, time, and date-time features in ML",
-        description: "A guide on encoding and engineering date time features",
-        link: "https://medium.com/zeza-tech/using-date-time-and-date-time-features-in-ml-96970be72329",
-        img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*4mqz7cqt_GOFjFlkVNOaYQ.jpeg"
-    }
-];
 
 export function BlogsSection() {
     return (
         <div className="py-8 bg-zinc-700">
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">Tech Blogs</span>
+            <span className="block text-center text-2xl font-bold py-2 text-gray-200">{BlogsData.heading}</span>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center justify-items-center">
-                {blogs.map((blog) => (
+                {BlogsData.blogs.map((blog) => (
                     <div
                         onClick={() => window.open(blog.link, "_blank")}
                         key={blog.title}
@@ -73,7 +35,7 @@ export function BlogsSection() {
                     onClick={() => window.open("https://susmitpy.medium.com/", "_blank")}
                     className="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors shadow-md"
                 >
-                    View All
+                    {BlogsData.footer}
                 </button>
             </div>
         </div>

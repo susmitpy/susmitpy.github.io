@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LiveProjectCard } from '@/components/LiveProjectCard'; // Import the LiveProjectCard component
-import { prefix } from '@/lib/prefix';
+import { ProjectsData } from '@/lib/data';
+
 export default function LiveProjects() {
     const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
@@ -15,47 +16,17 @@ export default function LiveProjects() {
         return () => window.removeEventListener('resize', checkDevice);
     }, []);
 
-    const projects = [
-        {
-            "name": "Pick A Chit",
-            "description": "Digital Solution for the age-old game of Chits",
-            "link": "https://pickachit.web.app",
-            "imagePath": `${prefix}/projects/pickachit.jpeg`,
-            "gifPath": `${prefix}/projects/pickachit.gif`
-        },
-        {
-            "name": "Cloud File Viewer",
-            "description": "AWS S3 File Viewer",
-            "link": "https://cloudfileviewer.web.app",
-            "imagePath": `${prefix}/projects/cloudfileviewer.jpeg`,
-            "gifPath": `${prefix}/projects/cloudfileviewer.gif`
-        },
-        {
-            "name": "Mention It",
-            "description": "Templated LinkedIn, Tweets for Events",
-            "link": "https://mention-it.web.app",
-            "imagePath": `${prefix}/projects/mentionit.jpeg`,
-            "gifPath": `${prefix}/projects/mentionit.gif`
-        },
-        {
-            "name": "Local Todos",
-            "description": "Todo App, Data on Device",
-            "link": "https://locally-todosweb.app",
-            "imagePath": `${prefix}/projects/localtodos.jpeg`,
-            "gifPath": `${prefix}/projects/localtodos.gif`
-        }
-    ]
 
     return (
         <div className="bg-gray-800 p-8"> {/* Added dark background */}
-            <span className="block text-center text-2xl font-bold py-2 text-gray-200">Live Projects</span>
+            <span className="block text-center text-2xl font-bold py-2 text-gray-200">{ProjectsData.heading}</span>
             {isMobileOrTablet ? (
-                <h6 className="text-gray-100 text-center mb-4">Long Press over card to see demo</h6>
+                <h6 className="text-gray-100 text-center mb-4">{ProjectsData.mobileMessage}</h6>
             ) : (
-                <h6 className="text-gray-100 text-center mb-4">Hover over card to see demo</h6>
+                    <h6 className="text-gray-100 text-center mb-4">{ProjectsData.desktopMessage}</h6>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center">
-                {projects.map((project) => (
+                {ProjectsData.projects.map((project) => (
                     <LiveProjectCard
                         key={project.name}
                         name={project.name}
