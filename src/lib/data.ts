@@ -259,7 +259,7 @@ export const ConnectData = {
         github: "https://github.com/susmitpy",
         medium: "https://susmitpy.medium.com",
         hackerrank: "https://www.hackerrank.com/profile/susmit_py",
-        email: "mailto:susmit.dev@outlook.com"
+        email: "susmit.dev@outlook.com"
     }
 }
 
