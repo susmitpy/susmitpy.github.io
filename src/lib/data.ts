@@ -250,8 +250,8 @@ export const TestimonialsData = {
                 "Susmit would be an excellent addition to any team and would bring a great deal of value. He consistently demonstrated a strong work ethic, attention to detail, and a commitment to achieving the highest level of quality in his work. I believe that he would be an asset to any organization that is looking for a dedicated, hard-working, and highly skilled individual. I highly recommend him for any position that he may be applying for.",
         },
         {
-            name: "Principal",
-            designation: "KC College",
+            name: "Dr. Hemlata Bagla",
+            designation: "Principal, KC College",
             review:
                 "Thank you for the software enabling SYJC student's information to be uploaded on the HSC Board website. It is a fairly useful program.",
         }
