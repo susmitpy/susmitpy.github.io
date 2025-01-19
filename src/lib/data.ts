@@ -22,41 +22,41 @@ export const SkillsData = {
     heading: "Skills & Tools I Use:",
     skillGroups: {
         "Programming Languages": [
-            { name: "Python", logoPath: `${prefix}/skills/python.jpeg` },
-            { name: "Dart", logoPath: `${prefix}/skills/dart.jpeg` },
-            { name: "TypeScript", logoPath: `${prefix}/skills/ts.jpeg` },
-            { logoPath: `${prefix}/skills/csharp.jpeg` },
+            { name: "Python", logoPath: `${prefix}/skills/python.webp` },
+            { name: "Dart", logoPath: `${prefix}/skills/dart.webp` },
+            { name: "TypeScript", logoPath: `${prefix}/skills/ts.webp` },
+            { logoPath: `${prefix}/skills/csharp.webp` },
         ],
         "Data": [
-            { name: "sklearn", logoPath: `${prefix}/skills/sklearn.jpeg` },
-            { logoPath: `${prefix}/skills/pandas.jpeg` },
-            { logoPath: `${prefix}/skills/kafka.jpeg` },
-            { logoPath: `${prefix}/skills/spark.jpeg` },
+            { name: "sklearn", logoPath: `${prefix}/skills/sklearn.webp` },
+            { logoPath: `${prefix}/skills/pandas.webp` },
+            { logoPath: `${prefix}/skills/kafka.webp` },
+            { logoPath: `${prefix}/skills/spark.webp` },
             { name: "Data Engineering", },
             { name: "Machine Learning", },
         ],
         "Databases": [
-            { logoPath: `${prefix}/skills/firebase.jpeg` },
-            { logoPath: `${prefix}/skills/neo4j.jpeg` },
-            { name: "PostgreSQL", logoPath: `${prefix}/skills/postgresql.jpeg` },
-            { logoPath: `${prefix}/skills/mongodb.jpeg` },
-            { logoPath: `${prefix}/skills/cassandra.jpeg` },
+            { logoPath: `${prefix}/skills/firebase.webp` },
+            { logoPath: `${prefix}/skills/neo4j.webp` },
+            { name: "PostgreSQL", logoPath: `${prefix}/skills/postgresql.webp` },
+            { logoPath: `${prefix}/skills/mongodb.webp` },
+            { logoPath: `${prefix}/skills/cassandra.webp` },
 
         ],
         "Development": [
-            { logoPath: `${prefix}/skills/nextjs.jpeg` },
-            { logoPath: `${prefix}/skills/flutter.jpeg` },
-            { logoPath: `${prefix}/skills/django.jpeg` },
-            { logoPath: `${prefix}/skills/fastapi.jpeg` },
-            { logoPath: `${prefix}/skills/flask.jpeg` },
-            { logoPath: `${prefix}/skills/nodejs.jpeg` },
+            { logoPath: `${prefix}/skills/nextjs.webp` },
+            { logoPath: `${prefix}/skills/flutter.webp` },
+            { logoPath: `${prefix}/skills/django.webp` },
+            { logoPath: `${prefix}/skills/fastapi.webp` },
+            { logoPath: `${prefix}/skills/flask.webp` },
+            { logoPath: `${prefix}/skills/nodejs.webp` },
         ],
         "Cloud & DevOps": [
-            { logoPath: `${prefix}/skills/aws.jpeg` },
-            { name: "Serverless Framework", logoPath: `${prefix}/skills/serverless.jpeg` },
-            { name: "GitHub", logoPath: `${prefix}/skills/github.jpeg` },
-            { name: "Docker", logoPath: `${prefix}/skills/docker.jpeg` },
-            { logoPath: `${prefix}/skills/circleci.jpeg` },
+            { logoPath: `${prefix}/skills/aws.webp` },
+            { name: "Serverless Framework", logoPath: `${prefix}/skills/serverless.webp` },
+            { name: "GitHub", logoPath: `${prefix}/skills/github.webp` },
+            { name: "Docker", logoPath: `${prefix}/skills/docker.webp` },
+            { logoPath: `${prefix}/skills/circleci.webp` },
         ]
     }
 }
@@ -70,21 +70,21 @@ export const ProjectsData = {
             "name": "Mention It",
             "description": "Templated LinkedIn, Tweets for Events",
             "link": "https://mention-it.web.app",
-            "imagePath": `${prefix}/projects/mentionit.jpeg`,
+            "imagePath": `${prefix}/projects/mentionit.webp`,
             "gifPath": `${prefix}/projects/mentionit.gif`
         },
         {
             "name": "Cloud File Viewer",
             "description": "AWS S3 File Viewer",
             "link": "https://cloudfileviewer.web.app",
-            "imagePath": `${prefix}/projects/cloudfileviewer.jpeg`,
+            "imagePath": `${prefix}/projects/cloudfileviewer.webp`,
             "gifPath": `${prefix}/projects/cloudfileviewer.gif`
         },
         {
             "name": "Pick A Chit",
             "description": "Digital Solution for the age-old game of Chits",
             "link": "https://pickachit.web.app",
-            "imagePath": `${prefix}/projects/pickachit.jpeg`,
+            "imagePath": `${prefix}/projects/pickachit.webp`,
             "gifPath": `${prefix}/projects/pickachit.gif`
         }
     ]

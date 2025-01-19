@@ -192,6 +192,7 @@ export const Card = ({
           src={card.src}
           alt={card.title}
           className="object-contain absolute z-10 inset-0"
+          fetchPriority="low"
         />
       </motion.div>
     </>
