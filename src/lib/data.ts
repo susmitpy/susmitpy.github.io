@@ -1,11 +1,12 @@
 import { prefix } from "./prefix"
 
 export const HeroData = {
-    name: "Susmit Vengurlekar (susmitpy)",
+    name: "Susmit Vengurlekar",
     headline: "A Passionate Techie who builds Problem-Solving Tech Solutions",
     subHeadline: "Having 8+ YoE (4+ YoE after graduation)",
     aboutTitle: "About Me",
-    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. I've got experience in data science, cloud, and building both backend systems and the functional parts of an application's frontend. It's important to me that what I build not only works well and is affordable but also performs efficiently. From the details of the database to ensuring the frontend logic is solid, I like finding the perfect technology fit to achieve both elegance and speed.",
+    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective."
+,
     titles: [
         "Data Scientist",
         "Database Engineer",
