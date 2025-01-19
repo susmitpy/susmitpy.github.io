@@ -25,7 +25,7 @@ export default function LiveProjects() {
             ) : (
                     <h6 className="text-gray-100 text-center mb-4">{ProjectsData.desktopMessage}</h6>
             )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
                 {ProjectsData.projects.map((project) => (
                     <LiveProjectCard
                         key={project.name}

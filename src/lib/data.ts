@@ -67,11 +67,11 @@ export const ProjectsData = {
     desktopMessage: "Hover over card to see demo",
     projects: [
         {
-            "name": "Pick A Chit",
-            "description": "Digital Solution for the age-old game of Chits",
-            "link": "https://pickachit.web.app",
-            "imagePath": `${prefix}/projects/pickachit.jpeg`,
-            "gifPath": `${prefix}/projects/pickachit.gif`
+            "name": "Mention It",
+            "description": "Templated LinkedIn, Tweets for Events",
+            "link": "https://mention-it.web.app",
+            "imagePath": `${prefix}/projects/mentionit.jpeg`,
+            "gifPath": `${prefix}/projects/mentionit.gif`
         },
         {
             "name": "Cloud File Viewer",
@@ -81,18 +81,11 @@ export const ProjectsData = {
             "gifPath": `${prefix}/projects/cloudfileviewer.gif`
         },
         {
-            "name": "Mention It",
-            "description": "Templated LinkedIn, Tweets for Events",
-            "link": "https://mention-it.web.app",
-            "imagePath": `${prefix}/projects/mentionit.jpeg`,
-            "gifPath": `${prefix}/projects/mentionit.gif`
-        },
-        {
-            "name": "Local Todos",
-            "description": "Todo App, Data on Device",
-            "link": "https://locally-todosweb.app",
-            "imagePath": `${prefix}/projects/localtodos.jpeg`,
-            "gifPath": `${prefix}/projects/localtodos.gif`
+            "name": "Pick A Chit",
+            "description": "Digital Solution for the age-old game of Chits",
+            "link": "https://pickachit.web.app",
+            "imagePath": `${prefix}/projects/pickachit.jpeg`,
+            "gifPath": `${prefix}/projects/pickachit.gif`
         }
     ]
 }
