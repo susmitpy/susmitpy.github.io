@@ -33,7 +33,7 @@ export function BlogsSection() {
             <div className="text-center mt-6">
                 <button
                     onClick={() => window.open("https://susmitpy.medium.com/", "_blank")}
-                    className="px-6 py-3 bg-[#40E0D0] text-white rounded hover:bg-[#2fb3a6] transition-colors shadow-md"
+                    className="px-6 py-3 bg-[#40E0D0] text-[#1f1f1f] font-semibold rounded hover:bg-[#2fb3a6] transition-colors shadow-md"
                 >
                     View All
                 </button>

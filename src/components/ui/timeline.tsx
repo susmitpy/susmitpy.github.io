@@ -63,7 +63,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   />
                 </motion.div>
               </div>
-              <h3 className="hidden md:block text-2xl md:text-6xl font-bold text-white ml-12">
+              <h3 className="hidden md:block text-xl md:text-6xl font-bold text-white ml-12">
                 {item.title}
               </h3>
             </div>
@@ -78,7 +78,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               }}
               transition={{ duration: 0.2 }}
             >
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-white">
+              <h3 className="md:hidden block text-xl mb-4 text-left font-bold text-white">
                 {item.title}
               </h3>
               <div className="text-gray-300 font-regular">{item.content}</div>

@@ -15,7 +15,7 @@ export function TalksSection() {
             <div className="text-center mt-6">
                 <button
                     onClick={() => window.open("https://susmitpy.github.io/talks", "_blank")}
-                    className="px-6 py-3 bg-[#40E0D0] text-white rounded hover:bg-[#38C0B0] transition-colors shadow-md"
+                    className="px-6 py-3 bg-[#40E0D0] font-semibold text-black rounded hover:bg-[#38C0B0] transition-colors shadow-md"
                 >
                     {TalksData.viewAll}
                 </button>
