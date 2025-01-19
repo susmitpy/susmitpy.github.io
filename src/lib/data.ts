@@ -232,7 +232,7 @@ export const TestimonialsData = {
     testimonials: [
         {
             name: "Josiah James",
-            designation: "Ex-Intern, Zeza Tech",
+            designation: "Intern, Zeza Tech",
             review:
                 "I entered in knowing absolutely nothing but you never treated me like a novice, you shared your intellect with me just as any other developer, and I won't ever forget that. You also brought the fun memories in Zeza, and I have never seen anyone else with this much knowledge and experience be so down to earth and funny. All in all, you have inspired me, and I won't ever forget what I learned through you.",
         },
