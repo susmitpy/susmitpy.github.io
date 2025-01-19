@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <title>Susmit's Portfolio</title>
-        <meta name="description" content="Susmit (susmitpy) Portfolio About Information" />
+        <title>Susmit Portfolio</title>
+        <meta name="description" content="Susmit (susmitpy) Portfolion" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
