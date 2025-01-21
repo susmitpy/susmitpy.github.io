@@ -19,11 +19,9 @@ export const FloatingMenu = () => {
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
-        if (id == 'experience' || id == "blogs") {
-            element?.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+
+        element?.scrollIntoView({ behavior: 'smooth' });
+
 
         setIsOpen(false);
     };
