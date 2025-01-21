@@ -2,6 +2,7 @@
 
 import { BlogsSection } from '@/components/Blogs';
 import { Connect } from '@/components/Connect';
+import { FloatingMenu } from '@/components/FloatingMenu';
 import HeroSection from '@/components/HeroSection';
 import LiveProjects from '@/components/LiveProjects';
 import Repos from '@/components/Repos';
@@ -24,6 +25,7 @@ export default function Home() {
       <TestimonialsSections />
       <WorkExp />
       <Connect />
+      <FloatingMenu />
     </main>
   );
 }

@@ -11,7 +11,7 @@ export default function HeroSection() {
     };
 
     return (
-        <div className="min-h-[600px] py-12 w-full flex flex-col items-center justify-between antialiased relative overflow-hidden bg-[#2f2f2f] font-montserrat">
+        <section id="about" className="min-h-[600px] py-12 w-full flex flex-col items-center justify-between antialiased relative overflow-hidden bg-[#2f2f2f] font-montserrat">
             <div className="px-4 max-w-7xl mx-auto relative z-10 w-full flex flex-col">
                 {/* First Row */}
                 <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -80,7 +80,7 @@ export default function HeroSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -7,7 +7,7 @@ export function TalksSection() {
     ));
 
     return (
-        <div className="w-full h-full py-20 bg-[#2f2f2f]">
+        <section id="talks" className="w-full h-full py-20 bg-[#2f2f2f]">
             <span className="block text-2xl font-bold py-2 text-center text-[#40E0D0] font-montserrat">
                 {TalksData.headline}
             </span>
@@ -20,7 +20,7 @@ export function TalksSection() {
                     {TalksData.viewAll}
                 </button>
             </div>
-        </div>
+        </section>
     )
 };
 

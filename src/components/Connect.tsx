@@ -5,7 +5,7 @@ import { ConnectData } from "@/lib/data";
 
 export function Connect() {
     return (
-        <div className="w-full mx-auto h-[20rem] overflow-hidden bg-[#2f2f2f]">
+        <section id="contact" className="w-full mx-auto h-[20rem] overflow-hidden bg-[#2f2f2f]">
             <Vortex
                 className="flex flex-col items-center justify-center space-y-4 px-4 md:px-10 w-full h-full"
             >
@@ -25,6 +25,6 @@ export function Connect() {
                     <FaHackerrank className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.hackerrank)} />
                 </div>
             </Vortex>
-        </div>
+        </section>
     );
 }

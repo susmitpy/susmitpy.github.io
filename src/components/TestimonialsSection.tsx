@@ -2,7 +2,7 @@ import { TestimonialsData } from "@/lib/data";
 
 export default function TestimonialsSections() {
     return (
-        <div className="mx-auto py-10 bg-[#2f2f2f] min-h-[600px]">
+        <section id="testimonials" className="mx-auto py-10 bg-[#2f2f2f] min-h-[600px]">
             <h2 className="text-3xl font-bold text-center mb-12 text-[#40E0D0]">{TestimonialsData.heading}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {TestimonialsData.testimonials.map((testimonial, index) => (
@@ -24,6 +24,6 @@ export default function TestimonialsSections() {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }

@@ -6,7 +6,7 @@ import React from "react";
 
 export function BlogsSection() {
     return (
-        <div className="py-8 bg-[#2f2f2f] min-h-[600px]">
+        <section id="blogs" className="py-8 bg-[#2f2f2f] min-h-[600px]">
             <span className="block text-center text-2xl font-bold py-2 text-[#40E0D0]">{BlogsData.heading}</span>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center justify-items-center">
                 {BlogsData.blogs.map((blog) => (
@@ -38,7 +38,7 @@ export function BlogsSection() {
                     View All
                 </button>
             </div>
-        </div>
+        </section>
     );
 }
 
