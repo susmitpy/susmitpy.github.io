@@ -20,7 +20,7 @@ export const FloatingMenu = () => {
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
 
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: 'smooth', block: "start" });
 
 
         setIsOpen(false);
