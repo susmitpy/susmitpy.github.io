@@ -70,7 +70,7 @@ export default function HeroSection() {
                         {HeroData.secondTitles.map((title, index) => (
                             <HoverBorderGradient
                                 key={index}
-                                containerClassName="rounded-full bg-[#40E0D0] text-[#2f2f2f] text-xs font-normal px-2 py-1"
+                                containerClassName="rounded-full bg-[#40E0D0] text-[#2f2f2f] text-sm font-normal px-2 py-1"
                                 as="button"
                                 className="flex items-center space-x-2"
                             >
