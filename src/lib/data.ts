@@ -94,6 +94,11 @@ export const ReposData = {
     heading: "GitHub Repositories",
     repos: [
         {
+            "name": "AWS CDK Example",
+            "description": "Demonstrates how to use AWS Lambda with AWS CDK to schedule the start and stop of EC2 instances.",
+            "link": "https://github.com/susmitpy/aws_cdk_example"
+        },
+        {
             "name": "Mini Data Analyst using LLM Agent",
             "description": "setup of a data analyst which has the ability to answer user questions about the data",
             "link": "https://github.com/susmitpy/Mini-Data-Analyst-LLM",
@@ -182,6 +187,20 @@ export const TalksData = {
     headline: "Opportunities to Speak",
     viewAll: "View All Slide Decks",
     talks: [
+        {
+            title: "AWS Lambda in Action: Use Cases & AWS CDK",
+            category: "AWS User Group Mumbai",
+            src: `${prefix}/speaker/aws_lambda.jpg`,
+            link: "https://youtu.be/3rr95M8gyl8",
+            onYoutube: true
+        },
+        {
+            title: "QnA on Neo4j Knowledge Graph",
+            category: "GraphDatabase Mumbai Meetup",
+            src: `${prefix}/speaker/qna.jpeg`,
+            link: "https://susmitpy.github.io/talks/qna",
+            onYoutube: false
+        },
         {
             title: "Firestore Security Rules",
             category: "DevFest Mumbai 2024",
