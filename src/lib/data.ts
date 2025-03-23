@@ -93,6 +93,10 @@ export const ProjectsData = {
 export const ReposData = {
     heading: "GitHub Repositories",
     repos: [
+{
+"name":"Kong API Gateway with Fast API, Open Telemetry and OpenObserve in Docker",
+"description":"Demonstrates end-to-end observability in a microservices architecture and usage of Plugins", "link":"https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
+},
         {
             "name": "AWS CDK Example",
             "description": "Demonstrates how to use AWS Lambda with AWS CDK to schedule the start and stop of EC2 instances.",
