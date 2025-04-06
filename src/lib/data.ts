@@ -95,7 +95,7 @@ export const ReposData = {
     repos: [
 {
 "name":"Kong API Gateway with Fast API, Open Telemetry and OpenObserve in Docker",
-"description":"Demonstrates end-to-end observability in a microservices architecture and usage of Plugins", "link":"https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
+            "description": "Demonstrates end-to-end observability in a microservices architecture", "link": "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
 },
         {
             "name": "AWS CDK Example",
@@ -131,6 +131,11 @@ export const ReposData = {
             "name": "MySQL To Neo4j Migration",
             "description": "Migration script and auto creating AWS Lambda functions",
             "link": "https://github.com/susmitpy/Neo4j_Social_Media",
+        },
+        {
+            "name": "Streamlit Active Connections Tracker",
+            "description": "Track active client connections to your Streamlit apps",
+            "link": "https://github.com/susmitpy/streamlit_active_connections_tracker",
         },
     ]
 }
