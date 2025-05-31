@@ -207,8 +207,8 @@ export const TalksData = {
             title: "QnA on Neo4j Knowledge Graph",
             category: "GraphDatabase Mumbai Meetup",
             src: `${prefix}/speaker/qna.jpeg`,
-            link: "https://susmitpy.github.io/talks/qna",
-            onYoutube: false
+            link: "https://youtu.be/JpysxH4Z5Fw",
+            onYoutube: true
         },
         {
             title: "Firestore Security Rules",
