@@ -35,15 +35,7 @@ export function WorkExp() {
             ),
         },
         {
-            title: "2022",
-            content: (
-                <TimelineContent
-                    heading={ExpData.exp.fusebytes.heading}
-                />
-            ),
-        },
-        {
-            title: "2021",
+            title: "2021-2023",
             content: (
                 <TimelineContent
                     heading={ExpData.exp.zeza.heading}
@@ -53,7 +45,7 @@ export function WorkExp() {
             ),
         },
         {
-            title: "2020-2021",
+            title: "2019-2021",
             content: (
                 <TimelineContent
                     heading={ExpData.exp.flyer.heading}
