@@ -76,6 +76,27 @@ export function WorkExp() {
                 <p className="text-gray-300 font-montserrat">
                     {ExpData.subHeading}
                 </p>
+                <div className="pt-4">
+                    <a
+                        href="https://drive.google.com/file/d/1SDe7FW3ylQec3Go1EN2yi9lk2MFi-QzF/view?usp=share_link"
+                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-montserrat font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                    >
+                        <svg
+                            className="w-5 h-5 mr-2"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path
+                                fillRule="evenodd"
+                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                        View Resume
+                    </a>
+                </div>
             </div>
             <Timeline data={data} />
         </section>
