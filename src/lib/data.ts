@@ -197,6 +197,13 @@ export const TalksData = {
     viewAll: "View All Slide Decks",
     talks: [
         {
+            title: "Auth with Kong API Gateway",
+            category: "Kong Mumbai",
+            src: `${prefix}/speaker/kong_auth.jpeg`,
+            link: "https://youtu.be/5Il3ddDElRM",
+            onYoutube: true
+        },
+        {
             title: "AWS Lambda in Action: Use Cases & AWS CDK",
             category: "AWS User Group Mumbai",
             src: `${prefix}/speaker/aws_lambda.jpg`,
