@@ -118,9 +118,9 @@ export const ReposData = {
             "link": "https://github.com/susmitpy/mongodb-kafka-neo4j",
         },
         {
-            "name": "Async Word Count",
+            "name": "Real Time Word Count",
             "description": "Azure Function + Blob Storage + SignalR to count words in a document",
-            "link": "https://github.com/susmitpy/AsyncWordCount",
+            "link": "https://github.com/susmitpy/RealTimeWordCount",
         },
         {
             "name": "Local File Transfer",
