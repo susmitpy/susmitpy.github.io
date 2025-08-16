@@ -1,5 +1,6 @@
 "use client"
 
+import BadgesSection from '@/components/BadgesSection';
 import { BlogsSection } from '@/components/Blogs';
 import { Connect } from '@/components/Connect';
 import { FloatingMenu } from '@/components/FloatingMenu';
@@ -22,8 +23,9 @@ export default function Home() {
       <Repos />
       <BlogsSection />
       <TalksSection />
+      <BadgesSection />
       <TestimonialsSections />
-      <WorkExp />
+      <WorkExp />      
       <Connect />
       <FloatingMenu />
     </main>
