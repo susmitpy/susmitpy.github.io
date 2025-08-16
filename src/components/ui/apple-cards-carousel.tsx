@@ -276,14 +276,14 @@ export const BadgeCard = ({
         onClick={handleCardClick}
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 z-30 pointer-events-none rounded-3xl" />
-
+        {/* <motion.p
+          layoutId={layout ? `category-${badge.category}` : undefined}
+          className="text-[#40E0D0] text-sm md:text-base font-medium font-sans"
+        >
+          {badge.category}
+        </motion.p> */}
         <div className="relative z-40 text-center mb-4">
-          <motion.p
-            layoutId={layout ? `category-${badge.category}` : undefined}
-            className="text-[#40E0D0] text-sm md:text-base font-medium font-sans"
-          >
-            {badge.category}
-          </motion.p>
+
           <motion.p
             layoutId={layout ? `title-${badge.title}` : undefined}
             className="text-white text-sm md:text-lg font-semibold max-w-xs text-center [text-wrap:balance] font-sans mt-2 leading-tight"

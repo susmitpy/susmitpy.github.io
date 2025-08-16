@@ -405,7 +405,7 @@ export const BadgesData = {
             credlyId: "dd0471fb-4fe4-40d1-82df-d2d16f53b726"
         },
         {
-            title: "Introduction to Vector Indexes and Unstructured Data",
+            title: "Neo4j - Introduction to Vector Indexes and Unstructured Data",
             category: "Neo4j",
             url: "https://graphacademy.neo4j.com/c/236d38d4-3361-4e1d-895c-c2e70ee075d9#content",
             can_embed: false
