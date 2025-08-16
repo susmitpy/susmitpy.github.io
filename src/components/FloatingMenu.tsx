@@ -9,7 +9,7 @@ const menuItems = [
     { label: 'GitHub Repos', id: 'repos' },
     { label: 'Blogs', id: 'blogs' },
     { label: 'Talks', id: 'talks' },
-    { label: 'Skill Badges', id: 'badges' },
+    { label: 'Professional Courses and Badges', id: 'badges' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Work Experience', id: 'experience' },
     { label: 'Connect', id: 'contact' },

@@ -360,46 +360,56 @@ export const BadgesData = {
     badges: [
         {
             title: "Introduction to Stream Processing and Apache Flink®",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5441673d-45e5-4431-b97b-99f563e746a8" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "MongoDB Advanced Schema Design Patterns and Anti-patterns Skill Badge",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="441ae8d7-7143-4bf8-9bf4-d59cec545bbf" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "MongoDB Aggregation Fundamentals",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5496be60-1c57-428a-8749-5c8c7f93fde0" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "Building AI Agents with MongoDB",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5f6f4be9-329e-4f38-b9e2-bbf4eef2d369" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "Building RAG Apps Using MongoDB",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0622a2ac-9223-4843-9ea3-709ee1486894" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "Building AI-Powered Search with MongoDB Vector Search",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6a74ed86-c7dc-436e-a76f-e0f7822cb0cb" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "Introduction to Apache Flink® SQL",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f6669cc2-2de3-49a7-84a1-26e1c5652543" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
-        },
-        {
-            title: "MongoDB Query Optimization Techniques",
-            html_code: `<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="dd0471fb-4fe4-40d1-82df-d2d16f53b726" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>`
+            category: "Flink",
+            credlyId: "5441673d-45e5-4431-b97b-99f563e746a8"
         },
         {
             title: "Neo4j Graph Data Science Fundamentals",
+            category: "Neo4j",
             url: "https://graphacademy.neo4j.com/c/faea5510-a6c8-4b10-89cb-cb6b1183eb7f#content",
             can_embed: false
         },
         {
-            title: "Neo4j - Introduction to Vector Indexes and Unstructured Data",
+            title: "MongoDB Advanced Schema Design Patterns and Anti-patterns Skill Badge",
+            category: "MongoDB",
+            credlyId: "441ae8d7-7143-4bf8-9bf4-d59cec545bbf"
+        },
+        {
+            title: "MongoDB Aggregation Fundamentals",
+            category: "MongoDB",
+            credlyId: "5496be60-1c57-428a-8749-5c8c7f93fde0"
+        },
+        {
+            title: "Building AI Agents with MongoDB",
+            category: "MongoDB",
+            credlyId: "5f6f4be9-329e-4f38-b9e2-bbf4eef2d369"
+        },
+        {
+            title: "Building RAG Apps Using MongoDB",
+            category: "MongoDB",
+            credlyId: "0622a2ac-9223-4843-9ea3-709ee1486894"
+        },
+        {
+            title: "Building AI-Powered Search with MongoDB Vector Search",
+            category: "MongoDB",
+            credlyId: "6a74ed86-c7dc-436e-a76f-e0f7822cb0cb"
+        },
+        {
+            title: "Introduction to Apache Flink® SQL",
+            category: "Flink",
+            credlyId: "f6669cc2-2de3-49a7-84a1-26e1c5652543"
+        },
+        {
+            title: "MongoDB Query Optimization Techniques",
+            category: "MongoDB",
+            credlyId: "dd0471fb-4fe4-40d1-82df-d2d16f53b726"
+        },
+        {
+            title: "Introduction to Vector Indexes and Unstructured Data",
+            category: "Neo4j",
             url: "https://graphacademy.neo4j.com/c/236d38d4-3361-4e1d-895c-c2e70ee075d9#content",
             can_embed: false
-        }
+        },
     ]
 }
 

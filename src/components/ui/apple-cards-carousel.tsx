@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { FaYoutube } from "react-icons/fa";
+import CredlyBadge from "@/components/CredlyBadge";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -194,6 +195,106 @@ export const Card = ({
           className="object-contain absolute z-10 inset-0"
           fetchPriority="low"
         />
+      </motion.div>
+    </>
+  );
+};
+
+export const BadgeCard = ({
+  badge,
+  index,
+  layout = false,
+}: {
+  badge: any;
+  index: number;
+  layout?: boolean;
+}) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const renderBadgeContent = () => {
+    // Only render dynamic content on client side
+    if (!isClient) {
+      return (
+        <div className="w-full h-48 flex items-center justify-center">
+          <div className="animate-pulse bg-gray-300 w-32 h-40 rounded"></div>
+        </div>
+      );
+    }
+
+    // If credlyId exists, render CredlyBadge component
+    if (badge.credlyId) {
+      return <CredlyBadge badgeId={badge.credlyId} width={150} height={270} />;
+    }
+
+    // If can_embed is true and url exists, show iframe
+    if (badge.can_embed && badge.url) {
+      return (
+        <iframe
+          src={badge.url}
+          className="w-full h-48 rounded"
+          frameBorder="0"
+          title={badge.title}
+        />
+      );
+    }
+
+    // Default case: show button to view certificate
+    if (badge.url) {
+      return (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(badge.url, "_blank");
+          }}
+          className="px-4 py-2 bg-[#40E0D0] text-black font-semibold rounded hover:bg-[#38C0B0] transition-colors"
+        >
+          View Certificate
+        </button>
+      );
+    }
+
+    return null;
+  };
+
+  const handleCardClick = () => {
+    // Only open URL if we're not embedding Credly inside
+    if (badge.url && !badge.credlyId && (!badge.can_embed || !badge.url)) {
+      window.open(badge.url, "_blank");
+    }
+  };
+
+  return (
+    <>
+      <motion.div
+        layoutId={layout ? `badge-${badge.title}` : undefined}
+        whileHover={{ scale: 1.05 }}
+        className="h-80 w-60 md:h-96 md:w-72 overflow-hidden flex flex-col items-center justify-center relative z-10 hover:scale-105 transition-transform cursor-pointer bg-gradient-to-r from-[#252525] to-[#1f1f1f] rounded-3xl p-4"
+        onClick={handleCardClick}
+      >
+        <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 z-30 pointer-events-none rounded-3xl" />
+
+        <div className="relative z-40 text-center mb-4">
+          <motion.p
+            layoutId={layout ? `category-${badge.category}` : undefined}
+            className="text-[#40E0D0] text-sm md:text-base font-medium font-sans"
+          >
+            {badge.category}
+          </motion.p>
+          <motion.p
+            layoutId={layout ? `title-${badge.title}` : undefined}
+            className="text-white text-sm md:text-lg font-semibold max-w-xs text-center [text-wrap:balance] font-sans mt-2 leading-tight"
+          >
+            {badge.title}
+          </motion.p>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center w-full">
+          {renderBadgeContent()}
+        </div>
       </motion.div>
     </>
   );
