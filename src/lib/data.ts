@@ -197,6 +197,13 @@ export const TalksData = {
     viewAll: "View All Slide Decks",
     talks: [
         {
+            title: "Feature Engineering - Backbone of Data Science",
+            category: "MumPy",
+            src: `${prefix}/speaker/feat_eng_mumpy.png`,
+            link: "https://youtu.be/okdWPm8t4K8",
+            onYoutube: true
+        },
+        {
             title: "Auth with Kong API Gateway",
             category: "Kong Mumbai",
             src: `${prefix}/speaker/kong_auth.jpeg`,
