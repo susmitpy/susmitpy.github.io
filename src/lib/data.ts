@@ -93,10 +93,15 @@ export const ProjectsData = {
 export const ReposData = {
     heading: "GitHub Repositories",
     repos: [
-{
-"name":"Kong API Gateway with Fast API, Open Telemetry and OpenObserve in Docker",
+        {
+            "name": "Real-Time Click-Through Rate Analysis with Flink & Kafka",
+            "description": "Uses a Go-based data producer to simulate user impressions and clicks, Kafka as the message bus, and a PyFlink job to process the data in real-time",
+            "link": "https://github.com/susmitpy/stream_analytics_adtech_ctr"
+        },
+        {
+            "name": "Kong API Gateway with Fast API, Open Telemetry and OpenObserve in Docker",
             "description": "Demonstrates end-to-end observability in a microservices architecture", "link": "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
-},
+        },
         {
             "name": "AWS CDK Example",
             "description": "Demonstrates how to use AWS Lambda with AWS CDK to schedule the start and stop of EC2 instances.",
