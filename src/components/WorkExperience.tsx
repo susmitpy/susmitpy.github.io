@@ -78,7 +78,7 @@ export function WorkExp() {
                 </p>
                 <div className="pt-4">
                     <a
-                        href="https://drive.google.com/file/d/1SDe7FW3ylQec3Go1EN2yi9lk2MFi-QzF/view?usp=share_link"
+                        href="https://drive.google.com/file/d/1lbyVHo2VjEMGuu9algViSjuafdO7jlim/view?usp=share_link"
                         className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-montserrat font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
                     >
                         <svg
