@@ -152,13 +152,13 @@ export const BlogsData = {
             title: "Bloom Filter in Short",
             description: "Set.contains() at scale with some False Positives",
             link: "https://blog.det.life/bloom-filter-in-short-339890f84e1b",
-            img: "https://miro.medium.com/v2/resize:fit:1302/format:webp/1*FwFWbVC5afSD_5WK2znXcg.gif"
+            img: `${prefix}/blogs/bloom_filter.gif`
         },
         {
             title: "Apache Kafka: In-Short",
             description: "Fundamental Concepts explained concisely",
             link: "https://blog.det.life/apache-kafka-in-short-fa56cc197114",
-            img: "https://miro.medium.com/v2/resize:fit:962/format:webp/1*6cn-HSF482J9qU-VFZlwjg.png"
+            img: `${prefix}/blogs/kafka.webp`
         },
         {
             title: "Data Engineering and ML Platform",
@@ -170,19 +170,19 @@ export const BlogsData = {
             title: "Building a Recommendation Engine Using Neo4j Hands-On",
             description: "From Data Model to Loading Data to Making Recommendations",
             link: "https://medium.com/neo4j/building-a-recommender-system-using-neo4j-hands-on-part-1-e82bcd881906",
-            img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*8Xxbom2nonrSVLLpeg832A.png"
+            img: `${prefix}/blogs/neo4j.webp`
         },
         {
             title: "Apache Spark Architecture",
             description: "Commence on the path of becoming a sparkling big data engineer",
             link: "https://medium.com/zeza-tech/apache-spark-architecture-411565908a1",
-            img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*pE5zBQR9Js_eVjvrQ6BzgA.png"
+            img: `${prefix}/blogs/spark.webp`
         },
         {
             title: "Using date, time, and date-time features in ML",
             description: "A guide on encoding and engineering date time features",
             link: "https://medium.com/zeza-tech/using-date-time-and-date-time-features-in-ml-96970be72329",
-            img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*4mqz7cqt_GOFjFlkVNOaYQ.jpeg"
+            img: `${prefix}/blogs/date_time.webp`
         }
     ],
     footer: "View All"
