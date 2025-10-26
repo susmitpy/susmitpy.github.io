@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { HeroData } from "@/lib/data";
+import { ConnectData, HeroData } from "@/lib/data";
+import { FaLinkedin, FaGithub, FaMedium, FaHackerrank, FaEnvelope } from 'react-icons/fa';
 
 export default function HeroSection() {
     const [isAboutExpanded, setIsAboutExpanded] = useState(false);
@@ -26,6 +27,35 @@ export default function HeroSection() {
                         <p className="mt-3 font-normal text-lg md:text-xl text-[#AAAAAA] text-center lg:text-left">
                             {HeroData.subHeadline}
                         </p>
+                        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mt-3">
+                        <a
+                            href="https://drive.google.com/file/d/1lbyVHo2VjEMGuu9algViSjuafdO7jlim/view?usp=share_link"
+                            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-montserrat font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            <svg
+                                className="w-5 h-5 mr-2"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                <path
+                                    fillRule="evenodd"
+                                    d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                            View Resume
+                        </a>
+                        <div className="flex space-x-4 bg-gray-800 p-2 rounded">
+                                <FaLinkedin className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.linkedin)} />
+                                <FaGithub className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.github)} />
+                                <FaMedium className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} onClick={() => window.open(ConnectData.socials.medium)} />
+                                <a href={`mailto:${ConnectData.socials.email}`}>
+                                    <FaEnvelope className="text-white cursor-pointer transition-colors duration-200 hover:text-[#40E0D0]" size={30} />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     {/* Right Section */} 
                     <div className="w-full lg:w-1/2">

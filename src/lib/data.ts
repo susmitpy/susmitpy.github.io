@@ -95,7 +95,7 @@ export const ReposData = {
     repos: [
         {
             "name": "Real-Time Click-Through Rate Analysis with Flink & Kafka",
-            "description": "Uses a Go-based data producer to simulate user impressions and clicks, Kafka as the message bus, and a PyFlink job to process the data in real-time",
+            "description": "Go-based data producer to simulate user impressions and clicks, Kafka as the message bus, and a PyFlink job to process the data in real-time",
             "link": "https://github.com/susmitpy/stream_analytics_adtech_ctr"
         },
         {
