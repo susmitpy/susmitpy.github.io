@@ -13,6 +13,7 @@ const menuItems = [
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Work Experience', id: 'experience' },
     { label: 'Connect', id: 'contact' },
+    { label: 'Recommended Books', id: 'recommended-books' },
 ];
 
 export const FloatingMenu = () => {

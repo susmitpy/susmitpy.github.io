@@ -6,6 +6,7 @@ import { Connect } from '@/components/Connect';
 import { FloatingMenu } from '@/components/FloatingMenu';
 import HeroSection from '@/components/HeroSection';
 import LiveProjects from '@/components/LiveProjects';
+import RecommendedBooks from '@/components/RecommendedBooks';
 import Repos from '@/components/Repos';
 import SkillsSection from '@/components/SkillsSection';
 import { TalksSection } from '@/components/Talks';
@@ -27,6 +28,7 @@ export default function Home() {
       <TestimonialsSections />
       <WorkExp />      
       <Connect />
+      <RecommendedBooks />
       <FloatingMenu />
     </main>
   );

@@ -432,4 +432,17 @@ export const BadgesData = {
     ]
 }
 
+export const BooksData = {
+    heading: "Recommended Books",
+    books: [
+        "Approaching (Almost) Any Machine Learning Problem",
+        "Design Patterns (Gang of Four)",
+        "Clean Code",
+        "Clean Architecture",
+        "Designing Data Intensive Applications",
+        "Fundamentals of Data Engineering",
+        "Atomic Habits"
+    ]
+}
+
 
