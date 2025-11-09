@@ -202,6 +202,13 @@ export const TalksData = {
     viewAll: "View All Slide Decks",
     talks: [
         {
+            title: "Real Time CTR Analysis using Apache Flink and Kafka",
+            category: "Kafka Meetup",
+            src: `${prefix}/speaker/kafka_flink.jpeg`,
+            link: "https://youtu.be/FsCWEC8Ir8I",
+            onYoutube: true
+        },
+        {
             title: "Feature Engineering - Backbone of Data Science",
             category: "MumPy",
             src: `${prefix}/speaker/feat_eng_mumpy.png`,
