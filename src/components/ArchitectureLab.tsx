@@ -269,8 +269,6 @@ export const ArchitectureLab = () => {
               zIndex: 10,
             }}
             onClick={() => setActiveNode(isActive ? null : node.id)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
           >
             {/* Node circle */}
             <div

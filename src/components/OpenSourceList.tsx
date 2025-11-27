@@ -34,7 +34,7 @@ const getStarCount = (index: number): number => {
 
 export const OpenSourceList = () => {
   return (
-    <section className="py-16">
+    <section id="opensource" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

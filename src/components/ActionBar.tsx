@@ -44,8 +44,9 @@ export const ActionBar = () => {
         <div className="w-px h-4 bg-white/10" />
         
         <a
-          href="/resume.pdf" 
+          href="https://drive.google.com/file/d/1lbyVHo2VjEMGuu9algViSjuafdO7jlim/view?usp=share_link" 
           target="_blank"
+          rel="noopener noreferrer"
           className="p-2.5 rounded-full hover:bg-white/10 transition-colors text-white/60 hover:text-indigo-400 relative group"
           aria-label="View Resume"
         >
