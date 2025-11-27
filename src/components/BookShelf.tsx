@@ -118,7 +118,7 @@ const BookCover = ({ title, index }: BookSpineProps) => {
 
 export const BookShelf = () => {
   return (
-    <section className="py-16">
+    <section id="books" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

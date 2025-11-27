@@ -65,7 +65,7 @@ export const CertificationsMarquee = () => {
   const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges];
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section id="certifications" className="py-16 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

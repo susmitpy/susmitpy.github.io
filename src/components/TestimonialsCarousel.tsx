@@ -18,7 +18,7 @@ export const TestimonialsCarousel = () => {
   };
 
   return (
-    <section className="py-16">
+    <section id="testimonials" className="py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
