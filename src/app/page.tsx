@@ -11,11 +11,11 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import HeroSection from "@/components/HeroSection";
-import { MapComponent } from "@/components/MapComponent";
+import { KeySkills } from "@/components/KeySkills";
 import { OpenSourceList } from "@/components/OpenSourceList";
 import { SideProjects } from "@/components/SideProjects";
 import { TalksCarousel } from "@/components/TalksCarousel";
-import { TechStack } from "@/components/TechStack";
+import { TechStackMarquee } from "@/components/TechStackMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { CaseStudies } from "@/lib/data";
 
@@ -32,21 +32,15 @@ export default function Home() {
             header={<HeroSection />}
           />
 
-          {/* Tech Stack - Tall Cell */}
-          <BentoGridItem
-            className="md:col-span-1 md:row-span-2"
-            header={<TechStack />}
-          />
-
-          {/* Map - Square Cell */}
+          {/* Key Skills - Single row (replaces tall TechStack) */}
           <BentoGridItem
             className="md:col-span-1 md:row-span-1"
-            header={<MapComponent />}
+            header={<KeySkills />}
           />
 
-          {/* Talks - Medium Cell */}
+          {/* Talks/Speaker - Full width of remaining 2 columns (replaces Map + Talks) */}
           <BentoGridItem
-            className="md:col-span-1 md:row-span-1"
+            className="md:col-span-2 md:row-span-1"
             header={<TalksCarousel />}
           />
 
@@ -81,6 +75,9 @@ export default function Home() {
 
         {/* Open Source */}
         <OpenSourceList />
+
+        {/* Tech Stack Marquee - Full width after GitHub Repositories */}
+        <TechStackMarquee />
 
         {/* Certifications */}
         <CertificationsMarquee />
