@@ -38,9 +38,9 @@ export default function Home() {
             header={<KeySkills />}
           />
 
-          {/* Talks/Speaker - Full width of remaining 2 columns (replaces Map + Talks) */}
+          {/* Talks/Speaker - Full width across all 3 columns (below Hero and Key Skills) */}
           <BentoGridItem
-            className="md:col-span-2 md:row-span-1"
+            className="md:col-span-3 md:row-span-1"
             header={<TalksCarousel />}
           />
 
