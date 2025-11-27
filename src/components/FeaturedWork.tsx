@@ -1,96 +1,166 @@
-import { CaseStudy } from "@/lib/data";
-import { ArrowUpRight, Github } from "lucide-react";
-import Link from "next/link";
+"use client";
 
-export const FeaturedWork = ({ caseStudy }: { caseStudy: CaseStudy }) => {
+import { CaseStudy } from "@/lib/data";
+import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+// Architecture diagram snippets for each case study
+const architectureSnippets: Record<string, string> = {
+  "Real-Time Click-Through Rate Analysis": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Go Data   │────▶│   Kafka     │────▶│   Flink     │
+│  Producer   │     │   Topics    │     │   Jobs      │
+└─────────────┘     └─────────────┘     └──────┬──────┘
+                                               │
+                         ┌─────────────────────┴─────┐
+                         ▼                           ▼
+                  ┌─────────────┐           ┌─────────────┐
+                  │  Real-time  │           │   Metrics   │
+                  │  Dashboard  │           │   Store     │
+                  └─────────────┘           └─────────────┘`,
+  "Kong API Gateway with Observability": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Client    │────▶│   Kong      │────▶│  FastAPI    │
+│  Request    │     │   Gateway   │     │  Services   │
+└─────────────┘     └──────┬──────┘     └─────────────┘
+                           │
+                    ┌──────┴──────┐
+                    ▼             ▼
+             ┌───────────┐ ┌───────────┐
+             │   OTel    │ │ OpenObs   │
+             │ Collector │ │ Dashboard │
+             └───────────┘ └───────────┘`,
+  "QnA on Knowledge Graph": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Query     │────▶│  LangChain  │────▶│    LLM      │
+│   Input     │     │   Router    │     │   Engine    │
+└─────────────┘     └──────┬──────┘     └──────┬──────┘
+                           │                   │
+                           ▼                   ▼
+                    ┌─────────────┐     ┌─────────────┐
+                    │   Neo4j     │◀───▶│  Context    │
+                    │   Graph     │     │  Builder    │
+                    └─────────────┘     └─────────────┘`,
+};
+
+export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; index?: number }) => {
+  const isReversed = index % 2 === 1;
+  const snippet = architectureSnippets[caseStudy.title] || "";
+
   return (
-    <div className="flex flex-col md:flex-row gap-8 p-6 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 h-full">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-8 p-6 md:p-8 bg-obsidian-900 rounded-2xl border border-white/[0.05] hover:border-indigo-500/20 transition-all duration-300 group`}
+    >
+      {/* Content Side */}
       <div className="flex-1 flex flex-col justify-between">
         <div>
-          <div className="flex items-center gap-2 mb-2">
-            <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 rounded-full">
+          {/* Badge */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-3 py-1 text-xs font-mono font-medium bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20">
               Case Study
             </span>
+            <span className="px-3 py-1 text-xs font-mono text-white/40 rounded-full border border-white/10">
+              #{String(index + 1).padStart(2, "0")}
+            </span>
           </div>
-          <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">
+
+          {/* Title */}
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 font-mono tracking-tight">
             {caseStudy.title}
           </h3>
-          
-          <div className="space-y-4">
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+
+          {/* Problem / Solution / Impact */}
+          <div className="space-y-5">
+            <div className="group/section">
+              <h4 className="text-xs font-mono font-semibold text-indigo-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full" />
                 The Challenge
               </h4>
-              <p className="text-neutral-700 dark:text-neutral-300 mt-1">
+              <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.problem}
               </p>
             </div>
-            
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+
+            <div className="group/section">
+              <h4 className="text-xs font-mono font-semibold text-violet-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-violet-400 rounded-full" />
                 The Solution
               </h4>
-              <p className="text-neutral-700 dark:text-neutral-300 mt-1">
+              <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.solution}
               </p>
             </div>
 
-             <div>
-              <h4 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+            <div className="group/section">
+              <h4 className="text-xs font-mono font-semibold text-green-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                 Impact
               </h4>
-              <p className="text-neutral-700 dark:text-neutral-300 mt-1">
+              <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.impact}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {caseStudy.techStack.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-md"
-            >
-              {tech}
-            </span>
-          ))}
+        {/* Tech Stack Chips */}
+        <div className="mt-8">
+          <div className="flex flex-wrap gap-2">
+            {caseStudy.techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1.5 text-xs font-mono bg-white/[0.03] text-white/70 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-        
-        <div className="mt-6">
-            <Link 
-                href={caseStudy.repoLink}
-                target="_blank"
-                className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 dark:text-white hover:underline"
-            >
-                <Github className="w-4 h-4" />
-                View Source
-                <ArrowUpRight className="w-4 h-4" />
-            </Link>
+
+        {/* CTA */}
+        <div className="mt-6 flex items-center gap-4">
+          <Link
+            href={caseStudy.repoLink}
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
+          >
+            <Github className="w-4 h-4" />
+            View Source
+            <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
+          </Link>
         </div>
       </div>
 
-      <div className="flex-1 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 flex items-center justify-center min-h-[200px] md:min-h-full relative overflow-hidden group">
-        {/* Placeholder for architecture diagram or code snippet */}
-        <div className="absolute inset-0 bg-grid-neutral-200/50 dark:bg-grid-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)]" />
-        
-        <div className="relative z-10 p-4 bg-white dark:bg-neutral-900 rounded-md shadow-sm border border-neutral-200 dark:border-neutral-700 group-hover:scale-105 transition-transform duration-300">
-            <pre className="text-xs text-neutral-600 dark:text-neutral-300 font-mono">
-                <code>
-{`// System Architecture
-Source -> Kafka -> Flink -> Sink
+      {/* Architecture Diagram Side */}
+      <div className="flex-1 bg-obsidian-800/50 rounded-xl p-6 flex items-center justify-center min-h-[280px] md:min-h-full relative overflow-hidden border border-white/[0.03]">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
-job = env.from_source(
-    kafka_source, 
-    WatermarkStrategy.no_watermarks(), 
-    "Kafka Source"
-)
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-violet-500/5" />
 
-job.sink_to(sink)`}
-                </code>
+        {/* Code/Diagram display */}
+        <div className="relative z-10 w-full group-hover:scale-[1.02] transition-transform duration-300">
+          <div className="bg-obsidian-900/80 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
+            {/* Terminal header */}
+            <div className="flex items-center gap-2 px-4 py-2 border-b border-white/5 bg-black/20">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+              <span className="text-[10px] text-white/30 font-mono ml-2">
+                architecture.diagram
+              </span>
+            </div>
+
+            {/* Diagram content */}
+            <pre className="p-4 text-[9px] md:text-[10px] text-indigo-300/80 font-mono leading-relaxed overflow-x-auto">
+              <code>{snippet}</code>
             </pre>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -1,34 +1,189 @@
+"use client";
+
 import { HeroData } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const TypewriterText = ({ text }: { text: string }) => {
+    const [displayedText, setDisplayedText] = useState("");
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        if (currentIndex < text.length) {
+            const timeout = setTimeout(() => {
+                setDisplayedText((prev) => prev + text[currentIndex]);
+                setCurrentIndex((prev) => prev + 1);
+            }, 40);
+            return () => clearTimeout(timeout);
+        }
+    }, [currentIndex, text]);
+
+    return (
+        <span>
+            {displayedText}
+            <span className="animate-pulse text-indigo-400">|</span>
+        </span>
+    );
+};
+
+const CodeBlock = () => {
+    const codeLines = [
+        { indent: 0, text: "class", keyword: true },
+        { indent: 0, text: " SystemArchitect", className: true },
+        { indent: 0, text: " {", normal: true },
+        { indent: 2, text: "expertise", property: true },
+        { indent: 0, text: " = [", normal: true },
+        { indent: 4, text: '"Kafka"', string: true },
+        { indent: 0, text: ", ", normal: true },
+        { indent: 0, text: '"Flink"', string: true },
+        { indent: 0, text: ", ", normal: true },
+        { indent: 0, text: '"Neo4j"', string: true },
+        { indent: 0, text: "];", normal: true },
+        { indent: 2, text: "scale", property: true },
+        { indent: 0, text: " = ", normal: true },
+        { indent: 0, text: '"enterprise"', string: true },
+        { indent: 0, text: ";", normal: true },
+        { indent: 0, text: "}", normal: true },
+    ];
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 bg-obsidian-800/80 backdrop-blur-sm rounded-lg border border-white/5 p-4 font-mono text-sm"
+        >
+            <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/5">
+                <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                <span className="text-xs text-white/30 ml-2">architect.ts</span>
+            </div>
+            <pre className="text-xs leading-relaxed">
+                <code>
+                    <span className="text-indigo-400">class</span>
+                    <span className="text-white"> SystemArchitect</span>
+                    <span className="text-white/50"> {"{"}</span>
+                    {"\n"}
+                    <span className="text-white/30">  </span>
+                    <span className="text-purple-400">expertise</span>
+                    <span className="text-white/50"> = [</span>
+                    {"\n"}
+                    <span className="text-white/30">    </span>
+                    <span className="text-green-400">&quot;Kafka&quot;</span>
+                    <span className="text-white/50">,</span>
+                    {"\n"}
+                    <span className="text-white/30">    </span>
+                    <span className="text-green-400">&quot;Flink&quot;</span>
+                    <span className="text-white/50">,</span>
+                    {"\n"}
+                    <span className="text-white/30">    </span>
+                    <span className="text-green-400">&quot;Neo4j&quot;</span>
+                    {"\n"}
+                    <span className="text-white/30">  </span>
+                    <span className="text-white/50">];</span>
+                    {"\n"}
+                    <span className="text-white/30">  </span>
+                    <span className="text-purple-400">scale</span>
+                    <span className="text-white/50"> = </span>
+                    <span className="text-green-400">&quot;enterprise&quot;</span>
+                    <span className="text-white/50">;</span>
+                    {"\n"}
+                    <span className="text-white/50">{"}"}</span>
+                </code>
+            </pre>
+        </motion.div>
+    );
+};
 
 export default function HeroSection() {
     return (
         <div className="flex flex-col justify-center h-full p-6 md:p-10 relative overflow-hidden group">
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse" />
-                <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[100px] animate-pulse delay-700" />
-            </div>
+          {/* Gradient orbs */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+              <motion.div
+                  animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.15, 0.25, 0.15],
+                  }}
+                  transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                  }}
+                  className="absolute top-[-30%] right-[-10%] w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px]"
+              />
+              <motion.div
+                  animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.1, 0.2, 0.1],
+                  }}
+                  transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1,
+                  }}
+                  className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-violet-500/15 rounded-full blur-[100px]"
+              />
+          </div>
 
-            <div className="relative z-10">
-                <h1 className="text-4xl md:text-6xl font-bold text-neutral-800 dark:text-neutral-100 mb-4 tracking-tight font-mono">
-                    {HeroData.name}
-                </h1>
-                <h2 className="text-xl md:text-2xl font-semibold text-neutral-600 dark:text-neutral-300 mb-6 max-w-2xl">
-                    {HeroData.headline}
-                </h2>
-                <p className="text-neutral-500 dark:text-neutral-400 max-w-xl mb-8 leading-relaxed">
-                    {HeroData.subHeadline}
-                </p>
+          {/* Content */}
+          <div className="relative z-10">
+              {/* Name with subtle animation */}
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+              >
+                  <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-2 block">
+                      High-Scale Data Systems Architect
+                  </span>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight font-mono">
+                      {HeroData.name}
+                  </h1>
+              </motion.div>
 
-                <div className="flex flex-wrap gap-3">
-                    {HeroData.titles.map((title, idx) => (
-                        <span key={idx} className="px-3 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full border border-neutral-200 dark:border-neutral-700">
-                            {title}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
+              {/* Headline - Massive and commanding */}
+              <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-lg md:text-xl lg:text-2xl font-semibold text-white/80 mb-4 max-w-xl leading-relaxed"
+              >
+                  <TypewriterText text={HeroData.headline} />
+              </motion.h2>
+
+              {/* Subheadline */}
+              <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-sm text-white/50 max-w-lg mb-8 leading-relaxed"
+              >
+                  {HeroData.subHeadline}
+              </motion.p>
+
+              {/* Role tags */}
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex flex-wrap gap-2"
+              >
+                  {HeroData.titles.map((title, idx) => (
+              <span
+                  key={idx}
+                  className="px-3 py-1.5 text-xs font-mono font-medium bg-white/5 text-white/70 rounded-md border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300"
+              >
+                  {title}
+              </span>
+          ))}
+              </motion.div>
+          </div>
+
+          {/* Code block decoration */}
+          <CodeBlock />
+      </div>
+  );
 }

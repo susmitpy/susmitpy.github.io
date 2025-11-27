@@ -1,7 +1,7 @@
 "use client";
 
 import { ConnectData } from "@/lib/data";
-import { Copy, Mail, FileText, Calendar } from "lucide-react";
+import { Mail, FileText, Calendar } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -22,47 +22,47 @@ export const ActionBar = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="bg-neutral-900 dark:bg-white text-white dark:text-black px-3 py-1 rounded-md text-xs font-medium shadow-lg"
+            className="bg-white text-black px-3 py-1 rounded-md text-xs font-mono font-medium shadow-lg"
           >
             Copied to clipboard!
           </motion.div>
         )}
       </AnimatePresence>
       
-      <div className="flex items-center gap-2 p-1 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 rounded-full shadow-xl">
+      <div className="flex items-center gap-1 p-1.5 bg-obsidian-900/90 backdrop-blur-md border border-white/10 rounded-full shadow-xl">
         <button
           onClick={copyEmail}
-          className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-300 relative group"
+          className="p-2.5 rounded-full hover:bg-white/10 transition-colors text-white/60 hover:text-indigo-400 relative group"
           aria-label="Copy Email"
         >
-          <Mail className="w-5 h-5" />
-           <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-neutral-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <Mail className="w-4 h-4" />
+          <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-obsidian-800 border border-white/10 text-white text-xs font-mono rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             Copy Email
           </span>
         </button>
         
-        <div className="w-px h-4 bg-neutral-200 dark:bg-neutral-700" />
+        <div className="w-px h-4 bg-white/10" />
         
         <a
           href="/resume.pdf" 
           target="_blank"
-          className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-600 dark:text-neutral-300 relative group"
+          className="p-2.5 rounded-full hover:bg-white/10 transition-colors text-white/60 hover:text-indigo-400 relative group"
           aria-label="View Resume"
         >
-          <FileText className="w-5 h-5" />
-           <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-neutral-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <FileText className="w-4 h-4" />
+          <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-obsidian-800 border border-white/10 text-white text-xs font-mono rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             View Resume
           </span>
         </a>
 
-        <div className="w-px h-4 bg-neutral-200 dark:bg-neutral-700" />
+        <div className="w-px h-4 bg-white/10" />
 
         <a
-          href="https://calendly.com/" // Placeholder
+          href="https://calendly.com/"
           target="_blank"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full text-xs font-mono font-medium transition-colors"
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-3.5 h-3.5" />
           <span>Book Call</span>
         </a>
       </div>

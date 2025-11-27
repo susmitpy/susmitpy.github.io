@@ -10,75 +10,83 @@ export const TechStack = () => {
   const devSkills = [...SkillsData.skillGroups["Programming Languages"], ...SkillsData.skillGroups["Development"]];
 
   return (
-    <div className="h-full flex flex-col overflow-hidden relative">
-      <h3 className="text-lg font-bold text-neutral-800 dark:text-neutral-200 mb-4 px-2 font-mono">
-        Tech Stack
+      <div className="h-full flex flex-col overflow-hidden relative bg-obsidian-900 rounded-xl">
+          <h3 className="text-sm font-mono font-bold text-white/90 mb-4 px-2 tracking-wide">
+              TECH STACK
       </h3>
       
-      <div className="flex-1 overflow-hidden relative mask-image-gradient flex flex-col gap-4">
-         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-black dark:to-black z-10 pointer-events-none opacity-20" />
-         
-         {/* Row 1: Data & Backend (Left) */}
-         <motion.div 
-            className="flex gap-4"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ 
-                repeat: Infinity, 
-                ease: "linear", 
-                duration: 30 
-            }}
-         >
-            {[...dataSkills, ...dataSkills].map((skill: any, idx) => (
-                <div key={`data-${idx}`} className="flex items-center gap-2 px-3 py-1.5 bg-neutral-50 dark:bg-neutral-900/50 rounded-md border border-neutral-100 dark:border-neutral-800 flex-shrink-0">
-                    {skill.logoPath && (
-                        <div className="relative w-5 h-5 flex-shrink-0">
-                            <Image 
-                                src={skill.logoPath} 
-                                alt={skill.name || "Skill"} 
-                                fill 
-                                className="object-contain"
-                            />
-                        </div>
-                    )}
-                    {skill.name && (
-                        <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300 font-mono">
-                            {skill.name}
-                        </span>
-                    )}
-                </div>
-            ))}
-         </motion.div>
+          <div className="flex-1 overflow-hidden relative flex flex-col gap-3">
+              {/* Gradient masks */}
+              <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-obsidian-900 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-obsidian-900 to-transparent z-10 pointer-events-none" />
 
-         {/* Row 2: Dev & Frontend (Right) */}
-         <motion.div 
-            className="flex gap-4"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ 
-                repeat: Infinity, 
-                ease: "linear", 
-                duration: 25 
-            }}
-         >
-            {[...devSkills, ...devSkills].map((skill: any, idx) => (
-                <div key={`dev-${idx}`} className="flex items-center gap-2 px-3 py-1.5 bg-neutral-50 dark:bg-neutral-900/50 rounded-md border border-neutral-100 dark:border-neutral-800 flex-shrink-0">
-                    {skill.logoPath && (
-                        <div className="relative w-5 h-5 flex-shrink-0">
-                            <Image 
-                                src={skill.logoPath} 
-                                alt={skill.name || "Skill"} 
-                                fill 
-                                className="object-contain"
-                            />
-                        </div>
-                    )}
-                    {skill.name && (
-                        <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300 font-mono">
-                            {skill.name}
-                        </span>
-                    )}
-                </div>
-            ))}
-         </motion.div>
+              {/* Row 1: Data & Backend (Left) */}
+              <motion.div 
+                  className="flex gap-3"
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{
+                      repeat: Infinity,
+                      ease: "linear",
+                      duration: 30
+                  }}
+              >
+                  {[...dataSkills, ...dataSkills].map((skill: any, idx) => (
+              <div
+                  key={`data-${idx}`}
+                  className="flex items-center gap-2 px-3 py-2 bg-white/[0.03] rounded-lg border border-white/[0.05] flex-shrink-0 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
+              >
+                  {skill.logoPath && (
+                      <div className="relative w-4 h-4 flex-shrink-0">
+                          <Image
+                              src={skill.logoPath}
+                              alt={skill.name || "Skill"}
+                              fill
+                              className="object-contain"
+                          />
+                      </div>
+                  )}
+                  {skill.name && (
+                      <span className="text-xs font-mono text-white/60">
+                          {skill.name}
+                      </span>
+                  )}
+              </div>
+          ))}
+              </motion.div>
+
+              {/* Row 2: Dev & Frontend (Right) */}
+              <motion.div 
+                  className="flex gap-3"
+                  animate={{ x: ["-50%", "0%"] }}
+                  transition={{
+                      repeat: Infinity,
+                      ease: "linear",
+                      duration: 25
+                  }}
+              >
+                  {[...devSkills, ...devSkills].map((skill: any, idx) => (
+              <div
+                  key={`dev-${idx}`}
+                  className="flex items-center gap-2 px-3 py-2 bg-white/[0.03] rounded-lg border border-white/[0.05] flex-shrink-0 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
+              >
+                  {skill.logoPath && (
+                      <div className="relative w-4 h-4 flex-shrink-0">
+                          <Image
+                              src={skill.logoPath}
+                              alt={skill.name || "Skill"}
+                              fill
+                              className="object-contain"
+                          />
+                      </div>
+                  )}
+                  {skill.name && (
+                      <span className="text-xs font-mono text-white/60">
+                          {skill.name}
+                      </span>
+                  )}
+              </div>
+          ))}
+              </motion.div>
       </div>
     </div>
   );
