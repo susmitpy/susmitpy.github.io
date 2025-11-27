@@ -1,17 +1,6 @@
 "use client";
-import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function RootLayout({
   children,
@@ -26,7 +15,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0a0a0a" />
       </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-white`}
+        className="antialiased bg-[#0a0a0a] text-white font-sans"
       >
         {children}
       </body>

@@ -3,6 +3,7 @@
 import { HeroData } from "@/lib/data";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { MapPin } from "lucide-react";
 
 const TypewriterText = ({ text }: { text: string }) => {
     const [displayedText, setDisplayedText] = useState("");
@@ -99,6 +100,18 @@ const CodeBlock = () => {
 export default function HeroSection() {
     return (
         <div className="flex flex-col justify-center h-full p-6 md:p-10 relative overflow-hidden group">
+          {/* Location badge - top right */}
+          <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-1.5 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 z-20"
+          >
+              <MapPin className="w-3 h-3 text-indigo-400" />
+              <span className="text-xs font-mono text-white/70">Mumbai, India</span>
+              <span className="text-sm">🇮🇳</span>
+          </motion.div>
+
           {/* Gradient orbs */}
           <div className="absolute inset-0 z-0 overflow-hidden">
               <motion.div
