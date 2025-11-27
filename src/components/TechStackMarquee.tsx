@@ -3,16 +3,24 @@
 import { SkillsData } from "@/lib/data";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 export const TechStackMarquee = () => {
-  // Combine all skills
-  const allSkills = [
+  // Combine all skills and memoize
+  const allSkills = useMemo(() => [
     ...SkillsData.skillGroups["Programming Languages"],
     ...SkillsData.skillGroups["Data"],
     ...SkillsData.skillGroups["Databases"],
     ...SkillsData.skillGroups["Development"],
     ...SkillsData.skillGroups["Cloud & DevOps"],
-  ];
+  ], []);
+
+  // Memoize doubled arrays to avoid recreating on each render
+  const row1Skills = useMemo(() => [...allSkills, ...allSkills], [allSkills]);
+  const row2Skills = useMemo(() => {
+    const reversed = [...allSkills].reverse();
+    return [...reversed, ...reversed];
+  }, [allSkills]);
 
   return (
     <section className="py-8">
@@ -43,7 +51,7 @@ export const TechStackMarquee = () => {
             duration: 35
           }}
         >
-          {[...allSkills, ...allSkills].map((skill: { name?: string; logoPath?: string }, idx) => (
+          {row1Skills.map((skill: { name?: string; logoPath?: string }, idx) => (
             <div
               key={`row1-${idx}`}
               className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.03] rounded-lg border border-white/[0.05] flex-shrink-0 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
@@ -77,7 +85,7 @@ export const TechStackMarquee = () => {
             duration: 30
           }}
         >
-          {[...allSkills.reverse(), ...allSkills].map((skill: { name?: string; logoPath?: string }, idx) => (
+          {row2Skills.map((skill: { name?: string; logoPath?: string }, idx) => (
             <div
               key={`row2-${idx}`}
               className="flex items-center gap-2 px-4 py-2.5 bg-white/[0.03] rounded-lg border border-white/[0.05] flex-shrink-0 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
