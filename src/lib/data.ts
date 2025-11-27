@@ -2,11 +2,10 @@ import { prefix } from "./prefix"
 
 export const HeroData = {
     name: "Susmit Vengurlekar",
-    headline: "A Passionate Techie who builds Problem-Solving Tech Solutions",
-    subHeadline: "Having 8+ YoE (4+ YoE after graduation)",
+    headline: "Architecting High-Scale Data Systems & Interfaces",
+    subHeadline: "Bridging the gap between complex Backend pipelines (Kafka, Flink, Neo4j) and intuitive Frontend experiences.",
     aboutTitle: "About Me",
-    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective."
-,
+    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective.",
     titles: [
         "Data Scientist",
         "Database Engineer",
@@ -17,6 +16,43 @@ export const HeroData = {
         "Certified Neo4j Professional",
     ]
 }
+
+export interface CaseStudy {
+    title: string;
+    problem: string;
+    solution: string;
+    impact: string;
+    techStack: string[];
+    repoLink: string;
+    imagePath?: string;
+}
+
+export const CaseStudies: CaseStudy[] = [
+    {
+        title: "Real-Time Click-Through Rate Analysis",
+        problem: "High latency in processing user impressions and clicks for ad-tech analytics.",
+        solution: "Implemented a Flink streaming job with Kafka as the message bus to process data in real-time.",
+        impact: "Reduced data processing latency from minutes to milliseconds, enabling real-time decision making.",
+        techStack: ["Apache Flink", "Apache Kafka", "Python", "Go"],
+        repoLink: "https://github.com/susmitpy/stream_analytics_adtech_ctr"
+    },
+    {
+        title: "Kong API Gateway with Observability",
+        problem: "Lack of visibility into microservices traffic and performance bottlenecks.",
+        solution: "Deployed Kong API Gateway with OpenTelemetry and OpenObserve for end-to-end tracing and metrics.",
+        impact: "Improved system reliability and reduced mean time to resolution (MTTR) for API issues.",
+        techStack: ["Kong", "FastAPI", "OpenTelemetry", "OpenObserve", "Docker"],
+        repoLink: "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
+    },
+    {
+        title: "QnA on Knowledge Graph",
+        problem: "Difficulty in retrieving accurate answers from unstructured data using traditional search.",
+        solution: "Built a RAG system using Neo4j as a knowledge graph to provide context-aware answers.",
+        impact: "Enhanced answer accuracy and relevance by leveraging graph relationships.",
+        techStack: ["Neo4j", "LangChain", "Python", "LLM"],
+        repoLink: "https://github.com/susmitpy/QnA-on-Neo4j-Knowledge-Graph"
+    }
+];
 
 export const SkillsData = {
     heading: "Skills & Tools I Use:",
