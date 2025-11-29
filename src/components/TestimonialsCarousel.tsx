@@ -4,6 +4,7 @@ import { TestimonialsData } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,17 +20,10 @@ export const TestimonialsCarousel = () => {
 
   return (
     <section id="testimonials" className="py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-10"
-      >
-        <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
-          {TestimonialsData.heading}
-        </h2>
-        <p className="text-sm text-white/40 font-mono">Feedback from colleagues and clients</p>
-      </motion.div>
+      <SectionHeader
+        eyebrow="Endorsements"
+        title={TestimonialsData.heading}
+      />
 
       {/* Desktop: Large quote cards */}
       <div className="hidden md:block">

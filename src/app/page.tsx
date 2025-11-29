@@ -17,11 +17,13 @@ import { SideProjects } from "@/components/SideProjects";
 import { TalksCarousel } from "@/components/TalksCarousel";
 import { TechStackMarquee } from "@/components/TechStackMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Reveal } from "@/components/ui/Reveal";
 import { CaseStudies } from "@/lib/data";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white p-4 md:p-8 relative">
+    <main className="min-h-screen bg-[#050505] text-white p-4 md:p-8 relative">
       <div className="max-w-7xl mx-auto space-y-8">
 
         {/* Bento Grid Section */}
@@ -53,13 +55,15 @@ export default function Home() {
 
         {/* Featured Work Section */}
         <section id="projects" className="py-12">
-          <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
-            Featured Work
-          </h2>
-          <p className="text-sm text-white/40 font-mono mb-8">Enterprise-grade systems I&apos;ve architected</p>
+          <SectionHeader
+            eyebrow="Case Studies"
+            title="Featured Work"
+          />
           <div className="space-y-8">
             {CaseStudies.map((study, idx) => (
-              <FeaturedWork key={idx} caseStudy={study} index={idx} />
+              <Reveal key={idx} width="full" delay={idx * 0.1}>
+                <FeaturedWork caseStudy={study} index={idx} />
+              </Reveal>
             ))}
           </div>
         </section>

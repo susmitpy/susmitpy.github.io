@@ -168,6 +168,12 @@ export const ArchitectureLab = () => {
     return edge.from === activeNode || edge.to === activeNode;
   };
 
+  // Determine if a node should be dimmed (focus mode)
+  const isNodeDimmed = (nodeId: string) => {
+    if (!activeNode) return false;
+    return !isNodeHighlighted(nodeId);
+  };
+
   return (
     <div className="relative w-full h-full min-h-[280px] bg-obsidian-900 rounded-xl overflow-hidden">
       {/* Background grid */}
@@ -175,8 +181,14 @@ export const ArchitectureLab = () => {
 
       {/* Header */}
       <div className="absolute top-4 left-4 z-20">
-        <h3 className="text-sm font-mono font-bold text-white/90 tracking-wide">
-          ARCHITECTURE LAB
+        <div className="flex items-center gap-2 mb-1">
+          <span className="w-6 h-px bg-accent-solid/50" />
+          <span className="text-[10px] font-mono uppercase tracking-widest text-accent-solid/70">
+            Interactive
+          </span>
+        </div>
+        <h3 className="text-sm font-bold text-white/90 tracking-wide">
+          Architecture Lab
         </h3>
         <p className="text-xs text-white/40 mt-1">
           Click nodes to explore the pipeline
@@ -197,12 +209,47 @@ export const ArchitectureLab = () => {
             x2="100%"
             y2="0%"
           >
-            <stop offset="0%" stopColor="rgba(99, 102, 241, 0.8)" />
-            <stop offset="100%" stopColor="rgba(167, 139, 250, 0.8)" />
+            <stop offset="0%" stopColor="rgba(99, 102, 241, 0.9)" />
+            <stop offset="100%" stopColor="rgba(167, 139, 250, 0.9)" />
+          </linearGradient>
+          {/* Animated gradient for data flow effect */}
+          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(99, 102, 241, 0.2)">
+              <animate
+                attributeName="stop-color"
+                values="rgba(99, 102, 241, 0.2);rgba(99, 102, 241, 0.5);rgba(99, 102, 241, 0.2)"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="50%" stopColor="rgba(129, 140, 248, 0.5)">
+              <animate
+                attributeName="stop-color"
+                values="rgba(129, 140, 248, 0.5);rgba(129, 140, 248, 0.8);rgba(129, 140, 248, 0.5)"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="100%" stopColor="rgba(167, 139, 250, 0.2)">
+              <animate
+                attributeName="stop-color"
+                values="rgba(167, 139, 250, 0.2);rgba(167, 139, 250, 0.5);rgba(167, 139, 250, 0.2)"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </stop>
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
             <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glowStrong">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
@@ -214,6 +261,7 @@ export const ArchitectureLab = () => {
           const from = getNodePosition(edge.from);
           const to = getNodePosition(edge.to);
           const isActive = isEdgeHighlighted(edge);
+          const isDimmed = activeNode && !isActive;
 
           return (
             <g key={idx}>
@@ -222,11 +270,12 @@ export const ArchitectureLab = () => {
                 y1={`${from.y}%`}
                 x2={`${to.x - 6}%`}
                 y2={`${to.y}%`}
-                stroke={isActive ? "url(#edgeGradientActive)" : "url(#edgeGradient)"}
-                strokeWidth={isActive ? 2 : 1}
-                strokeDasharray={isActive ? "none" : "4,4"}
-                filter={isActive ? "url(#glow)" : "none"}
+                stroke={isActive ? "url(#edgeGradientActive)" : isDimmed ? "rgba(99, 102, 241, 0.1)" : "url(#flowGradient)"}
+                strokeWidth={isActive ? 2.5 : 1.5}
+                strokeDasharray={isActive ? "none" : "6,4"}
+                filter={isActive ? "url(#glowStrong)" : "none"}
                 className="transition-all duration-300"
+                style={{ opacity: isDimmed ? 0.3 : 1 }}
               />
             </g>
           );
@@ -239,12 +288,13 @@ export const ArchitectureLab = () => {
         return (
           <motion.div
             key={particle.id}
-            className="absolute w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"
+            className="absolute w-2 h-2 rounded-full bg-indigo-400"
             style={{
               left: `${pos.x}%`,
               top: `${pos.y}%`,
               transform: "translate(-50%, -50%)",
               zIndex: 5,
+              boxShadow: "0 0 10px 2px rgba(99, 102, 241, 0.6), 0 0 20px 4px rgba(99, 102, 241, 0.3)",
             }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -257,24 +307,32 @@ export const ArchitectureLab = () => {
       {nodes.map((node) => {
         const isActive = activeNode === node.id;
         const isHighlighted = isNodeHighlighted(node.id);
+        const isDimmed = isNodeDimmed(node.id);
 
         return (
           <motion.div
             key={node.id}
-            className={`absolute cursor-pointer group`}
+            className="absolute cursor-pointer group"
             style={{
               left: `${node.x}%`,
               top: `${node.y}%`,
               transform: "translate(-50%, -50%)",
               zIndex: 10,
             }}
+            animate={{
+              opacity: isDimmed ? 0.4 : 1,
+              scale: isActive ? 1.05 : 1,
+            }}
+            transition={{ duration: 0.3 }}
             onClick={() => setActiveNode(isActive ? null : node.id)}
           >
             {/* Node circle */}
             <div
               className={`relative w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                isActive || isHighlighted
-                  ? "bg-obsidian-700 shadow-glow-lg"
+                isActive
+                  ? "bg-obsidian-700"
+                  : isHighlighted
+                  ? "bg-obsidian-700"
                   : "bg-obsidian-800 hover:bg-obsidian-700"
               }`}
               style={{
@@ -286,13 +344,18 @@ export const ArchitectureLab = () => {
                     : "rgba(255,255,255,0.1)"
                 }`,
                 boxShadow: isActive
-                  ? `0 0 30px ${node.color}40`
+                  ? `0 0 30px 5px ${node.color}60, 0 0 60px 10px ${node.color}30, inset 0 0 20px ${node.color}20`
+                  : isHighlighted
+                  ? `0 0 20px 2px ${node.color}30`
                   : "none",
               }}
             >
               <span
-                className="text-xl"
-                style={{ color: isActive ? node.color : "#a3a3a3" }}
+                className="text-xl transition-all duration-300"
+                style={{ 
+                  color: isActive ? node.color : isHighlighted ? node.color : "#a3a3a3",
+                  textShadow: isActive ? `0 0 10px ${node.color}` : "none",
+                }}
               >
                 {node.icon}
               </span>
@@ -301,7 +364,7 @@ export const ArchitectureLab = () => {
             {/* Label */}
             <div
               className={`absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-300 ${
-                isActive ? "text-white" : "text-white/50"
+                isActive ? "text-white" : isHighlighted ? "text-white/80" : "text-white/50"
               }`}
             >
               <span className="text-xs font-mono font-medium">{node.label}</span>
@@ -314,8 +377,11 @@ export const ArchitectureLab = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                  className="absolute left-1/2 -translate-x-1/2 -top-24 w-48 p-3 bg-obsidian-800 rounded-lg border border-white/10 shadow-xl z-50"
-                  style={{ borderColor: `${node.color}40` }}
+                  className="absolute left-1/2 -translate-x-1/2 -top-24 w-48 p-3 bg-obsidian-800 rounded-lg border shadow-xl z-50"
+                  style={{ 
+                    borderColor: `${node.color}60`,
+                    boxShadow: `0 0 30px 5px ${node.color}20, 0 20px 40px -10px rgba(0,0,0,0.5)`,
+                  }}
                 >
                   <div
                     className="text-xs font-mono font-bold mb-1"
@@ -332,7 +398,7 @@ export const ArchitectureLab = () => {
                   {/* Arrow */}
                   <div
                     className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 rotate-45 bg-obsidian-800"
-                    style={{ borderRight: `1px solid ${node.color}40`, borderBottom: `1px solid ${node.color}40` }}
+                    style={{ borderRight: `1px solid ${node.color}60`, borderBottom: `1px solid ${node.color}60` }}
                   />
                 </motion.div>
               )}
