@@ -125,17 +125,6 @@ export const ActionBar = () => {
             View Resume
           </span>
         </a>
-
-        <div className="w-px h-4 bg-white/10" />
-
-        <a
-          href="https://calendly.com/"
-          target="_blank"
-          className="flex items-center gap-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full text-xs font-mono font-medium transition-colors"
-        >
-          <Calendar className="w-3.5 h-3.5" />
-          <span>Book Call</span>
-        </a>
       </div>
     </div>
   );
