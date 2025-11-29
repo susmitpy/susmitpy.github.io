@@ -69,32 +69,45 @@ export default function Home() {
         </section>
 
         {/* Experience Timeline */}
-        <ExperienceTimeline />
+        <section id="experience">
+          <ExperienceTimeline />
+        </section>
 
         {/* Tech Blogs */}
-        <BlogGrid />
+        <section id="blogs">
+          <BlogGrid />
+        </section>
 
         {/* Side Projects */}
         <SideProjects />
 
         {/* Open Source */}
-        <OpenSourceList />
+        <section id="opensource">
+          <OpenSourceList />
+        </section>
 
         {/* Tech Stack Marquee - Full width after GitHub Repositories */}
         <TechStackMarquee />
 
         {/* Certifications */}
-        <CertificationsMarquee />
+        <section id="certifications">
+          <CertificationsMarquee />
+        </section>
 
         {/* Book Shelf */}
-        <BookShelf />
+        <section id="books">
+          <BookShelf />
+        </section>
 
         {/* Testimonials */}
-        <TestimonialsCarousel />
+        <section id="testimonials">
+          <TestimonialsCarousel />
+        </section>
 
         {/* Connect Section */}
-        <ConnectSection />
-
+        <section id="connect">
+          <ConnectSection />
+        </section>
       </div>
 
       <ActionBar />
