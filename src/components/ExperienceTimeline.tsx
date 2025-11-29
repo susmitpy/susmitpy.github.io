@@ -4,6 +4,8 @@ import { ExpData } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface TimelineItemProps {
   heading: string;
@@ -187,17 +189,10 @@ export const ExperienceTimeline = () => {
 
   return (
     <section id="experience" className="py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-10"
-      >
-        <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
-          {ExpData.heading}
-        </h2>
-        <p className="text-sm text-white/40 font-mono">{ExpData.subHeading}</p>
-      </motion.div>
+      <SectionHeader
+        eyebrow="Career Path"
+        title={ExpData.heading}
+      />
 
       {/* Desktop Timeline (Alternating) */}
       <div className="hidden md:block space-y-2">

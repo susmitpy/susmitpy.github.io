@@ -4,6 +4,7 @@ import { SkillsData } from "@/lib/data";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const TechStackMarquee = () => {
   // Combine all skills and memoize
@@ -24,17 +25,11 @@ export const TechStackMarquee = () => {
 
   return (
     <section className="py-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <SectionHeader
+        eyebrow="Technologies"
+        title="Tech Stack"
         className="mb-6"
-      >
-        <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
-          Tech Stack
-        </h2>
-        <p className="text-sm text-white/40 font-mono">Technologies I work with</p>
-      </motion.div>
+      />
 
       <div className="relative overflow-hidden rounded-xl bg-obsidian-800/30 border border-white/[0.05] py-6">
         {/* Gradient masks */}
