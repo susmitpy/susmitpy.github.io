@@ -28,31 +28,13 @@ const TypewriterText = ({ text }: { text: string }) => {
 };
 
 const CodeBlock = () => {
-    const codeLines = [
-        { indent: 0, text: "class", keyword: true },
-        { indent: 0, text: " SystemArchitect", className: true },
-        { indent: 0, text: " {", normal: true },
-        { indent: 2, text: "expertise", property: true },
-        { indent: 0, text: " = [", normal: true },
-        { indent: 4, text: '"Kafka"', string: true },
-        { indent: 0, text: ", ", normal: true },
-        { indent: 0, text: '"Flink"', string: true },
-        { indent: 0, text: ", ", normal: true },
-        { indent: 0, text: '"Neo4j"', string: true },
-        { indent: 0, text: "];", normal: true },
-        { indent: 2, text: "scale", property: true },
-        { indent: 0, text: " = ", normal: true },
-        { indent: 0, text: '"enterprise"', string: true },
-        { indent: 0, text: ";", normal: true },
-        { indent: 0, text: "}", normal: true },
-    ];
 
     return (
         <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 bg-obsidian-800/80 backdrop-blur-sm rounded-lg border border-white/5 p-4 font-mono text-sm"
+            className="hidden md:block absolute right-6 top-2/5 -translate-y-1/2 bg-obsidian-800/80 backdrop-blur-sm rounded-lg border border-white/5 p-4 font-mono text-sm"
         >
             <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/5">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
@@ -105,7 +87,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-1.5 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 z-20"
+                className="absolute top-2 right-4 md:top-4 md:right-6 flex items-center gap-1.5 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 z-20"
           >
               <MapPin className="w-3 h-3 text-indigo-400" />
               <span className="text-xs font-mono text-white/70">Mumbai, India</span>
@@ -150,7 +132,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.5 }}
               >
                   <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-2 block">
-                      High-Scale Data Systems Architect
+                        Data Systems Architect
                   </span>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight font-mono">
                       {HeroData.name}
@@ -187,7 +169,7 @@ export default function HeroSection() {
                   {HeroData.titles.map((title, idx) => (
               <span
                   key={idx}
-                  className="px-3 py-1.5 text-xs font-mono font-medium bg-white/5 text-white/70 rounded-md border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300"
+                          className="px-3 py-0.12 text-xs font-mono font-medium bg-white/5 text-white/70 rounded-md border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300"
               >
                   {title}
               </span>

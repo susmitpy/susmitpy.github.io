@@ -2,7 +2,7 @@ import { prefix } from "./prefix"
 
 export const HeroData = {
     name: "Susmit Vengurlekar",
-    headline: "Architecting High-Scale Data Systems & Interfaces",
+    headline: "Architecting Data Systems & Interfaces",
     subHeadline: "Bridging the gap between complex Backend pipelines (Kafka, Flink, Neo4j) and intuitive Frontend experiences.",
     aboutTitle: "About Me",
     about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective.",

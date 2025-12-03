@@ -64,12 +64,13 @@ export const TalksCarousel = () => {
               target="_blank"
               className="flex-shrink-0 w-56 group relative rounded-lg overflow-hidden border border-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 block"
             >
-              <div className="aspect-video relative bg-obsidian-800">
+              <div className="aspect-video relative bg-gradient-to-br from-obsidian-800 via-obsidian-700 to-indigo-900">
                 <Image
                   src={talk.src}
                   alt={talk.title}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  className="object-contain transition-transform duration-500 group-hover:scale-110"
+
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -82,7 +83,7 @@ export const TalksCarousel = () => {
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <div className="text-[10px] font-mono text-indigo-400/80 mb-1 uppercase tracking-wider">
+                <div className="text-[10px] font-mono text-white/90 mb-1 uppercase tracking-wider">
                   {talk.category}
                 </div>
                 <h4 className="text-xs font-medium text-white/90 line-clamp-2 leading-relaxed">

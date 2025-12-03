@@ -62,8 +62,8 @@ const nodes: Node[] = [
     color: "#a78bfa",
   },
   {
-    id: "postgres",
-    label: "PostgreSQL",
+    id: "clickhouse",
+    label: "ClickHouse",
     description: "Analytics Store",
     metrics: "OLAP queries",
     x: 76,
@@ -77,7 +77,7 @@ const edges: Edge[] = [
   { from: "producer", to: "kafka", label: "events" },
   { from: "kafka", to: "flink", label: "stream" },
   { from: "flink", to: "neo4j", label: "graph" },
-  { from: "flink", to: "postgres", label: "metrics" },
+  { from: "flink", to: "clickhouse", label: "metrics" },
 ];
 
 interface Particle {
@@ -146,8 +146,12 @@ export const ArchitectureLab = () => {
     const from = getNodePosition(edge.from);
     const to = getNodePosition(edge.to);
 
+    // Match the edge offset to start/end at node edges (6% offset)
+    const fromX = from.x + 6;
+    const toX = to.x - 6;
+
     return {
-      x: from.x + (to.x - from.x) * particle.progress,
+      x: fromX + (toX - fromX) * particle.progress,
       y: from.y + (to.y - from.y) * particle.progress,
     };
   };
@@ -415,5 +419,6 @@ export const ArchitectureLab = () => {
         </div>
       </div>
     </div>
+
   );
 };
