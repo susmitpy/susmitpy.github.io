@@ -175,3 +175,25 @@
 .font-mono {
   font-family: var(--font-geist-mono), 'JetBrains Mono', monospace;
 }
+
+/* Mermaid diagram styling */
+.mermaid-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-diagram .nodeLabel {
+  color: #e0e7ff;
+}
+
+.mermaid-diagram .edgeLabel {
+  background-color: transparent;
+  color: #e0e7ff;
+}
