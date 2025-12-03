@@ -48,34 +48,47 @@ const MermaidInitializer = (() => {
 })();
 
 export const Mermaid = ({ chart, className = "" }: MermaidProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize mermaid once using singleton pattern
-    MermaidInitializer.initialize();
+    if (!chart) return;
 
     const renderDiagram = async () => {
-      if (chart && ref.current) {
-        try {
-          // Use slice instead of deprecated substr
-          const id = `mermaid-${Math.random().toString(36).slice(2, 11)}`;
-          const { svg: generatedSvg } = await mermaid.render(id, chart);
-          // The chart prop comes from our own codebase, so it's safe to use
-          setSvg(generatedSvg);
-        } catch (error) {
-          console.error("Error rendering mermaid diagram:", error);
-        }
+      setIsLoading(true);
+      try {
+        // Initialize mermaid once using singleton pattern
+        MermaidInitializer.initialize();
+
+        // Use slice instead of deprecated substr
+        const id = `mermaid-${Math.random().toString(36).slice(2, 11)}`;
+        const { svg: generatedSvg } = await mermaid.render(id, chart);
+        
+        // Set the SVG content via state
+        setSvg(generatedSvg);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error rendering mermaid diagram:", error);
+        setIsLoading(false);
       }
     };
 
     renderDiagram();
   }, [chart]);
 
+  if (isLoading && !svg) {
+    return (
+      <div ref={containerRef} className={`${className} opacity-50 transition-opacity`}>
+        <div className="text-white/40 text-sm">Loading diagram...</div>
+      </div>
+    );
+  }
+
   return (
-    <div
-      ref={ref}
-      className={className}
+    <div 
+      ref={containerRef} 
+      className={`${className} opacity-100 transition-opacity`}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
