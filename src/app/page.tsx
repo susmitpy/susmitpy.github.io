@@ -86,17 +86,11 @@ export default function Home() {
           <OpenSourceList />
         </section>
 
-        {/* Tech Stack Marquee - Full width after GitHub Repositories */}
         <TechStackMarquee />
 
         {/* Certifications */}
         <section id="certifications">
           <CertificationsMarquee />
-        </section>
-
-        {/* Book Shelf */}
-        <section id="books">
-          <BookShelf />
         </section>
 
         {/* Testimonials */}
@@ -107,6 +101,12 @@ export default function Home() {
         {/* Connect Section */}
         <section id="connect">
           <ConnectSection />
+        </section>
+
+
+        {/* Book Shelf */}
+        <section id="books">
+          <BookShelf />
         </section>
       </div>
 

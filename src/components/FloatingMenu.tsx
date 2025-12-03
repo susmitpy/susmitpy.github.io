@@ -10,9 +10,9 @@ const menuItems = [
     { label: 'Blogs', id: 'blogs' },
     { label: 'Open Source', id: 'opensource' },
     { label: 'Certifications', id: 'certifications' },
-    { label: 'Books', id: 'books' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Connect', id: 'connect' },
+    { label: 'Books', id: 'books' },
 ];
 
 export const FloatingMenu = () => {

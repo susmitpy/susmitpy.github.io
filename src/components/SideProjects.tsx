@@ -58,12 +58,13 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         className="block bg-obsidian-800/50 rounded-xl border border-white/[0.05] hover:border-indigo-500/20 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
       >
         {/* Image/GIF Container */}
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="aspect-video relative bg-gradient-to-br from-obsidian-800 via-obsidian-700 to-indigo-900">
+
           <Image
             src={showGif ? project.gifPath : project.imagePath}
             alt={project.name}
             fill
-            className="object-cover transition-all duration-500"
+            className="object-contain transition-all duration-500"
             unoptimized={showGif}
           />
           

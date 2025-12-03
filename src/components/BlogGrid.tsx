@@ -47,12 +47,13 @@ export const BlogGrid = () => {
               className="group block h-full bg-obsidian-800/50 rounded-xl border border-white/[0.05] hover:border-indigo-500/20 overflow-hidden transition-all duration-300 hover:-translate-y-1"
             >
               {/* Cover Image */}
-              <div className="relative aspect-video overflow-hidden">
+              {/* <div className="relative aspect-video overflow-hidden"> */}
+                <div className="aspect-video relative bg-gradient-to-br from-obsidian-800 via-obsidian-700 to-indigo-900">
                 <Image
                   src={blog.img}
                   alt={blog.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent" />
               </div>

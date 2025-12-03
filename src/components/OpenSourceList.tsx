@@ -61,14 +61,10 @@ export const OpenSourceList = () => {
       <div className="hidden md:block bg-obsidian-800/30 rounded-xl border border-white/[0.05] overflow-hidden">
         <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3 border-b border-white/[0.05] text-xs font-mono text-white/40 uppercase tracking-wider">
           <span>Repository</span>
-          <span className="w-20 text-center">Language</span>
-          <span className="w-16 text-center">Stars</span>
+          <span className="w-20 text-center">Related Video</span>
         </div>
         
         {ReposData.repos.map((repo, idx) => {
-          const language = getRepoLanguage(repo.name);
-          const stars = getStarCount(idx);
-          
           return (
             <motion.div
               key={idx}
@@ -77,6 +73,10 @@ export const OpenSourceList = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
             >
+              <div className="flex flex-row justify-between">
+
+
+
               <Link
                 href={repo.link}
                 target="_blank"
@@ -93,25 +93,33 @@ export const OpenSourceList = () => {
                       {repo.description}
                     </p>
                   </div>
-                </div>
-                
-                <div className="w-20 flex items-center justify-center">
-                  <span className="flex items-center gap-1.5 text-xs text-white/50">
-                    <span 
-                      className="w-2.5 h-2.5 rounded-full"
-                      style={{ backgroundColor: languageColors[language] || "#6e7681" }}
-                    />
-                    {language}
-                  </span>
-                </div>
-                
-                <div className="w-16 flex items-center justify-center">
-                  <span className="flex items-center gap-1 text-xs text-white/50">
-                    <Star className="w-3 h-3" />
-                    {stars}
-                  </span>
-                </div>
-              </Link>
+                  </div>
+                </Link>
+
+                {
+                  repo.relatedVideo && (
+                    <Link
+                      href={repo.relatedVideo.link}
+                      target="_blank"
+                      className="w-20 flex items-center justify-center mr-5">
+                      <div >
+                        <span className="flex items-center gap-1.5 text-xs text-white/50">
+                          <span
+                            className="w-2.5 h-2.5 rounded-full"
+                            style={{ backgroundColor: "#6e7681" }}
+                          />
+                          {repo.relatedVideo.title}
+                        </span>
+
+                      </div>
+                    </Link>
+                  )
+                }
+
+
+
+
+              </div>
             </motion.div>
           );
         })}
@@ -120,9 +128,6 @@ export const OpenSourceList = () => {
       {/* Mobile: Stacked list with larger tap targets */}
       <div className="md:hidden space-y-3">
         {ReposData.repos.map((repo, idx) => {
-          const language = getRepoLanguage(repo.name);
-          const stars = getStarCount(idx);
-          
           return (
             <motion.div
               key={idx}
@@ -148,19 +153,21 @@ export const OpenSourceList = () => {
                   <ExternalLink className="w-4 h-4 text-white/30 flex-shrink-0" />
                 </div>
                 
-                <div className="flex items-center gap-4 mt-3 pt-3 border-t border-white/[0.05]">
-                  <span className="flex items-center gap-1.5 text-xs text-white/50">
-                    <span 
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: languageColors[language] || "#6e7681" }}
-                    />
-                    {language}
-                  </span>
-                  <span className="flex items-center gap-1 text-xs text-white/50">
-                    <Star className="w-3 h-3" />
-                    {stars}
-                  </span>
-                </div>
+                {
+                  repo.relatedVideo && (
+                    <div className="flex items-center gap-4 mt-3 pt-3 border-t border-white/[0.05]">
+                      <span className="flex items-center gap-1.5 text-xs text-white/50">
+                        <span
+                          className="w-2 h-2 rounded-full"
+                          style={{ backgroundColor: "#6e7681" }}
+                        />
+                        {repo.relatedVideo.title}
+                      </span>
+                    </div>
+                  )
+                }
+
+
               </Link>
             </motion.div>
           );
