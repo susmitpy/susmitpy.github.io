@@ -55,7 +55,8 @@ export const CaseStudies: CaseStudy[] = [
 ];
 
 export const SkillsData = {
-    heading: "Skills & Tools I Use:",
+    heading: "Tech Stack",
+    description: "Expert tools and usecase matchmaker",
     skillGroups: {
         "Programming Languages": [
             { name: "Python", logoPath: `${prefix}/skills/python.webp` },

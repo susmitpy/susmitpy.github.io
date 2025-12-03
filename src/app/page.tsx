@@ -15,11 +15,11 @@ import { KeySkills } from "@/components/KeySkills";
 import { OpenSourceList } from "@/components/OpenSourceList";
 import { SideProjects } from "@/components/SideProjects";
 import { TalksCarousel } from "@/components/TalksCarousel";
-import { TechStackMarquee } from "@/components/TechStackMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CaseStudies } from "@/lib/data";
+import SkillsSection from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -86,7 +86,10 @@ export default function Home() {
           <OpenSourceList />
         </section>
 
-        <TechStackMarquee />
+        <section id="skills">
+          <SkillsSection />
+        </section>
+
 
         {/* Certifications */}
         <section id="certifications">

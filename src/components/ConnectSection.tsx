@@ -83,15 +83,6 @@ export const ConnectSection = () => {
           })}
         </div>
 
-        {/* Decorative elements */}
-        <div className="mt-16 pt-8 border-t border-white/[0.05]">
-          <p className="text-xs font-mono text-white/30">
-            Built with Next.js, Tailwind CSS, and Framer Motion
-          </p>
-          <p className="text-xs font-mono text-white/20 mt-2">
-            © {new Date().getFullYear()} Susmit Vengurlekar
-          </p>
-        </div>
       </motion.div>
     </section>
   );
