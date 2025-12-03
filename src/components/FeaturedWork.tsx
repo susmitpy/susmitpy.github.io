@@ -4,41 +4,26 @@ import { CaseStudy } from "@/lib/data";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Mermaid } from "./Mermaid";
 
-// Architecture diagram snippets for each case study
+// Architecture diagram snippets for each case study using Mermaid syntax
 const architectureSnippets: Record<string, string> = {
-  "Real-Time Click-Through Rate Analysis": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Go Data   │────▶│   Kafka     │────▶│   Flink     │
-│  Producer   │     │   Topics    │     │   Jobs      │
-└─────────────┘     └─────────────┘     └──────┬──────┘
-                                               │
-                         ┌─────────────────────┴─────┐
-                         ▼                           ▼
-                  ┌─────────────┐           ┌─────────────┐
-                  │  Real-time  │           │   Metrics   │
-                  │  Dashboard  │           │   Store     │
-                  └─────────────┘           └─────────────┘`,
-  "Kong API Gateway with Observability": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Client    │────▶│   Kong      │────▶│  FastAPI    │
-│  Request    │     │   Gateway   │     │  Services   │
-└─────────────┘     └──────┬──────┘     └─────────────┘
-                           │
-                    ┌──────┴──────┐
-                    ▼             ▼
-             ┌───────────┐ ┌───────────┐
-             │   OTel    │ │ OpenObs   │
-             │ Collector │ │ Dashboard │
-             └───────────┘ └───────────┘`,
-  "QnA on Knowledge Graph": `┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Query     │────▶│  LangChain  │────▶│    LLM      │
-│   Input     │     │   Router    │     │   Engine    │
-└─────────────┘     └──────┬──────┘     └──────┬──────┘
-                           │                   │
-                           ▼                   ▼
-                    ┌─────────────┐     ┌─────────────┐
-                    │   Neo4j     │◀───▶│  Context    │
-                    │   Graph     │     │  Builder    │
-                    └─────────────┘     └─────────────┘`,
+  "Real-Time Click-Through Rate Analysis": `graph LR
+    A[Go Data<br/>Producer] --> B[Kafka<br/>Topics]
+    B --> C[Flink<br/>Jobs]
+    C --> D[Real-time<br/>Dashboard]
+    C --> E[Metrics<br/>Store]`,
+  "Kong API Gateway with Observability": `graph LR
+    A[Client<br/>Request] --> B[Kong<br/>Gateway]
+    B --> C[FastAPI<br/>Services]
+    B --> D[OTel<br/>Collector]
+    B --> E[OpenObs<br/>Dashboard]`,
+  "QnA on Knowledge Graph": `graph TB
+    A[Query<br/>Input] --> B[LangChain<br/>Router]
+    B --> C[LLM<br/>Engine]
+    B --> D[Neo4j<br/>Graph]
+    C --> E[Context<br/>Builder]
+    D <--> E`,
 };
 
 export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; index?: number }) => {
@@ -155,9 +140,9 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
             </div>
 
             {/* Diagram content */}
-            <pre className="p-4 text-[9px] md:text-[10px] text-indigo-300/80 font-mono leading-relaxed overflow-x-auto">
-              <code>{snippet}</code>
-            </pre>
+            <div className="p-4">
+              <Mermaid chart={snippet} className="mermaid-diagram" />
+            </div>
           </div>
         </div>
       </div>
