@@ -18,6 +18,7 @@ import { TalksCarousel } from "@/components/TalksCarousel";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CaseStudies } from "@/lib/data";
 import SkillsSection from "@/components/Skills";
 
@@ -53,8 +54,7 @@ export default function Home() {
           />
         </BentoGrid>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Featured Work Section */}
         <section id="projects" className="py-12">
@@ -71,24 +71,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Experience Timeline */}
         <section id="experience">
           <ExperienceTimeline />
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Tech Blogs */}
         <section id="blogs">
           <BlogGrid />
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Side Projects */}
         <SideProjects />
@@ -98,32 +95,27 @@ export default function Home() {
           <OpenSourceList />
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         <section id="skills">
           <SkillsSection />
         </section>
 
-
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Certifications */}
         <section id="certifications">
           <CertificationsMarquee />
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Testimonials */}
         <section id="testimonials">
           <TestimonialsCarousel />
         </section>
 
-        {/* Section Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
+        <SectionDivider />
 
         {/* Connect Section */}
         <section id="connect">
