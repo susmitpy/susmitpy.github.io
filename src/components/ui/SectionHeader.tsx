@@ -21,7 +21,7 @@ export const SectionHeader = ({ title, eyebrow, className }: SectionHeaderProps)
           </span>
         </div>
         {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-bold text-white/90 tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#e5e5e5] tracking-tight">
           {title}
         </h2>
       </div>
