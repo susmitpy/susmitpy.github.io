@@ -134,7 +134,7 @@ export default function HeroSection() {
                   <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-2 block">
                         Data Systems Architect
                   </span>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight font-mono">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#e5e5e5] mb-4 tracking-tight font-mono">
                       {HeroData.name}
                   </h1>
               </motion.div>
@@ -144,7 +144,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-lg md:text-xl lg:text-2xl font-semibold text-white/80 mb-4 max-w-xl leading-relaxed"
+                  className="text-lg md:text-xl lg:text-2xl font-semibold text-[#d0d0d0] mb-4 max-w-xl leading-relaxed"
               >
                   <TypewriterText text={HeroData.headline} />
               </motion.h2>
@@ -154,7 +154,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-sm text-white/50 max-w-lg mb-8 leading-relaxed"
+                  className="text-sm text-[#a0a0a0] max-w-lg mb-8 leading-relaxed"
               >
                   {HeroData.subHeadline}
               </motion.p>
@@ -169,7 +169,7 @@ export default function HeroSection() {
                   {HeroData.titles.map((title, idx) => (
               <span
                   key={idx}
-                          className="px-3 py-0.12 text-xs font-mono font-medium bg-white/5 text-white/70 rounded-md border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300"
+                          className="px-3 py-0.12 text-xs font-mono font-medium bg-white/5 text-[#b0b0b0] rounded-md border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-300"
               >
                   {title}
               </span>

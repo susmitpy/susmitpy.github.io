@@ -18,13 +18,14 @@ import { TalksCarousel } from "@/components/TalksCarousel";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CaseStudies } from "@/lib/data";
 import SkillsSection from "@/components/Skills";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white p-4 md:p-8 relative">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <main className="min-h-screen bg-[#141414] text-[#e5e5e5] p-4 md:p-8 relative">
+      <div className="max-w-7xl mx-auto space-y-16">
 
         {/* Bento Grid Section */}
         <BentoGrid className="md:auto-rows-[20rem]">
@@ -53,6 +54,8 @@ export default function Home() {
           />
         </BentoGrid>
 
+        <SectionDivider />
+
         {/* Featured Work Section */}
         <section id="projects" className="py-12">
           <SectionHeader
@@ -68,15 +71,21 @@ export default function Home() {
           </div>
         </section>
 
+        <SectionDivider />
+
         {/* Experience Timeline */}
         <section id="experience">
           <ExperienceTimeline />
         </section>
 
+        <SectionDivider />
+
         {/* Tech Blogs */}
         <section id="blogs">
           <BlogGrid />
         </section>
+
+        <SectionDivider />
 
         {/* Side Projects */}
         <SideProjects />
@@ -86,20 +95,27 @@ export default function Home() {
           <OpenSourceList />
         </section>
 
+        <SectionDivider />
+
         <section id="skills">
           <SkillsSection />
         </section>
 
+        <SectionDivider />
 
         {/* Certifications */}
         <section id="certifications">
           <CertificationsMarquee />
         </section>
 
+        <SectionDivider />
+
         {/* Testimonials */}
         <section id="testimonials">
           <TestimonialsCarousel />
         </section>
+
+        <SectionDivider />
 
         {/* Connect Section */}
         <section id="connect">

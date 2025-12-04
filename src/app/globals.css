@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    /* Strict Dark Mode - Obsidian Theme */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
+    /* Softer Dark Mode - Reduced Contrast */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 18%;
     --muted-foreground: 0 0% 64%;
     --accent: 239 84% 67%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 90%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
+    --destructive-foreground: 0 0% 90%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 239 84% 67%;
     --radius: 0.75rem;
   }
@@ -38,13 +38,13 @@
   }
   
   body {
-    @apply bg-[#050505] text-white antialiased;
+    @apply bg-[#141414] text-[#e5e5e5] antialiased;
     font-family: var(--font-geist-sans), system-ui, sans-serif;
     /* Technical grid pattern - 40px grid with very low opacity */
     background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.06), transparent);
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.04), transparent);
     background-size: 40px 40px, 40px 40px, 100% 100%;
     background-attachment: fixed;
     /* Subtle vignette effect to focus attention on center */
@@ -60,16 +60,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #141414;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252525;
+  background: #2a2a2a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #3a3a3a;
 }
 
 .hide-scrollbar {
