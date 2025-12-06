@@ -1,7 +1,7 @@
 "use client";
 
 import { TalksData } from "@/lib/data";
-import { PlayCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { PlayCircle, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -31,6 +31,16 @@ export const TalksCarousel = () => {
           SPEAKER
         </h3>
         <div className="flex items-center gap-2">
+          <Link
+            href="https://susmitpy.github.io/talks/"
+            target="_blank"
+            className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all flex items-center gap-1.5 group"
+          >
+            <span className="text-xs font-mono text-white/70 group-hover:text-white/90">
+              View all Slide Decks
+            </span>
+            <ExternalLink className="w-3 h-3 text-white/50 group-hover:text-indigo-400" />
+          </Link>
           <button
             onClick={goToPrevPage}
             className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all"
