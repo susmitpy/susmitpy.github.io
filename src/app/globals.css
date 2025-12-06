@@ -210,7 +210,7 @@
 
 /* Section wrapper styles for visual separation */
 .section-wrapper {
-  padding: 5rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 /* Automatically alternate background colors */
@@ -229,7 +229,7 @@
 /* Mobile padding adjustments */
 @media (max-width: 768px) {
   .section-wrapper {
-    padding: 3rem 1rem;
+    padding: 1.5rem 1rem;
   }
   
   /* Hero section mobile fixes */
