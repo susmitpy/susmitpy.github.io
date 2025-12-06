@@ -140,18 +140,7 @@ export const TestimonialsCarousel = () => {
             </motion.div>
           ))}
         </div>
-        
-        {/* Mobile dots indicator */}
-        <div className="flex items-center justify-center gap-2 mt-4">
-          {testimonials.map((_, idx) => (
-            <div
-              key={idx}
-              className={`w-1.5 h-1.5 rounded-full ${
-                idx === 0 ? "bg-indigo-400" : "bg-white/20"
-              }`}
-            />
-          ))}
-        </div>
+      
       </div>
     </section>
   );
