@@ -79,7 +79,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
               >
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight font-mono mb-4" style={{ color: 'var(--text-primary)' }}>
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-mono mb-3" style={{ color: 'var(--text-primary)' }}>
                       {HeroData.name}
                   </h1>
               </motion.div>
@@ -89,7 +89,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 max-w-2xl leading-relaxed"
+                    className="text-lg md:text-xl lg:text-2xl font-semibold mb-4 max-w-2xl leading-relaxed"
                   style={{ color: 'var(--text-primary)' }}
               >
                   <TypewriterText text={HeroData.headline} />
@@ -100,7 +100,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-base md:text-lg max-w-3xl mb-8 leading-relaxed"
+                    className="text-sm md:text-base max-w-3xl mb-6 leading-relaxed"
                   style={{ color: 'var(--text-muted)' }}
               >
                   {HeroData.subHeadline}
