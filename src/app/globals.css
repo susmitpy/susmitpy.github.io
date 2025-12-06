@@ -4,26 +4,34 @@
 
 @layer base {
   :root {
-    /* Softer Dark Mode - Reduced Contrast */
-    --background: 0 0% 8%;
-    --foreground: 0 0% 90%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 90%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 90%;
-    --primary: 0 0% 90%;
-    --primary-foreground: 0 0% 8%;
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 90%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 239 84% 67%;
-    --accent-foreground: 0 0% 90%;
+    /* Soft Dark Mode - Material Design Dark Grey Palette */
+    --bg-main: #121212;      /* Soft Dark Background */
+    --bg-secondary: #1E1E1E; /* Slightly lighter for alternate sections */
+    --text-primary: #E4E6EB; /* Readable off-white */
+    --text-muted: #B0B3B8;   /* For descriptions */
+    --accent: #64FFDA;       /* Soft Teal for highlights */
+    --accent-blue: #60A5FA;  /* Alternative blue accent */
+    
+    /* HSL values for compatibility */
+    --background: 0 0% 7%;
+    --foreground: 220 13% 91%;
+    --card: 0 0% 12%;
+    --card-foreground: 220 13% 91%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 220 13% 91%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 220 13% 91%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 220 9% 69%;
+    --accent-hsl: 167 70% 70%;
+    --accent-foreground: 0 0% 7%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 90%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 239 84% 67%;
+    --destructive-foreground: 220 13% 91%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 167 70% 70%;
     --radius: 0.75rem;
   }
 }
@@ -38,13 +46,15 @@
   }
   
   body {
-    @apply bg-[#141414] text-[#e5e5e5] antialiased;
+    @apply antialiased;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     font-family: var(--font-geist-sans), system-ui, sans-serif;
     /* Technical grid pattern - 40px grid with very low opacity */
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.04), transparent);
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(100, 255, 218, 0.04), transparent);
     background-size: 40px 40px, 40px 40px, 100% 100%;
     background-attachment: fixed;
     /* Subtle vignette effect to focus attention on center */
@@ -60,7 +70,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: var(--bg-main);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -196,4 +206,41 @@
 .mermaid-diagram .edgeLabel {
   background-color: transparent;
   color: #e0e7ff;
+}
+
+/* Section wrapper styles for visual separation */
+.section-wrapper {
+  padding: 5rem 1.5rem;
+}
+
+/* Automatically alternate background colors */
+.section-wrapper:nth-of-type(even) {
+  background-color: var(--bg-secondary);
+}
+
+/* Center and separate headers */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+/* Mobile padding adjustments */
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 3rem 1rem;
+  }
+  
+  /* Hero section mobile fixes */
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  /* Grid layouts - single column on mobile */
+  .project-grid,
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

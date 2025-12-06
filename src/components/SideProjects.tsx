@@ -124,7 +124,7 @@ export const SideProjects = () => {
       </motion.div>
 
       {/* Desktop: Masonry-style grid */}
-      <div className="hidden md:grid md:grid-cols-3 gap-6">
+      <div className="hidden md:grid project-grid md:grid-cols-3 gap-6">
         {ProjectsData.projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} index={idx} />
         ))}
