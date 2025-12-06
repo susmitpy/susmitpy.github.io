@@ -1,17 +1,6 @@
 "use client";
-import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function RootLayout({
   children,
@@ -19,13 +8,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
       <Head>
-        <title>Susmit Portfolio</title>
-        <meta name="description" content="Susmit (susmitpy) Portfolion" />
+        <title>Susmit Vengurlekar | Data Systems Architect</title>
+        <meta name="description" content="Architecting Data Systems & Interfaces - Bridging complex Backend pipelines with intuitive Frontend experiences." />
+        <meta name="theme-color" content="#0a0a0a" />
       </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased bg-[#141414] text-[#e5e5e5] font-sans"
       >
         {children}
       </body>

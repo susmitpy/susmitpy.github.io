@@ -1,19 +1,18 @@
+"use client";
+
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCompass, FaChevronUp } from 'react-icons/fa';
+import { Compass, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const menuItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
     { label: 'Projects', id: 'projects' },
-    { label: 'GitHub Repos', id: 'repos' },
+    { label: 'Experience', id: 'experience' },
     { label: 'Blogs', id: 'blogs' },
-    { label: 'Talks', id: 'talks' },
-    { label: 'Professional Courses and Badges', id: 'badges' },
+    { label: 'Open Source', id: 'opensource' },
+    { label: 'Certifications', id: 'certifications' },
     { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Work Experience', id: 'experience' },
-    { label: 'Connect', id: 'contact' },
-    { label: 'Recommended Books', id: 'recommended-books' },
+    { label: 'Connect', id: 'connect' },
+    { label: 'Books', id: 'books' },
 ];
 
 export const FloatingMenu = () => {
@@ -21,46 +20,46 @@ export const FloatingMenu = () => {
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
-
         element?.scrollIntoView({ behavior: 'smooth', block: "start" });
-
-
         setIsOpen(false);
     };
 
     return (
-        <div className="fixed bottom-8 right-8 z-50">
+        <div className="fixed bottom-24 right-6 z-40">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.5 }}
-                        className="absolute bottom-16 right-0 mb-2 bg-white rounded-lg shadow-lg"
+                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                        className="absolute bottom-14 right-0 mb-2 bg-obsidian-800/95 backdrop-blur-md rounded-xl border border-white/10 shadow-xl overflow-hidden min-w-[180px]"
                     >
-                        {menuItems.map((item) => (
-                            <button
+                        {menuItems.map((item, idx) => (
+                            <motion.button
                                 key={item.id}
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: idx * 0.05 }}
                                 onClick={() => scrollToSection(item.id)}
-                                className="block w-full px-4 py-2 text-left hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2.5 text-left hover:bg-white/5 text-sm font-mono text-white/70 hover:text-indigo-400 transition-colors border-b border-white/5 last:border-0"
                             >
                                 {item.label}
-                            </button>
+                            </motion.button>
                         ))}
                     </motion.div>
                 )}
             </AnimatePresence>
 
             <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-primary text-white p-4 rounded-full shadow-lg"
+                className="w-12 h-12 bg-obsidian-800/90 backdrop-blur-md text-white/80 rounded-full shadow-lg border border-white/10 flex items-center justify-center hover:border-indigo-500/30 hover:text-indigo-400 transition-all"
             >
                 {isOpen ? (
-                    <FaChevronUp className="h-6 w-6" />
+                    <ChevronUp className="w-5 h-5" />
                 ) : (
-                    <FaCompass className="h-6 w-6" />
+                        <Compass className="w-5 h-5" />
                 )}
             </motion.button>
         </div>

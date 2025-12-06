@@ -2,11 +2,10 @@ import { prefix } from "./prefix"
 
 export const HeroData = {
     name: "Susmit Vengurlekar",
-    headline: "A Passionate Techie who builds Problem-Solving Tech Solutions",
-    subHeadline: "Having 8+ YoE (4+ YoE after graduation)",
+    headline: "Building Scalable Data Systems & Modern Web Applications",
+    subHeadline: "Specialized in real-time data pipelines (Kafka, Flink), graph databases (Neo4j), and full-stack development. I design and build end-to-end solutions from backend data infrastructure to intuitive user interfaces.",
     aboutTitle: "About Me",
-    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective."
-,
+    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective.",
     titles: [
         "Data Scientist",
         "Database Engineer",
@@ -18,8 +17,46 @@ export const HeroData = {
     ]
 }
 
+export interface CaseStudy {
+    title: string;
+    problem: string;
+    solution: string;
+    impact: string;
+    techStack: string[];
+    repoLink: string;
+    imagePath?: string;
+}
+
+export const CaseStudies: CaseStudy[] = [
+    {
+        title: "Real-Time Click-Through Rate Analysis",
+        problem: "High latency in processing user impressions and clicks for ad-tech analytics.",
+        solution: "Implemented a Flink streaming job with Kafka as the message bus to process data in real-time.",
+        impact: "Reduces data processing latency from minutes to milliseconds, enabling real-time decision making.",
+        techStack: ["Apache Flink", "Apache Kafka", "Python", "Go"],
+        repoLink: "https://github.com/susmitpy/stream_analytics_adtech_ctr"
+    },
+    {
+        title: "Kong API Gateway with Observability",
+        problem: "Lack of visibility into microservices traffic and performance bottlenecks.",
+        solution: "Deployed Kong API Gateway with OpenTelemetry and OpenObserve for end-to-end tracing and metrics.",
+        impact: "Improves system reliability and reduces mean time to resolution (MTTR) for API issues.",
+        techStack: ["Kong", "FastAPI", "OpenTelemetry", "OpenObserve", "Docker"],
+        repoLink: "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
+    },
+    {
+        title: "QnA on Knowledge Graph",
+        problem: "Difficulty in retrieving accurate answers from unstructured data using traditional search.",
+        solution: "Built a RAG system using Neo4j as a knowledge graph to provide context-aware answers.",
+        impact: "Enhances answer accuracy and relevance by leveraging graph relationships.",
+        techStack: ["Neo4j", "LangChain", "Python", "LLM"],
+        repoLink: "https://github.com/susmitpy/QnA-on-Neo4j-Knowledge-Graph"
+    }
+];
+
 export const SkillsData = {
-    heading: "Skills & Tools I Use:",
+    heading: "Tech Stack",
+    description: "Expert tools and usecase matchmaker",
     skillGroups: {
         "Programming Languages": [
             { name: "Python", logoPath: `${prefix}/skills/python.webp` },
@@ -96,16 +133,28 @@ export const ReposData = {
         {
             "name": "Real-Time Click-Through Rate Analysis with Flink & Kafka",
             "description": "Go-based data producer to simulate user impressions and clicks, Kafka as the message bus, and a PyFlink job to process the data in real-time",
-            "link": "https://github.com/susmitpy/stream_analytics_adtech_ctr"
+            "link": "https://github.com/susmitpy/stream_analytics_adtech_ctr",
+            "relatedVideo": {
+                "title": "Kafka Meetup",
+                "link": "https://youtu.be/FsCWEC8Ir8I"
+            }
         },
         {
             "name": "Kong API Gateway with Fast API, Open Telemetry and OpenObserve in Docker",
-            "description": "Demonstrates end-to-end observability in a microservices architecture", "link": "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve"
+            "description": "Demonstrates end-to-end observability in a microservices architecture", "link": "https://github.com/susmitpy/docker-kong-fastapi-otel-openobserve",
+            "relatedVideo": {
+                "title": "Kong Meetup",
+                "link": "https://youtu.be/5Il3ddDElRM"
+            }
         },
         {
             "name": "AWS CDK Example",
             "description": "Demonstrates how to use AWS Lambda with AWS CDK to schedule the start and stop of EC2 instances.",
-            "link": "https://github.com/susmitpy/aws_cdk_example"
+            "link": "https://github.com/susmitpy/aws_cdk_example",
+            "relatedVideo": {
+                "title": "AWS Meetup",
+                "link": "https://youtu.be/3rr95M8gyl8"
+            }
         },
         {
             "name": "Mini Data Analyst using LLM Agent",
@@ -116,11 +165,19 @@ export const ReposData = {
             "name": "QnA on Knowledge Graph",
             "description": "question answering system based on RAG with a knowledge graph in Neo4j (graph database)",
             "link": "https://github.com/susmitpy/QnA-on-Neo4j-Knowledge-Graph",
+            "relatedVideo": {
+                "title": "GraphDatabase Meetup",
+                "link": "https://youtu.be/JpysxH4Z5Fw"
+            }
         },
         {
             "name": "MongoDB - Kafka - Neo4j",
             "description": "Propagating data from MongoDB to Neo4j via Kafka",
             "link": "https://github.com/susmitpy/mongodb-kafka-neo4j",
+            "relatedVideo": {
+                "title": "MongoDB Meetup",
+                "link": "https://youtu.be/kfMux6R-SXw"
+            }
         },
         {
             "name": "Real Time Word Count",
@@ -359,7 +416,7 @@ export const ExpData = {
             ]
         },
         flyer: {
-            heading: "Backend Developer and Database Engineer for Flyer Lively: Interests and Hobbies",
+            heading: "Backend Developer and Database Engineer for Flyer Lively: Interests & Hobbies",
             points: [
                 "Developed backend services and managed databases using PostgreSQL, Node.js, Python, and the Serverless Framework."
             ]
