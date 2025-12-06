@@ -24,40 +24,45 @@ import SkillsSection from "@/components/Skills";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#141414] text-[#e5e5e5] p-4 md:p-8 relative">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <main className="min-h-screen relative" style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-primary)' }}>
+      <div className="max-w-7xl mx-auto">
 
-        {/* Bento Grid Section */}
-        <BentoGrid className="md:auto-rows-[20rem]">
-          {/* Hero Section - Large Cell */}
-          <BentoGridItem
-            className="md:col-span-2 md:row-span-1"
-            header={<HeroSection />}
-          />
+        {/* Hero & Key Features - No wrapper, uses default bg-main */}
+        <div className="p-4 md:p-8">
+          <div className="space-y-16">
+            {/* Bento Grid Section */}
+            <BentoGrid className="md:auto-rows-[20rem]">
+              {/* Hero Section - Large Cell */}
+              <BentoGridItem
+                className="md:col-span-2 md:row-span-1"
+                header={<HeroSection />}
+              />
 
-          {/* Key Skills - Single row (replaces tall TechStack) */}
-          <BentoGridItem
-            className="md:col-span-1 md:row-span-1"
-            header={<KeySkills />}
-          />
+              {/* Key Skills - Single row (replaces tall TechStack) */}
+              <BentoGridItem
+                className="md:col-span-1 md:row-span-1"
+                header={<KeySkills />}
+              />
 
-          {/* Talks/Speaker - Full width across all 3 columns (below Hero and Key Skills) */}
-          <BentoGridItem
-            className="md:col-span-3 md:row-span-1"
-            header={<TalksCarousel />}
-          />
+              {/* Talks/Speaker - Full width across all 3 columns (below Hero and Key Skills) */}
+              <BentoGridItem
+                className="md:col-span-3 md:row-span-1"
+                header={<TalksCarousel />}
+              />
 
-          {/* Architecture Lab - Wide Cell */}
-          <BentoGridItem
-            className="md:col-span-3 md:row-span-1"
-            header={<ArchitectureLab />}
-          />
-        </BentoGrid>
+              {/* Architecture Lab - Wide Cell */}
+              <BentoGridItem
+                className="md:col-span-3 md:row-span-1"
+                header={<ArchitectureLab />}
+              />
+            </BentoGrid>
+          </div>
+        </div>
 
         <SectionDivider />
 
-        {/* Featured Work Section */}
-        <section id="projects" className="py-12">
+        {/* Featured Work Section - Alternate background */}
+        <section id="projects" className="section-wrapper">
           <SectionHeader
             eyebrow="Case Studies"
             title="Featured Work"
@@ -73,58 +78,60 @@ export default function Home() {
 
         <SectionDivider />
 
-        {/* Experience Timeline */}
-        <section id="experience">
+        {/* Experience Timeline - Main background */}
+        <section id="experience" className="section-wrapper">
           <ExperienceTimeline />
         </section>
 
         <SectionDivider />
 
-        {/* Tech Blogs */}
-        <section id="blogs">
+        {/* Tech Blogs - Alternate background */}
+        <section id="blogs" className="section-wrapper">
           <BlogGrid />
         </section>
 
         <SectionDivider />
 
-        {/* Side Projects */}
-        <SideProjects />
+        {/* Side Projects - Main background */}
+        <div className="section-wrapper">
+          <SideProjects />
+        </div>
 
-        {/* Open Source */}
-        <section id="opensource">
+        {/* Open Source - Same section, no wrapper */}
+        <section id="opensource" className="px-4 md:px-8 pb-16">
           <OpenSourceList />
         </section>
 
         <SectionDivider />
 
-        <section id="skills">
+        {/* Skills - Alternate background */}
+        <section id="skills" className="section-wrapper">
           <SkillsSection />
         </section>
 
         <SectionDivider />
 
-        {/* Certifications */}
-        <section id="certifications">
+        {/* Certifications - Main background */}
+        <section id="certifications" className="section-wrapper">
           <CertificationsMarquee />
         </section>
 
         <SectionDivider />
 
-        {/* Testimonials */}
-        <section id="testimonials">
+        {/* Testimonials - Alternate background */}
+        <section id="testimonials" className="section-wrapper">
           <TestimonialsCarousel />
         </section>
 
         <SectionDivider />
 
-        {/* Connect Section */}
-        <section id="connect">
+        {/* Connect Section - Main background */}
+        <section id="connect" className="section-wrapper">
           <ConnectSection />
         </section>
 
-
-        {/* Book Shelf */}
-        <section id="books">
+        {/* Book Shelf - Alternate background */}
+        <section id="books" className="section-wrapper">
           <BookShelf />
         </section>
       </div>

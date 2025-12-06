@@ -179,7 +179,7 @@ export const ArchitectureLab = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[280px] bg-obsidian-900 rounded-xl overflow-hidden">
+    <div className="relative w-full h-full min-h-[280px] bg-obsidian-900 rounded-xl overflow-hidden touch-auto" style={{ touchAction: 'auto' }}>
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30" />
 
