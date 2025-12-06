@@ -34,7 +34,7 @@ export const TalksCarousel = () => {
           <Link
             href="https://susmitpy.github.io/talks/"
             target="_blank"
-            className="hidden md:flex px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all items-center gap-1.5 group"
+            className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all items-center gap-1.5 group hidden md:flex"
           >
             <span className="text-xs font-mono text-white/70 group-hover:text-white/90">
               View all Slide Decks
