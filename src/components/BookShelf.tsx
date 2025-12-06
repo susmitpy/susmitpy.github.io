@@ -36,6 +36,7 @@ const BookSpine = ({ title, index }: BookSpineProps) => {
       }}
       className="relative cursor-pointer group perspective-1000"
       style={{ transformStyle: "preserve-3d" }}
+      title={title}
     >
       {/* Book spine */}
       <div 
@@ -70,16 +71,12 @@ const BookSpine = ({ title, index }: BookSpineProps) => {
       </div>
 
       {/* Hover tooltip */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileHover={{ opacity: 1, y: 0 }}
-        className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-2 bg-obsidian-800 rounded-lg border border-white/10 shadow-xl z-50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-      >
-        <p className="text-xs font-mono text-white/80 whitespace-nowrap max-w-48 truncate">
+      <div className="absolute -top-14 left-1/2 -translate-x-1/2 px-3 py-2 bg-obsidian-900 rounded-lg border border-white/20 shadow-xl z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+        <p className="text-xs font-mono text-white whitespace-normal max-w-xs">
           {title}
         </p>
-        <div className="absolute left-1/2 -translate-x-1/2 -bottom-1.5 w-3 h-3 rotate-45 bg-obsidian-800 border-r border-b border-white/10" />
-      </motion.div>
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-1.5 w-3 h-3 rotate-45 bg-obsidian-900 border-r border-b border-white/20" />
+      </div>
     </motion.div>
   );
 };
@@ -93,7 +90,7 @@ const BookCover = ({ title, index }: BookSpineProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
+      className="group relative"
     >
       <div 
         className={`relative h-40 w-28 rounded-lg bg-gradient-to-br ${colorClass} shadow-lg overflow-hidden`}
@@ -111,6 +108,14 @@ const BookCover = ({ title, index }: BookSpineProps) => {
         
         {/* Book spine effect */}
         <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/20" />
+      </div>
+
+      {/* Tooltip for mobile */}
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-2 bg-obsidian-900 rounded-lg border border-white/20 shadow-xl z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+        <p className="text-xs font-mono text-white whitespace-normal max-w-xs">
+          {title}
+        </p>
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-1.5 w-3 h-3 rotate-45 bg-obsidian-900 border-r border-b border-white/20" />
       </div>
     </motion.div>
   );

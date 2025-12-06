@@ -29,7 +29,7 @@ const TypewriterText = ({ text }: { text: string }) => {
 
 export default function HeroSection() {
     return (
-        <div className="hero-container flex flex-col md:flex-row justify-center h-full p-6 md:p-10 relative overflow-hidden group">
+        <div className="hero-container flex flex-col md:flex-row justify-center min-h-screen p-6 md:p-10 relative overflow-hidden group" id="header">
           {/* Location badge - top right */}
           <motion.div
               initial={{ opacity: 0, x: 10 }}
@@ -100,7 +100,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-base md:text-lg max-w-2xl mb-8 leading-relaxed"
+                    className="text-base md:text-lg max-w-3xl mb-8 leading-relaxed"
                   style={{ color: 'var(--text-muted)' }}
               >
                   {HeroData.subHeadline}

@@ -25,7 +25,7 @@ export const TalksCarousel = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-obsidian-900 rounded-xl">
+    <div className="w-full h-full flex flex-col bg-obsidian-900 rounded-xl" id="talks">
       <div className="flex items-center justify-between mb-3 px-1">
         <h3 className="text-sm font-mono font-bold text-white/90 tracking-wide">
           SPEAKER

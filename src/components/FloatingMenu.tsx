@@ -5,6 +5,8 @@ import { Compass, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const menuItems = [
+    { label: 'About', id: 'header' },
+    { label: 'Talks', id: 'talks' },
     { label: 'Projects', id: 'projects' },
     { label: 'Experience', id: 'experience' },
     { label: 'Blogs', id: 'blogs' },
