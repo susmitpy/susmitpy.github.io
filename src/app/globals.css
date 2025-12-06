@@ -239,8 +239,7 @@
   }
   
   /* Grid layouts - single column on mobile */
-  .project-grid,
-  .blog-grid {
+  .project-grid {
     grid-template-columns: 1fr !important;
   }
 }
