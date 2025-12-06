@@ -1,7 +1,6 @@
 "use client";
 
 import { ActionBar } from "@/components/ActionBar";
-import { ArchitectureLab } from "@/components/ArchitectureLab";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { BlogGrid } from "@/components/BlogGrid";
 import { BookShelf } from "@/components/BookShelf";
@@ -48,12 +47,6 @@ export default function Home() {
               <BentoGridItem
                 className="md:col-span-3 md:row-span-1"
                 header={<TalksCarousel />}
-              />
-
-              {/* Architecture Lab - Wide Cell */}
-              <BentoGridItem
-                className="md:col-span-3 md:row-span-1"
-                header={<ArchitectureLab />}
               />
             </BentoGrid>
           </div>
