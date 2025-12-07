@@ -84,19 +84,23 @@ export const CertificationsMarquee = () => {
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         
-        {/* Desktop: Auto-scrolling marquee */}
+        {/* Desktop: Auto-scrolling marquee with drag */}
         <div className="hidden md:block">
           <motion.div
-            className="flex gap-4"
+            className="flex gap-4 cursor-grab active:cursor-grabbing"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 40,
+                duration: 20,
                 ease: "linear",
               },
             }}
+            drag="x"
+            dragConstraints={{ left: -1000, right: 0 }}
+            dragElastic={0.1}
+            whileDrag={{ cursor: "grabbing" }}
           >
             {duplicatedBadges.map((badge, idx) => (
               <BadgeCard key={idx} badge={badge} index={idx} />
@@ -104,19 +108,23 @@ export const CertificationsMarquee = () => {
           </motion.div>
         </div>
 
-        {/* Mobile: Slower marquee */}
+        {/* Mobile: Faster marquee with drag */}
         <div className="md:hidden">
           <motion.div
-            className="flex gap-4"
+            className="flex gap-4 cursor-grab active:cursor-grabbing"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 60,
+                duration: 30,
                 ease: "linear",
               },
             }}
+            drag="x"
+            dragConstraints={{ left: -1000, right: 0 }}
+            dragElastic={0.1}
+            whileDrag={{ cursor: "grabbing" }}
           >
             {duplicatedBadges.map((badge, idx) => (
               <BadgeCard key={idx} badge={badge} index={idx} />
