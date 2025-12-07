@@ -45,19 +45,35 @@ export const TestimonialsCarousel = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    let rafId: number | null = null;
+    
     const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = cardWidthRef.current;
+      // Throttle using requestAnimationFrame for smooth performance
+      if (rafId !== null) return;
       
-      // Guard against invalid card width
-      if (!cardWidth || cardWidth <= 0) return;
-      
-      const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
-      setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
+      rafId = requestAnimationFrame(() => {
+        const scrollLeft = container.scrollLeft;
+        const cardWidth = cardWidthRef.current;
+        
+        // Guard against invalid card width
+        if (!cardWidth || cardWidth <= 0) {
+          rafId = null;
+          return;
+        }
+        
+        const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
+        setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
+        rafId = null;
+      });
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [testimonials.length]);
 
   return (
