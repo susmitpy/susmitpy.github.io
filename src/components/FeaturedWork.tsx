@@ -9,22 +9,166 @@ import { useState } from "react";
 
 // Architecture diagram snippets for each case study using Mermaid syntax
 const architectureSnippets: Record<string, string> = {
-  "Real-Time Click-Through Rate Analysis": `graph LR
-    A[Go Data<br/>Producer] --> B[Kafka<br/>Topics]
-    B --> C[Flink<br/>Jobs]
-    C --> D[Real-time<br/>Dashboard]
-    C --> E[Metrics<br/>Store]`,
-  "Kong API Gateway with Observability": `graph LR
-    A[Client<br/>Request] --> B[Kong<br/>Gateway]
-    B --> C[FastAPI<br/>Services]
-    B --> D[OTel<br/>Collector]
-    B --> E[OpenObs<br/>Dashboard]`,
+  "Real-Time Click-Through Rate Analysis": `graph TB
+    subgraph "Data Generation"
+        Producer[Go Kafka Producer<br/>~5 impressions/sec<br/>25% click probability]
+    end
+    
+    subgraph "Message Streaming - Kafka"
+        ImpTopic[Impressions Topic]
+        ClickTopic[Clicks Topic]
+    end
+    
+    subgraph "Stream Processing - Apache Flink"
+        ImpSource[Impression Source]
+        ClickSource[Click Source]
+        IntervalJoin[Interval Join<br/>15s window<br/>match on impr_id]
+        TumblingWindow[Tumbling Window<br/>30s aggregation<br/>group by campaign_id]
+        Calc[Calculate CTR<br/>clicks/impressions]
+    end
+    
+    subgraph "Data Persistence"
+        FileSink[File Sink<br/>Partitioned CSV]
+        Output[./output/ctr_results]
+    end
+    
+    subgraph "Orchestration"
+        Docker[Docker Compose]
+        Kafka[Kafka Broker]
+        JobMgr[Flink JobManager]
+        TaskMgr[Flink TaskManager]
+    end
+    
+    Producer -->|impressions| ImpTopic
+    Producer -->|clicks delayed<br/>up to 10s| ClickTopic
+    
+    ImpTopic --> ImpSource
+    ClickTopic --> ClickSource
+    
+    ImpSource --> IntervalJoin
+    ClickSource --> IntervalJoin
+    IntervalJoin -->|matched events| TumblingWindow
+    TumblingWindow --> Calc
+    Calc --> FileSink
+    FileSink --> Output
+    
+    Docker -.manages.- Kafka
+    Docker -.manages.- JobMgr
+    Docker -.manages.- TaskMgr
+    
+    style Producer fill:#4f46e5
+    style FileSink fill:#10b981
+    style IntervalJoin fill:#8b5cf6
+    style Docker fill:#475569`,
+  "Kong API Gateway with Observability": `graph TB
+    subgraph "Client Layer"
+        Client[Client Request]
+    end
+    
+    subgraph "API Gateway - Kong"
+        Kong[Kong Gateway]
+        subgraph "Plugin Chain"
+            JWT[JWT Plugin<br/>Authentication]
+            OTEL[OpenTelemetry Plugin<br/>Tracing]
+            Prom[Prometheus Plugin<br/>Metrics]
+            Custom[Custom Lua Plugin<br/>Header Extraction]
+        end
+        Upstream[Dynamic Upstreams<br/>Load Balancing]
+        Health[Health Checks<br/>Active & Passive]
+    end
+    
+    subgraph "Backend Services"
+        Auth[Auth Service<br/>FastAPI + JWT]
+        Sound[Sound Monitor Service<br/>FastAPI]
+    end
+    
+    subgraph "Observability Stack"
+        OTELCol[OpenTelemetry<br/>Collector]
+        OpenObs[OpenObserve<br/>Logs, Traces, Metrics]
+    end
+    
+    subgraph "Data Layer"
+        PG[(PostgreSQL<br/>Kong Config)]
+    end
+    
+    Client --> Kong
+    Kong --> JWT --> OTEL --> Prom --> Custom
+    Custom --> Upstream
+    Upstream --> Health
+    Health -.monitors.- Auth
+    Health -.monitors.- Sound
+    Upstream -->|route /auth| Auth
+    Upstream -->|route /monitor| Sound
+    
+    Kong --> OTELCol
+    Auth --> OTELCol
+    Sound --> OTELCol
+    OTELCol --> OpenObs
+    
+    Kong -.reads config.- PG
+    
+    style Kong fill:#4f46e5
+    style OTELCol fill:#8b5cf6
+    style OpenObs fill:#10b981
+    style Auth fill:#0ea5e9
+    style Sound fill:#0ea5e9`,
   "QnA on Knowledge Graph": `graph TB
-    A[Query<br/>Input] --> B[LangChain<br/>Router]
-    B --> C[LLM<br/>Engine]
-    B --> D[Neo4j<br/>Graph]
-    C --> E[Context<br/>Builder]
-    D <--> E`,
+    subgraph "User Interface"
+        Query[User Query<br/>Natural Language]
+    end
+    
+    subgraph "RAG Pipeline - Step 1: Vector Search"
+        Embed1[Query Embedding<br/>LLM]
+        VectorSearch[Vector Similarity Search<br/>Neo4j Vector Index]
+        RelevantData[Relevant Nodes &<br/>Relationships]
+    end
+    
+    subgraph "RAG Pipeline - Step 2: Cypher Generation"
+        Context[Build Context<br/>from Entities]
+        LLM1[LLM<br/>Ollama/GitHub Models]
+        CypherQuery[Generated<br/>Cypher Query]
+    end
+    
+    subgraph "RAG Pipeline - Step 3: Query Execution"
+        Neo4jExec[Execute Cypher<br/>against Neo4j]
+        ResultData[Retrieved Data<br/>from Graph]
+    end
+    
+    subgraph "RAG Pipeline - Step 4: Answer Generation"
+        LLM2[LLM<br/>Final Answer Generation]
+        Answer[Natural Language<br/>Answer]
+    end
+    
+    subgraph "Knowledge Graph - Neo4j"
+        KG[(Neo4j Database<br/>Nodes & Relationships)]
+        Embeddings[Vector Embeddings<br/>stored in Neo4j]
+        Indexes[Vector Indexes]
+    end
+    
+    Query --> Embed1
+    Embed1 --> VectorSearch
+    VectorSearch -.queries.- Embeddings
+    VectorSearch -.uses.- Indexes
+    VectorSearch --> RelevantData
+    
+    RelevantData --> Context
+    Context --> LLM1
+    LLM1 --> CypherQuery
+    
+    CypherQuery --> Neo4jExec
+    Neo4jExec -.executes.- KG
+    Neo4jExec --> ResultData
+    
+    ResultData --> LLM2
+    Query -.provides context.- LLM2
+    LLM2 --> Answer
+    
+    style Query fill:#4f46e5
+    style VectorSearch fill:#8b5cf6
+    style LLM1 fill:#f59e0b
+    style Neo4jExec fill:#10b981
+    style LLM2 fill:#f59e0b
+    style Answer fill:#10b981`,
 };
 
 export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; index?: number }) => {
