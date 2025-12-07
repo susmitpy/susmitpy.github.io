@@ -185,7 +185,7 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
       className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-8 p-6 md:p-8 bg-obsidian-900 rounded-2xl border border-white/[0.05] hover:border-indigo-500/20 transition-all duration-300 group`}
     >
       {/* Content Side */}
-      <div className="flex-1 flex flex-col justify-between">
+      <div className="flex-1 flex flex-col">
         <div>
           {/* Badge */}
           <div className="flex items-center gap-2 mb-4">
