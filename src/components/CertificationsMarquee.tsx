@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-// Animation constant for tripled array (moves by 1/3 to show all unique badges)
-const TRIPLE_ARRAY_OFFSET = "-33.333%";
-
-// Category colors
+// Category colors mapping
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
   "Flink": { bg: "bg-orange-500/10", text: "text-orange-400", border: "border-orange-500/20" },
   "Neo4j": { bg: "bg-green-500/10", text: "text-green-400", border: "border-green-500/20" },
@@ -23,10 +20,9 @@ interface BadgeCardProps {
     url?: string;
     can_embed?: boolean;
   };
-  index: number;
 }
 
-const BadgeCard = ({ badge, index }: BadgeCardProps) => {
+const BadgeCard = ({ badge }: BadgeCardProps) => {
   const colors = categoryColors[badge.category] || { 
     bg: "bg-indigo-500/10", 
     text: "text-indigo-400", 
@@ -43,7 +39,7 @@ const BadgeCard = ({ badge, index }: BadgeCardProps) => {
       target="_blank"
       className="flex-shrink-0 w-72 group"
     >
-      <div className={`p-4 bg-obsidian-800/50 rounded-xl border border-white/[0.05] hover:border-indigo-500/20 transition-all duration-300 h-full`}>
+      <div className="p-4 bg-obsidian-800/50 rounded-xl border border-white/[0.05] hover:border-indigo-500/20 transition-all duration-300 h-full">
         <div className="flex items-start gap-3">
           <div className={`w-10 h-10 rounded-lg ${colors.bg} ${colors.border} border flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
             <Award className={`w-5 h-5 ${colors.text}`} />
@@ -64,8 +60,11 @@ const BadgeCard = ({ badge, index }: BadgeCardProps) => {
 };
 
 export const CertificationsMarquee = () => {
-  // Triple badges for infinite scroll effect - ensures more badges are visible at once
-  const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges, ...BadgesData.badges];
+  // Double the badges for seamless infinite scroll
+  const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges];
+  
+  // Calculate dynamic drag constraint based on badge count and card width (w-72 = 288px + 16px gap)
+  const dragConstraintLeft = -(BadgesData.badges.length * (288 + 16));
 
   return (
     <section id="certifications" className="py-16 overflow-hidden">
@@ -81,62 +80,35 @@ export const CertificationsMarquee = () => {
         <p className="text-sm text-white/40 font-mono">Verified credentials and certifications</p>
       </motion.div>
 
-      {/* Infinite scrolling marquee */}
       <div className="relative">
-        {/* Gradient masks */}
+        {/* Gradient fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         
-        {/* Desktop: Auto-scrolling marquee with drag */}
-        <div className="hidden md:block">
-          <motion.div
-            className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", TRIPLE_ARRAY_OFFSET] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-            drag="x"
-            dragConstraints={{ left: -1000, right: 0 }}
-            dragElastic={0.1}
-            whileDrag={{ cursor: "grabbing" }}
-          >
-            {duplicatedBadges.map((badge, idx) => (
-              <BadgeCard key={idx} badge={badge} index={idx} />
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Mobile: Faster marquee with drag */}
-        <div className="md:hidden">
-          <motion.div
-            className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", TRIPLE_ARRAY_OFFSET] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-            drag="x"
-            dragConstraints={{ left: -1000, right: 0 }}
-            dragElastic={0.1}
-            whileDrag={{ cursor: "grabbing" }}
-          >
-            {duplicatedBadges.map((badge, idx) => (
-              <BadgeCard key={idx} badge={badge} index={idx} />
-            ))}
-          </motion.div>
-        </div>
+        {/* Scrollable marquee container with drag support */}
+        <motion.div
+          className="flex gap-4 cursor-grab active:cursor-grabbing"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 25,
+              ease: "linear",
+            },
+          }}
+          drag="x"
+          dragConstraints={{ left: dragConstraintLeft, right: 0 }}
+          dragElastic={0.05}
+          dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+        >
+          {duplicatedBadges.map((badge, idx) => (
+            <BadgeCard key={`badge-${idx}-${badge.credlyId || badge.url || badge.title}`} badge={badge} />
+          ))}
+        </motion.div>
       </div>
 
-      {/* Badge count */}
+      {/* Badge count indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
