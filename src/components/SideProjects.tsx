@@ -119,7 +119,7 @@ export const SideProjects = () => {
         </h2>
         <p className="text-sm text-white/40 font-mono">
           <span className="hidden md:inline">{ProjectsData.desktopMessage}</span>
-          <span className="md:hidden">{ProjectsData.mobileMessage}</span>
+          
         </p>
       </motion.div>
 
