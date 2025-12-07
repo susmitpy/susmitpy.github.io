@@ -6,10 +6,13 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
+const CARD_GAP = 16; // 1rem gap between cards
+
 export const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mobileCurrentIndex, setMobileCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardWidthRef = useRef<number>(0);
   const testimonials = TestimonialsData.testimonials;
 
   const nextTestimonial = () => {
@@ -20,6 +23,23 @@ export const TestimonialsCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Cache card width on mount and resize
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const updateCardWidth = () => {
+      const card = container.querySelector('.testimonial-card');
+      if (card) {
+        cardWidthRef.current = card.clientWidth;
+      }
+    };
+
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
+
   // Track scroll position to update mobile current index
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -27,9 +47,8 @@ export const TestimonialsCarousel = () => {
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = container.querySelector('.testimonial-card')?.clientWidth || 0;
-      const gap = 16; // 1rem gap
-      const index = Math.round(scrollLeft / (cardWidth + gap));
+      const cardWidth = cardWidthRef.current || 0;
+      const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
       setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
     };
 
@@ -171,10 +190,9 @@ export const TestimonialsCarousel = () => {
               onClick={() => {
                 const container = scrollContainerRef.current;
                 if (container) {
-                  const cardWidth = container.querySelector('.testimonial-card')?.clientWidth || 0;
-                  const gap = 16;
+                  const cardWidth = cardWidthRef.current || 0;
                   container.scrollTo({
-                    left: idx * (cardWidth + gap),
+                    left: idx * (cardWidth + CARD_GAP),
                     behavior: 'smooth'
                   });
                 }
