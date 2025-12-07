@@ -62,6 +62,9 @@ const BadgeCard = ({ badge }: BadgeCardProps) => {
 export const CertificationsMarquee = () => {
   // Double the badges for seamless infinite scroll
   const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges];
+  
+  // Calculate dynamic drag constraint based on badge count and card width (w-72 = 288px + 16px gap)
+  const dragConstraintLeft = -(BadgesData.badges.length * (288 + 16));
 
   return (
     <section id="certifications" className="py-16 overflow-hidden">
@@ -95,12 +98,12 @@ export const CertificationsMarquee = () => {
             },
           }}
           drag="x"
-          dragConstraints={{ left: -2000, right: 0 }}
+          dragConstraints={{ left: dragConstraintLeft, right: 0 }}
           dragElastic={0.05}
           dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
         >
           {duplicatedBadges.map((badge, idx) => (
-            <BadgeCard key={`${badge.title}-${idx}`} badge={badge} />
+            <BadgeCard key={`badge-${idx}-${badge.credlyId || badge.url || badge.title}`} badge={badge} />
           ))}
         </motion.div>
       </div>
