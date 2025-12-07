@@ -3,11 +3,16 @@
 import { TestimonialsData } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+
+const CARD_GAP = 16; // 1rem gap between cards
 
 export const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mobileCurrentIndex, setMobileCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardWidthRef = useRef<number>(0);
   const testimonials = TestimonialsData.testimonials;
 
   const nextTestimonial = () => {
@@ -17,6 +22,59 @@ export const TestimonialsCarousel = () => {
   const prevTestimonial = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  // Cache card width on mount and resize
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const updateCardWidth = () => {
+      const card = container.querySelector('.testimonial-card');
+      if (card) {
+        cardWidthRef.current = card.clientWidth;
+      }
+    };
+
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
+
+  // Track scroll position to update mobile current index
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let rafId: number | null = null;
+    
+    const handleScroll = () => {
+      // Throttle using requestAnimationFrame for smooth performance
+      if (rafId !== null) return;
+      
+      rafId = requestAnimationFrame(() => {
+        const scrollLeft = container.scrollLeft;
+        const cardWidth = cardWidthRef.current;
+        
+        // Guard against invalid card width
+        if (!cardWidth || cardWidth <= 0) {
+          rafId = null;
+          return;
+        }
+        
+        const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
+        setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
+        rafId = null;
+      });
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
+  }, [testimonials.length]);
 
   return (
     <section id="testimonials" className="py-16">
@@ -106,7 +164,10 @@ export const TestimonialsCarousel = () => {
 
       {/* Mobile: Swipeable cards */}
       <div className="md:hidden">
-        <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory -mx-4 px-4">
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory -mx-4 px-4"
+        >
           {testimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -114,7 +175,7 @@ export const TestimonialsCarousel = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: idx * 0.1 }}
-              className="snap-center flex-shrink-0 w-[85vw] max-w-sm"
+              className="snap-center flex-shrink-0 w-[80vw] max-w-sm testimonial-card"
             >
               <div className="bg-obsidian-800/50 rounded-xl border border-white/[0.05] p-6 h-full">
                 <Quote className="w-8 h-8 text-indigo-500/20 mb-4" />
@@ -141,6 +202,32 @@ export const TestimonialsCarousel = () => {
           ))}
         </div>
       
+        {/* Dots indicator for mobile */}
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                const container = scrollContainerRef.current;
+                const cardWidth = cardWidthRef.current;
+                
+                // Guard against invalid card width
+                if (!container || !cardWidth || cardWidth <= 0) return;
+                
+                container.scrollTo({
+                  left: idx * (cardWidth + CARD_GAP),
+                  behavior: 'smooth'
+                });
+              }}
+              className={`h-2 rounded-full transition-all ${
+                idx === mobileCurrentIndex 
+                  ? "bg-indigo-400 w-6" 
+                  : "bg-white/20 w-2 hover:bg-white/40"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
