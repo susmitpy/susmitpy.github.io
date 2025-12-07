@@ -34,7 +34,7 @@ export const TalksCarousel = () => {
           <Link
             href="https://susmitpy.github.io/talks/"
             target="_blank"
-            className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all flex items-center gap-1.5 group"
+            className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all items-center gap-1.5 group hidden md:flex"
           >
             <span className="text-xs font-mono text-white/70 group-hover:text-white/90">
               View all Slide Decks
@@ -103,6 +103,20 @@ export const TalksCarousel = () => {
             </Link>
           </motion.div>
         ))}
+      </div>
+
+      {/* View all button for mobile - centered below slider */}
+      <div className="md:hidden mt-4 flex justify-center px-1">
+        <Link
+          href="https://susmitpy.github.io/talks/"
+          target="_blank"
+          className="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-indigo-500/10 hover:border-indigo-500/30 transition-all flex items-center gap-2 group"
+        >
+          <span className="text-xs font-mono text-white/70 group-hover:text-white/90">
+            View all Slide Decks
+          </span>
+          <ExternalLink className="w-3 h-3 text-white/50 group-hover:text-indigo-400" />
+        </Link>
       </div>
     </div>
   );
