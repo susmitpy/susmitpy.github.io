@@ -47,7 +47,11 @@ export const TestimonialsCarousel = () => {
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = cardWidthRef.current || 0;
+      const cardWidth = cardWidthRef.current;
+      
+      // Guard against invalid card width
+      if (!cardWidth || cardWidth <= 0) return;
+      
       const index = Math.round(scrollLeft / (cardWidth + CARD_GAP));
       setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
     };
@@ -189,13 +193,15 @@ export const TestimonialsCarousel = () => {
               key={idx}
               onClick={() => {
                 const container = scrollContainerRef.current;
-                if (container) {
-                  const cardWidth = cardWidthRef.current || 0;
-                  container.scrollTo({
-                    left: idx * (cardWidth + CARD_GAP),
-                    behavior: 'smooth'
-                  });
-                }
+                const cardWidth = cardWidthRef.current;
+                
+                // Guard against invalid card width
+                if (!container || !cardWidth || cardWidth <= 0) return;
+                
+                container.scrollTo({
+                  left: idx * (cardWidth + CARD_GAP),
+                  behavior: 'smooth'
+                });
               }}
               className={`h-2 rounded-full transition-all ${
                 idx === mobileCurrentIndex 
