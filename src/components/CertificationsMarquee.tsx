@@ -61,8 +61,8 @@ const BadgeCard = ({ badge, index }: BadgeCardProps) => {
 };
 
 export const CertificationsMarquee = () => {
-  // Duplicate badges for infinite scroll effect
-  const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges];
+  // Triple badges for infinite scroll effect - ensures more badges are visible at once
+  const duplicatedBadges = [...BadgesData.badges, ...BadgesData.badges, ...BadgesData.badges];
 
   return (
     <section id="certifications" className="py-16 overflow-hidden">
@@ -88,12 +88,12 @@ export const CertificationsMarquee = () => {
         <div className="hidden md:block">
           <motion.div
             className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: ["0%", "-33.333%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 20,
+                duration: 30,
                 ease: "linear",
               },
             }}
@@ -112,12 +112,12 @@ export const CertificationsMarquee = () => {
         <div className="md:hidden">
           <motion.div
             className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: ["0%", "-33.333%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: 40,
                 ease: "linear",
               },
             }}
