@@ -19,7 +19,7 @@ const architectureSnippets: Record<string, string> = {
         ClickTopic[Clicks Topic]
     end
     
-    subgraph "Stream Processing - Apache Flink"
+    subgraph "Stream Processing - Flink"
         ImpSource[Impression Source]
         ClickSource[Click Source]
         IntervalJoin[Interval Join<br/>15s window<br/>match on impr_id]
