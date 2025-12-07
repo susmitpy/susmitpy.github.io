@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
+// Animation constant for tripled array (moves by 1/3 to show all unique badges)
+const TRIPLE_ARRAY_OFFSET = "-33.333%";
+
 // Category colors
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
   "Flink": { bg: "bg-orange-500/10", text: "text-orange-400", border: "border-orange-500/20" },
@@ -88,7 +91,7 @@ export const CertificationsMarquee = () => {
         <div className="hidden md:block">
           <motion.div
             className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", "-33.333%"] }}
+            animate={{ x: ["0%", TRIPLE_ARRAY_OFFSET] }}
             transition={{
               x: {
                 repeat: Infinity,
@@ -112,7 +115,7 @@ export const CertificationsMarquee = () => {
         <div className="md:hidden">
           <motion.div
             className="flex gap-4 cursor-grab active:cursor-grabbing"
-            animate={{ x: ["0%", "-33.333%"] }}
+            animate={{ x: ["0%", TRIPLE_ARRAY_OFFSET] }}
             transition={{
               x: {
                 repeat: Infinity,
