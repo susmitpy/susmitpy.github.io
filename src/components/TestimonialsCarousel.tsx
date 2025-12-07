@@ -3,11 +3,13 @@
 import { TestimonialsData } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mobileCurrentIndex, setMobileCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const testimonials = TestimonialsData.testimonials;
 
   const nextTestimonial = () => {
@@ -17,6 +19,23 @@ export const TestimonialsCarousel = () => {
   const prevTestimonial = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  // Track scroll position to update mobile current index
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.querySelector('.testimonial-card')?.clientWidth || 0;
+      const gap = 16; // 1rem gap
+      const index = Math.round(scrollLeft / (cardWidth + gap));
+      setMobileCurrentIndex(Math.min(index, testimonials.length - 1));
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [testimonials.length]);
 
   return (
     <section id="testimonials" className="py-16">
@@ -106,7 +125,10 @@ export const TestimonialsCarousel = () => {
 
       {/* Mobile: Swipeable cards */}
       <div className="md:hidden">
-        <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory -mx-4 px-4">
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory -mx-4 px-4"
+        >
           {testimonials.map((testimonial, idx) => (
             <motion.div
               key={idx}
@@ -114,7 +136,7 @@ export const TestimonialsCarousel = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: idx * 0.1 }}
-              className="snap-center flex-shrink-0 w-[85vw] max-w-sm"
+              className="snap-center flex-shrink-0 w-[80vw] max-w-sm testimonial-card"
             >
               <div className="bg-obsidian-800/50 rounded-xl border border-white/[0.05] p-6 h-full">
                 <Quote className="w-8 h-8 text-indigo-500/20 mb-4" />
@@ -141,6 +163,31 @@ export const TestimonialsCarousel = () => {
           ))}
         </div>
       
+        {/* Dots indicator for mobile */}
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                const container = scrollContainerRef.current;
+                if (container) {
+                  const cardWidth = container.querySelector('.testimonial-card')?.clientWidth || 0;
+                  const gap = 16;
+                  container.scrollTo({
+                    left: idx * (cardWidth + gap),
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className={`h-2 rounded-full transition-all ${
+                idx === mobileCurrentIndex 
+                  ? "bg-indigo-400 w-6" 
+                  : "bg-white/20 w-2 hover:bg-white/40"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
