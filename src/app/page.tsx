@@ -20,6 +20,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { CaseStudies } from "@/lib/data";
 import SkillsSection from "@/components/Skills";
+import { ProjectPromoBanner } from "@/components/ProjectPromoBanner";
 
 export default function Home() {
   return (
@@ -131,6 +132,7 @@ export default function Home() {
 
       <ActionBar />
       <FloatingMenu />
+      <ProjectPromoBanner />
     </main>
   );
 }
