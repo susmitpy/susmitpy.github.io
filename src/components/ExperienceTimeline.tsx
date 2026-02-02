@@ -180,6 +180,7 @@ export const ExperienceTimeline = () => {
     points?: string[];
     icon: "work" | "education";
   }> = [
+    { ...ExpData.exp.skillrev, icon: "work" as const },
     { ...ExpData.exp.aidax, icon: "work" as const },
     { ...ExpData.exp.xcellen, icon: "work" as const },
     { ...ExpData.exp.zeza_lead, icon: "work" as const },

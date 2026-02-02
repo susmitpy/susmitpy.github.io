@@ -378,9 +378,16 @@ export const ExpData = {
     heading: "Work Experience",
     subHeading: "My professional journey in tech",
     exp: {
+        skillrev: {
+            heading: "Data Scientist & Solution Architect at SkillRev",
+            timeline: "Feb 2025 - Present",
+            points: [
+                "Integrating AIDEN AI capabilities into client solutions to enhance business insights."
+            ]
+        },
         aidax: {
             heading: "Founding Team Member at AIDAX",
-            timeline: "Dec 2024 - Present",
+            timeline: "Dec 2024 - Jan 2025",
             points: [
                 "Responsible for the strategic direction and development of AIDAX, focusing on innovative AI solutions."
             ]
