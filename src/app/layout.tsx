@@ -13,6 +13,7 @@ export default function RootLayout({
         <title>Susmit Vengurlekar | Data Systems Architect</title>
         <meta name="description" content="Architecting Data Systems & Interfaces - Bridging complex Backend pipelines with intuitive Frontend experiences." />
         <meta name="theme-color" content="#121212" />
+        <meta name="google-site-verification" content="uRqoQfBqaoExjqHsZoJbTSH9HgddtkeIznvGyCRnuSE" />
       </Head>
       <body
         className="antialiased font-sans"
