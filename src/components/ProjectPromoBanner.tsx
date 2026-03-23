@@ -3,8 +3,55 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "projectPromoBannerDismissed";
+
+type BrandWordmarkVariant = "default" | "on-dark" | "badge";
+
+type BrandWordmarkProps = {
+  className?: string;
+  variant?: BrandWordmarkVariant;
+  forShare?: boolean;
+};
+
+export const BRAND_TAGLINE =
+  "Engage, Educate, and Convert.";
+
+function BrandWordmark({
+  className,
+  variant = "default",
+  forShare = false
+}: BrandWordmarkProps) {
+  const forTextClass =
+    variant === "default"
+      ? "text-slate-900"
+      : variant === "on-dark"
+        ? "text-white"
+        : "text-slate-900";
+
+  const quizTextClass =
+    variant === "default"
+      ? "text-[#5B21B6]"
+      : variant === "on-dark"
+        ? "text-violet-400"
+        : "text-[#5B21B6]";
+
+  return (
+    <span
+      className={cn(
+        "inline-flex items-baseline font-semibold",
+        variant === "badge" &&
+        "rounded-md bg-white/95 px-2 py-0.5 shadow-sm ring-1 ring-slate-200/80",
+        className,
+      )}
+    >
+      <span className={forTextClass}>For</span>
+      {forShare && (<>&nbsp;</>)}
+      <span className={cn("font-bold", quizTextClass)}>Quiz</span>
+    </span>
+  );
+}
 
 export const ProjectPromoBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -50,50 +97,52 @@ export const ProjectPromoBanner: React.FC = () => {
           }}
           className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] w-[calc(100%-2rem)] md:w-auto max-w-md"
         >
-          {/* Glassmorphism container with glow effect */}
+          {/* Card with subtle shadow */}
           <div className="relative group">
-            {/* Glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-60 group-hover:opacity-80 transition duration-300"></div>
+            {/* Subtle accent shadow */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#5B21B6] via-[#2979FF] to-[#5B21B6] rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
             
-            {/* Main content */}
-            <div className="relative backdrop-blur-xl bg-black/40 border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
-              {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent pointer-events-none"></div>
-              
+            {/* Main content - White background */}
+            <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
               {/* Content wrapper */}
-              <div className="relative p-4 md:p-5">
+              <div className="relative p-5 md:p-6">
                 {/* Close button */}
                 <button
                   onClick={handleDismiss}
-                  className="absolute top-2 right-2 p-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-200 group/close"
+                  className="absolute top-3 right-3 p-1.5 rounded hover:bg-gray-100 border border-gray-200 hover:border-gray-300 transition-all duration-200 group/close"
                   aria-label="Close banner"
                   type="button"
                 >
                   <X 
-                    className="w-4 h-4 text-white/60 group-hover/close:text-white/90 transition-colors" 
+                    className="w-4 h-4 text-gray-500 group-hover/close:text-gray-700 transition-colors" 
                     strokeWidth={2}
                   />
                 </button>
 
                 {/* Text content */}
                 <div className="pr-8 mb-4">
-                  <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-800 leading-relaxed">
                     <span className="inline-block mr-2 text-lg" role="img" aria-label="rocket">
                       🚀
                     </span>
-                    <span className="font-semibold text-white">Built something new!</span>
+                    <span className="font-semibold text-gray-900">Built something new!</span>
                     {" "}Check out{" "}
-                    <span className="font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      ForQuiz
+                    <BrandWordmark className="text-base md:text-lg" />
+                    {" "}- <span className="font-medium">
+                      <span className="text-[#0D47A1]">Engage</span>
+                      <span className="text-gray-800">, </span>
+                      <span className="text-[#065F46]">Educate</span>
+                      <span className="text-gray-800">, and </span>
+                      <span className="text-[#B45309]">Convert</span>
+                      <span className="text-gray-800">.</span>
                     </span>
-                    {" "}- An AI-powered Quiz Platform.
                   </p>
                 </div>
 
-                {/* CTA button */}
+                {/* CTA button - Following ForQuiz design system */}
                 <button
                   onClick={handleVisitWebsite}
-                  className="w-full md:w-auto px-5 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black/40"
+                  className="w-full md:w-auto px-6 py-3 bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-base font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#5B21B6] focus:ring-offset-2"
                   type="button"
                 >
                   Visit Website →
