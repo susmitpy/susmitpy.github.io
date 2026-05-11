@@ -23,7 +23,8 @@ export interface CaseStudy {
     solution: string;
     impact: string;
     techStack: string[];
-    repoLink: string;
+    repoLink?: string;
+    internalLink?: string;
     imagePath?: string;
 }
 
@@ -51,6 +52,15 @@ export const CaseStudies: CaseStudy[] = [
         impact: "Enhances answer accuracy and relevance by leveraging graph relationships.",
         techStack: ["Neo4j", "LangChain", "Python", "LLM"],
         repoLink: "https://github.com/susmitpy/QnA-on-Neo4j-Knowledge-Graph"
+    },
+    {
+        title: "Bonus Payout Curve Generator",
+        problem: "Designing a fair bonus payout curve that hits target budget utilization while keeping engagement in a desired band - a high-dimensional, non-convex tuning problem with six interdependent parameters (start/mid/max points and bonuses).",
+        solution: "Built a parametric payout generator combining an exponential fit (start→mid) with a saturation-growth fit (mid→max), then wrapped it in a DEAP genetic algorithm that drives budget utilization toward 100% (minimizing |100 − utilization|) under engagement-band penalties. Added a sensitivity analysis pass for ±10% sales scenarios.",
+        impact: "Optimizer lifted budget utilization from 85.5% to 93.4% and engagement rate to a clean 90.0% while keeping the curve monotonic and within stakeholder bounds - turning a manual, judgment-heavy exercise into a reproducible, data-driven calibration.",
+        techStack: ["Python", "NumPy", "SciPy", "DEAP (GA)", "Pandas", "Plotly"],
+        internalLink: "/projects/bonus-payout-curve",
+        imagePath: `${prefix}/projects/bonus-payout/optimized.png`
     }
 ];
 

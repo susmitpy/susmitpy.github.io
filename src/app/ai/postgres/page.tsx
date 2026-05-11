@@ -387,13 +387,13 @@ function TupleMetadataTable() {
 
 function FurtherReadingList() {
   const items = [
-    "PostgreSQL source-code execution path — trace executor/storage functions after you know the mental model.",
-    "Buffer manager internals — shared buffers, page pins, and replacement policy deserve their own talk.",
-    "WAL record format — useful for storage engineers, but not needed for commit intuition.",
-    "Full B-tree implementation — deeper than scan paths, locality, and write maintenance.",
-    "Vacuum freezing and transaction ID wraparound — critical operations topic, separate from read-update basics.",
-    "Serializable Snapshot Isolation theory — read after the talk if you want anomaly proofs.",
-    "Benchmarking UUID vs bigint — measure in your workload instead of trusting generic numbers.",
+    "PostgreSQL source-code execution path - trace executor/storage functions after you know the mental model.",
+    "Buffer manager internals - shared buffers, page pins, and replacement policy deserve their own talk.",
+    "WAL record format - useful for storage engineers, but not needed for commit intuition.",
+    "Full B-tree implementation - deeper than scan paths, locality, and write maintenance.",
+    "Vacuum freezing and transaction ID wraparound - critical operations topic, separate from read-update basics.",
+    "Serializable Snapshot Isolation theory - read after the talk if you want anomaly proofs.",
+    "Benchmarking UUID vs bigint - measure in your workload instead of trusting generic numbers.",
   ];
   return <div className="grid grid-cols-2 gap-4 text-xl">{items.map((item) => <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">• {item}</div>)}</div>;
 }

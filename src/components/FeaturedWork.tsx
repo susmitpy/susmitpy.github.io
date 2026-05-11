@@ -1,7 +1,7 @@
 "use client";
 
 import { CaseStudy } from "@/lib/data";
-import { ArrowUpRight, Github, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, Github, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mermaid } from "./Mermaid";
@@ -165,10 +165,60 @@ const architectureSnippets: Record<string, string> = {
     
     style Query fill:#4f46e5
     style VectorSearch fill:#8b5cf6
-    style LLM1 fill:#f59e0b
+    style LLM1 fill:#f59e0b,color:#0f172a
     style Neo4jExec fill:#10b981
-    style LLM2 fill:#f59e0b
+    style LLM2 fill:#f59e0b,color:#0f172a
     style Answer fill:#10b981`,
+  "Bonus Payout Curve Generator": `graph TB
+    subgraph "Inputs"
+        Data[Sales & Target Sales<br/>per Quarter]
+        Params[6 Curve Params<br/>start/mid/max point<br/>start/mid/max bonus]
+    end
+
+    subgraph "PayoutGen"
+        Attain[Attainment %<br/>sales / target × 100]
+        Lower[Lower Section<br/>Exponential Fit<br/>start_point → mid_point]
+        Upper[Upper Section<br/>Saturation Growth<br/>L - L-m·exp-k·x-mid]
+        Curve[Payout Curve<br/>per performance]
+    end
+
+    subgraph "Evaluation"
+        Cost[Cost = avg_bonus<br/>× payout% × count]
+        Util[Budget Utilization]
+        Eng[Engagement Rate<br/>& Meaningful Rate]
+        Sens[Sensitivity ±10%]
+    end
+
+    subgraph "Optimizer - DEAP GA"
+        Pop[Population × 100]
+        Obj["Obj = |100 - util| + penalties"]
+        Sel[Tournament Select<br/>2-pt crossover<br/>uniform-int mutate]
+        Best[Best Individual<br/>50 generations]
+    end
+
+    Data --> Attain
+    Params --> Lower
+    Params --> Upper
+    Attain --> Lower
+    Attain --> Upper
+    Lower --> Curve
+    Upper --> Curve
+    Curve --> Cost --> Util
+    Curve --> Eng
+    Curve --> Sens
+
+    Util --> Obj
+    Eng --> Obj
+    Obj --> Sel --> Pop
+    Pop -.evaluate.- Obj
+    Sel --> Best
+    Best -.tunes.- Params
+
+    style Lower fill:#4f46e5
+    style Upper fill:#8b5cf6
+    style Obj fill:#f59e0b,color:#0f172a
+    style Best fill:#10b981
+    style Curve fill:#0ea5e9`,
 };
 
 export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; index?: number }) => {
@@ -252,15 +302,25 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
 
         {/* CTA */}
         <div className="mt-6 flex items-center gap-4">
-          <Link
-            href={caseStudy.repoLink}
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
-          >
-            <Github className="w-4 h-4" />
-            View Source
-            <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
-          </Link>
+          {caseStudy.internalLink ? (
+            <Link
+              href={caseStudy.internalLink}
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
+            >
+              View Case Study
+              <ArrowRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 transition-all" />
+            </Link>
+          ) : caseStudy.repoLink ? (
+            <Link
+              href={caseStudy.repoLink}
+              target="_blank"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
+            >
+              <Github className="w-4 h-4" />
+              View Source
+              <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
+            </Link>
+          ) : null}
 
           {/* Mobile toggle button for architecture diagram */}
           <button
