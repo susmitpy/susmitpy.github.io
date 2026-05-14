@@ -15,9 +15,6 @@ type BrandWordmarkProps = {
   forShare?: boolean;
 };
 
-export const BRAND_TAGLINE =
-  "Engage, Educate, and Convert.";
-
 function BrandWordmark({
   className,
   variant = "default",
@@ -129,12 +126,7 @@ export const ProjectPromoBanner: React.FC = () => {
                     {" "}Check out{" "}
                     <BrandWordmark className="text-base md:text-lg" />
                     {" "}- <span className="font-medium">
-                      <span className="text-[#0D47A1]">Engage</span>
-                      <span className="text-gray-800">, </span>
-                      <span className="text-[#065F46]">Educate</span>
-                      <span className="text-gray-800">, and </span>
-                      <span className="text-[#B45309]">Convert</span>
-                      <span className="text-gray-800">.</span>
+                      <span className="text-[#0D47A1]">Quiz-led learning and readiness, with measurable outcomes.</span>
                     </span>
                   </p>
                 </div>
