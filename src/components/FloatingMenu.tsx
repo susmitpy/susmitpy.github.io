@@ -57,6 +57,8 @@ export const FloatingMenu = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-12 h-12 bg-obsidian-800/90 backdrop-blur-md text-white/80 rounded-full shadow-lg border border-white/10 flex items-center justify-center hover:border-indigo-500/30 hover:text-indigo-400 transition-all"
+                aria-label={isOpen ? "Close floating menu" : "Open floating menu"}
+                aria-expanded={isOpen}
             >
                 {isOpen ? (
                     <ChevronUp className="w-5 h-5" />

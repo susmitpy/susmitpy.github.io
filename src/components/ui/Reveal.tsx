@@ -22,8 +22,8 @@ export const Reveal = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
-      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(5px)" }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
         duration: 0.5,
         delay: delay,

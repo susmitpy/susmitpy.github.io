@@ -19,7 +19,7 @@ export const BlogGrid = () => {
           <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
             {BlogsData.heading}
           </h2>
-          <p className="text-sm text-white/40 font-mono">Technical insights and deep dives</p>
+          <p className="text-sm text-white/60 font-mono">Technical insights and deep dives</p>
         </div>
         <Link
           href="https://susmitpy.medium.com"

@@ -17,9 +17,9 @@ const keySkills = [
 export const KeySkills = () => {
   return (
     <div className="h-full flex flex-col bg-obsidian-900 rounded-xl p-4">
-      <h3 className="text-sm font-mono font-bold text-white/90 mb-4 tracking-wide">
+      <h2 className="text-sm font-mono font-bold text-white/90 mb-4 tracking-wide">
         KEY SKILLS
-      </h3>
+      </h2>
       
       <div className="flex-1 flex flex-wrap gap-3 content-start">
         {keySkills.map((skill, idx) => (

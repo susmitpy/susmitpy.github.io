@@ -48,9 +48,9 @@ const BadgeCard = ({ badge }: BadgeCardProps) => {
             <span className={`inline-block px-2 py-0.5 text-[10px] font-mono ${colors.bg} ${colors.text} ${colors.border} border rounded mb-2`}>
               {badge.category}
             </span>
-            <h4 className="text-xs font-mono font-medium text-white/80 leading-relaxed line-clamp-2 group-hover:text-indigo-400 transition-colors">
+            <h3 className="text-xs font-mono font-medium text-white/80 leading-relaxed line-clamp-2 group-hover:text-indigo-400 transition-colors">
               {badge.title}
-            </h4>
+            </h3>
           </div>
           <ExternalLink className="w-3.5 h-3.5 text-white/20 group-hover:text-indigo-400 flex-shrink-0 transition-colors" />
         </div>
@@ -77,7 +77,7 @@ export const CertificationsMarquee = () => {
         <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
           {BadgesData.heading}
         </h2>
-        <p className="text-sm text-white/40 font-mono">Verified credentials and certifications</p>
+        <p className="text-sm text-white/60 font-mono">Verified credentials and certifications</p>
       </motion.div>
 
       <div className="relative">

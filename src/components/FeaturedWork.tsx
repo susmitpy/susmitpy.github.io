@@ -255,30 +255,30 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
           {/* Problem / Solution / Impact */}
           <div className="space-y-5">
             <div className="group/section">
-              <h4 className="text-xs font-mono font-semibold text-indigo-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <h3 className="text-xs font-mono font-semibold text-indigo-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full" />
                 The Challenge
-              </h4>
+              </h3>
               <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.problem}
               </p>
             </div>
 
             <div className="group/section">
-              <h4 className="text-xs font-mono font-semibold text-violet-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <h3 className="text-xs font-mono font-semibold text-violet-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-violet-400 rounded-full" />
                 The Solution
-              </h4>
+              </h3>
               <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.solution}
               </p>
             </div>
 
             <div className="group/section">
-              <h4 className="text-xs font-mono font-semibold text-green-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <h3 className="text-xs font-mono font-semibold text-green-400/80 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                 Impact
-              </h4>
+              </h3>
               <p className="text-white/60 text-sm leading-relaxed pl-3.5">
                 {caseStudy.impact}
               </p>
@@ -307,7 +307,7 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
               href={caseStudy.internalLink}
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
             >
-              View Case Study
+              View Case Study <span className="sr-only">for {caseStudy.title}</span>
               <ArrowRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 transition-all" />
             </Link>
           ) : caseStudy.repoLink ? (
@@ -317,7 +317,7 @@ export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; i
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-medium text-white bg-white/5 rounded-lg border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/10 transition-all duration-200 group/btn"
             >
               <Github className="w-4 h-4" />
-              View Source
+              View Source <span className="sr-only">for {caseStudy.title}</span>
               <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
             </Link>
           ) : null}

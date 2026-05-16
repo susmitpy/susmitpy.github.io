@@ -45,7 +45,7 @@ export const OpenSourceList = () => {
           <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
             {ReposData.heading}
           </h2>
-          <p className="text-sm text-white/40 font-mono">Open source contributions and experiments</p>
+          <p className="text-sm text-white/60 font-mono">Open source contributions and experiments</p>
         </div>
         <Link
           href="https://github.com/susmitpy"
@@ -59,7 +59,7 @@ export const OpenSourceList = () => {
 
       {/* Desktop: Dense list/table view */}
       <div className="hidden md:block bg-obsidian-800/30 rounded-xl border border-white/[0.05] overflow-hidden">
-        <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3 border-b border-white/[0.05] text-xs font-mono text-white/40 uppercase tracking-wider">
+        <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3 border-b border-white/[0.05] text-xs font-mono text-white/60 uppercase tracking-wider">
           <span>Repository</span>
           <span className="w-20 text-center">Related Video</span>
         </div>
@@ -89,7 +89,7 @@ export const OpenSourceList = () => {
                       {repo.name}
                       <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </h3>
-                    <p className="text-xs text-white/40 mt-1 leading-relaxed line-clamp-1">
+                    <p className="text-xs text-white/60 mt-1 leading-relaxed line-clamp-1">
                       {repo.description}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ export const OpenSourceList = () => {
                     <h3 className="text-sm font-mono font-medium text-white/80 mb-1.5 leading-relaxed">
                       {repo.name}
                     </h3>
-                    <p className="text-xs text-white/40 leading-relaxed line-clamp-2">
+                    <p className="text-xs text-white/60 leading-relaxed line-clamp-2">
                       {repo.description}
                     </p>
                   </div>

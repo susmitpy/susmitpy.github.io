@@ -28,9 +28,9 @@ export const TalksCarousel = () => {
   return (
     <div className="w-full h-full flex flex-col bg-obsidian-900 rounded-xl" id="talks">
       <div className="flex items-center justify-between mb-3 px-1">
-        <h3 className="text-sm font-mono font-bold text-white/90 tracking-wide">
+        <h2 className="text-sm font-mono font-bold text-white/90 tracking-wide">
           SPEAKER
-        </h3>
+        </h2>
         <div className="flex items-center gap-2">
           <Link
             href="https://susmitpy.github.io/talks/"
@@ -50,7 +50,7 @@ export const TalksCarousel = () => {
           >
             <ChevronLeft className="w-4 h-4 text-white/60" />
           </button>
-          <span className="text-xs font-mono text-white/40 min-w-[40px] text-center hidden md:block">
+          <span className="text-xs font-mono text-white/60 min-w-[40px] text-center hidden md:block">
             {currentPage + 1}/{totalPages}
           </span>
           <button

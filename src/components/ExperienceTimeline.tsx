@@ -40,9 +40,9 @@ const TimelineItem = ({ heading, timeline, points, isLeft, index, icon }: Timeli
           )}
           
           {/* Heading */}
-          <h4 className="text-sm md:text-base font-mono font-semibold text-white/90 mb-3 leading-relaxed">
+          <h3 className="text-sm md:text-base font-mono font-semibold text-white/90 mb-3 leading-relaxed">
             {heading}
-          </h4>
+          </h3>
           
           {/* Points */}
           {displayPoints && displayPoints.length > 0 && (
@@ -136,9 +136,9 @@ const MobileTimelineItem = ({ heading, timeline, points, index, icon }: Omit<Tim
             </span>
           )}
           
-          <h4 className="text-sm font-mono font-semibold text-white/90 mb-2 leading-relaxed">
+          <h3 className="text-sm font-mono font-semibold text-white/90 mb-2 leading-relaxed">
             {heading}
-          </h4>
+          </h3>
           
           {displayPoints && displayPoints.length > 0 && (
             <ul className="space-y-1.5">

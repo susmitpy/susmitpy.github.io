@@ -101,7 +101,7 @@ function StatCard({
       <div className={`inline-flex items-center justify-center w-9 h-9 rounded-lg border ${toneMap[tone]}`}>
         <Icon className="w-4 h-4" />
       </div>
-      <div className="text-xs font-mono uppercase tracking-wider text-white/40">{label}</div>
+      <div className="text-xs font-mono uppercase tracking-wider text-white/60">{label}</div>
       <div className="text-2xl font-bold text-white font-mono">{value}</div>
       {sub && <div className="text-xs text-white/50">{sub}</div>}
     </div>
@@ -131,7 +131,7 @@ function StageBlock({ title, data, imgSrc, accent }: { title: string; data: type
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <div className="text-xs font-mono uppercase tracking-wider text-white/40 mb-3">Percentile · Bonus % · Performance %</div>
+          <div className="text-xs font-mono uppercase tracking-wider text-white/60 mb-3">Percentile · Bonus % · Performance %</div>
           <div className="overflow-hidden rounded-lg border border-white/[0.05]">
             <table className="w-full text-sm font-mono">
               <thead className="bg-white/[0.03] text-white/50 text-xs">
@@ -155,7 +155,7 @@ function StageBlock({ title, data, imgSrc, accent }: { title: string; data: type
         </div>
 
         <div>
-          <div className="text-xs font-mono uppercase tracking-wider text-white/40 mb-3">Sensitivity Analysis (±10% sales)</div>
+          <div className="text-xs font-mono uppercase tracking-wider text-white/60 mb-3">Sensitivity Analysis (±10% sales)</div>
           <div className="space-y-3">
             <div className="p-4 rounded-lg border border-white/[0.05] bg-white/[0.02]">
               <div className="flex items-center justify-between mb-2">
@@ -187,7 +187,7 @@ function CodeBlock({ children, label }: { children: string; label: string }) {
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-        <span className="text-[10px] text-white/40 font-mono ml-2">{label}</span>
+        <span className="text-[10px] text-white/60 font-mono ml-2">{label}</span>
       </div>
       <pre className="p-4 overflow-x-auto text-xs md:text-sm font-mono text-white/80 leading-relaxed">
         <code>{children}</code>
@@ -294,7 +294,7 @@ export default function BonusPayoutCurvePage() {
                 ["Max Bonus", BEST.maxBonus],
               ] as const).map(([k, v]) => (
                 <div key={k} className="p-3 rounded-lg border border-white/[0.05] bg-white/[0.02]">
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/40">{k}</div>
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/60">{k}</div>
                   <div className="text-xl font-bold text-white font-mono mt-1">{v}</div>
                 </div>
               ))}

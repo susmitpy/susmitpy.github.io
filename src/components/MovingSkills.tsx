@@ -14,13 +14,15 @@ export const SkillCard = ({
     return (
         <HoverBorderGradient
             containerClassName="rounded-full"
-            as="div"
+            as="li"
             className="dark:bg-[#2f2f2f] bg-[#2f2f2f] text-white flex items-center space-x-2 hover:bg-[#40E0D0]"
         >
             {logoPath && (
                 <img
                     src={logoPath}
-                    alt={text}
+                    alt={text || "Skill Logo"}
+                    width={48}
+                    height={48}
                     className="h-10 md:h-12 sm:h-14 w-auto"
                 />
             )}

@@ -80,7 +80,7 @@ export const Mermaid = ({ chart, className = "" }: MermaidProps) => {
   if (isLoading && !svg) {
     return (
       <div ref={containerRef} className={`${className} opacity-50 transition-opacity`}>
-        <div className="text-white/40 text-sm">Loading diagram...</div>
+        <div className="text-white/60 text-sm">Loading diagram...</div>
       </div>
     );
   }

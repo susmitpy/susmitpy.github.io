@@ -117,7 +117,7 @@ export const SideProjects = () => {
         <h2 className="text-2xl md:text-3xl font-mono font-bold text-white mb-2">
           {ProjectsData.heading}
         </h2>
-        <p className="text-sm text-white/40 font-mono">
+        <p className="text-sm text-white/60 font-mono">
           <span className="hidden md:inline">{ProjectsData.desktopMessage}</span>
           
         </p>

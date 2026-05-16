@@ -126,7 +126,7 @@ export const BookShelf = () => {
           <BookOpen className="w-7 h-7 text-indigo-400" />
           {BooksData.heading}
         </h2>
-        <p className="text-sm text-white/40 font-mono">Books that shaped my thinking</p>
+        <p className="text-sm text-white/60 font-mono">Books that shaped my thinking</p>
       </motion.div>
 
       {/* Desktop: 3D Bookshelf with spines */}
