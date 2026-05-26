@@ -50,10 +50,14 @@ const MermaidInitializer = (() => {
 export const Mermaid = ({ chart, className = "" }: MermaidProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!!chart);
 
   useEffect(() => {
-    if (!chart) return;
+    if (!chart) {
+      setIsLoading(false);
+      setSvg("");
+      return;
+    }
 
     const renderDiagram = async () => {
       setIsLoading(true);

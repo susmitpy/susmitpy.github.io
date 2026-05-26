@@ -219,6 +219,21 @@ const architectureSnippets: Record<string, string> = {
     style Obj fill:#f59e0b,color:#0f172a
     style Best fill:#10b981
     style Curve fill:#0ea5e9`,
+  "Scalable Multi-Engine Data Profiler": `graph TD
+    classDef default fill:#1e293b,stroke:#475569,stroke-width:2px,color:#e0e7ff;
+    classDef core fill:#4f46e5,stroke:#818cf8,stroke-width:2px,color:#ffffff;
+    classDef db fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#93c5fd;
+    
+    PO[Profiler Orchestrator]:::core -->|Instantiates| AF[Adapter Factory]
+    AF -->|Snowflake| S[Snowflake Adapter]:::db
+    AF -->|Databricks| DB[Databricks Adapter]:::db
+    AF -->|DuckDB| D[DuckDB Adapter]:::db
+    AF -->|SQLite| SQ[SQLite Adapter]:::db
+    
+    S -->|Pushdown Aggregations| CS[(Checkpoint Store)]
+    DB -->|Pushdown Aggregations| CS
+    D -->|Pushdown Aggregations| CS
+    SQ -->|Pushdown Aggregations| CS`,
 };
 
 export const FeaturedWork = ({ caseStudy, index = 0 }: { caseStudy: CaseStudy; index?: number }) => {

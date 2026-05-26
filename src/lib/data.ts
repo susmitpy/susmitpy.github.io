@@ -59,8 +59,16 @@ export const CaseStudies: CaseStudy[] = [
         solution: "Built a parametric payout generator combining an exponential fit (start→mid) with a saturation-growth fit (mid→max), then wrapped it in a DEAP genetic algorithm that drives budget utilization toward 100% (minimizing |100 − utilization|) under engagement-band penalties. Added a sensitivity analysis pass for ±10% sales scenarios.",
         impact: "Optimizer lifted budget utilization from 85.5% to 93.4% and engagement rate to a clean 90.0% while keeping the curve monotonic and within stakeholder bounds - turning a manual, judgment-heavy exercise into a reproducible, data-driven calibration.",
         techStack: ["Python", "NumPy", "SciPy", "DEAP (GA)", "Pandas", "Plotly"],
-        internalLink: "/projects/bonus-payout-curve",
-        imagePath: `${prefix}/projects/bonus-payout/optimized.png`
+        internalLink: "/projects/bonus-payout-curve"
+    },
+    {
+        title: "Scalable Multi-Engine Data Profiler",
+        problem: "To generate highly accurate SQL, AI agents need deep context about a database (schemas, value distributions, cardinality). However, extracting and unifying this metadata across completely different data warehouses (Snowflake, Databricks, local DBs) is complex, prone to timeouts on massive schemas, and results in mismatched data types.",
+        solution: "Architected a resilient, concurrent Python profiling engine using the Adapter Design Pattern. It dynamically dispatches queries to Snowflake, Databricks SQL, DuckDB, or SQLite. It pushes heavy statistical aggregations down to the warehouse, harmonizes engine-specific types into a unified taxonomy, and features a robust checkpoint/resume system to handle network interruptions.",
+        impact: "Produces deterministic, highly structured JSON artifacts containing precise database intelligence (histograms, exact/approximate distinct counts, null ratios). This standardized context dramatically improves LLM text-to-SQL accuracy while optimizing warehouse compute costs.",
+        techStack: ["Python", "Snowflake", "Databricks", "DuckDB", "Pydantic", "Pytest"],
+        repoLink: "https://github.com/susmitpy/Data-Profiler",
+        internalLink: "/projects/data-profiler"
     }
 ];
 
