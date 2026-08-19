@@ -2,18 +2,19 @@ import { prefix } from "./prefix"
 
 export const HeroData = {
     name: "Susmit Vengurlekar",
-    headline: "Building Scalable Data Systems & Modern Web Applications",
-    subHeadline: "Specialized in real-time data pipelines (Kafka, Flink), graph databases (Neo4j), and full-stack development. I design and build end-to-end solutions from backend data infrastructure to intuitive user interfaces.",
+    headline: "Architecting Data Platforms & Scalable Systems",
+    subHeadline: "Backend, data, and cloud engineer with 5+ years building event-driven data platforms, applied-AI systems, and scalable backend services on AWS",
     aboutTitle: "About Me",
-    about: "I really enjoy tackling tech problems and seeing a solution come together from beginning to end. I'm passionate about crafting high-quality code that is clean, readable, and modular. With experience in data science, cloud, and building both backend systems and functional frontend components, I strive to find the perfect technology fit for solutions that are elegant, efficient, and cost-effective.",
+    about: "Engineering problems excite me most when they span the stack - platform design, data pipelines, backend services, and the product layer. I care deeply about code quality and system design that's clean, maintainable, and cost-conscious. My experience spans data engineering, applied AI, cloud architecture, and full-stack development",
     titles: [
+        "Solutions Architect",
+        "Backend Systems Architect",
+        "Data Platform Architect",
         "Data Scientist",
-        "Database Engineer",
-        "AWS Cloud Architect",
-        "Full Stack Developer",
     ],
     secondTitles: [
         "Certified Neo4j Professional",
+        "Certified Apache Flink® Engineer"
     ]
 }
 
