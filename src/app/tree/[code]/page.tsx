@@ -86,13 +86,17 @@ export default async function TreePage({ params }: Props) {
         >
           ← Back to collections
         </a>
-        <span className="hidden sm:inline text-border">•</span>
-        <a 
-          href="/tree/about" 
-          className="text-sm text-accent-solid hover:text-accent-solid/80 transition-colors inline-flex items-center gap-1 font-medium"
-        >
-          About Me & Socials →
-        </a>
+        {code !== "me" && (
+          <>
+            <span className="hidden sm:inline text-border">•</span>
+            <a 
+              href="/tree/me"
+              className="text-sm text-accent-solid hover:text-accent-solid/80 transition-colors inline-flex items-center gap-1 font-medium"
+            >
+              About Me & Socials →
+            </a>
+          </>
+        )}
       </div>
     </main>
   );
