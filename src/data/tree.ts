@@ -30,12 +30,12 @@ export const TREES: Record<string, TreeCollection> = {
       {
         title: "Cedar Demo",
         description: "Cedar policy demo",
-        url: "https://youtu.be/zBZM8a5QW4E?si=GlOrG5xf7bGkHCRt",
+        url: "https://youtu.be/zBZM8a5QW4E",
       },
       {
         title: "Dogwood Demo",
         description: "Dogwood policy demo",
-        url: "https://youtu.be/pZC0gTDv5SE?si=Iq_havVA4wq13nja",
+        url: "https://youtu.be/pZC0gTDv5SE",
       }
     ],
   },
