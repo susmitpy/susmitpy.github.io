@@ -12,7 +12,7 @@ export type TreeCollection = {
 };
 
 export const TREES: Record<string, TreeCollection> = {
-  "awsug-aug-27": {
+  "awsug-aug-26": {
     title: "AWS UG Mumbai August 2026 Talk",
     description: "Resources from my AgentCore talk",
     emoji: "🎤",
