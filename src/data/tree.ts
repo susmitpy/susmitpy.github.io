@@ -24,7 +24,7 @@ export const TREES: Record<string, TreeCollection> = {
       },
       {
         title: "GitHub Repo",
-        description: "AgentCore Harness Policy Enforcement",
+        description: "AgentCore Policy Enforcement",
         url: "https://github.com/susmitpy/agentcore-policy-enforcement",
       },
       {
