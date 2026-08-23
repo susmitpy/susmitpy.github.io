@@ -150,6 +150,16 @@ export const ReposData = {
     heading: "GitHub Repositories",
     repos: [
         {
+            "name": "Amazon Bedrock AgentCore Policy Enforcement",
+            "description": "Temporal policies in Dogwood and Cedar policies with AgentCore Harness and Runtime",
+            "link": "https://github.com/susmitpy/agentcore-policy-enforcement",
+            "relatedVideo": {
+                "title": "AWS Meetup",
+                "link": "https://youtu.be/EkJC2drKKX0"
+            }
+        },
+    
+        {
             "name": "Real-Time Click-Through Rate Analysis with Flink & Kafka",
             "description": "Go-based data producer to simulate user impressions and clicks, Kafka as the message bus, and a PyFlink job to process the data in real-time",
             "link": "https://github.com/susmitpy/stream_analytics_adtech_ctr",
@@ -277,6 +287,13 @@ export const TalksData = {
     headline: "Opportunities to Speak",
     viewAll: "View All Slide Decks",
     talks: [
+        {
+            title: "Agents Need A Cage - Governing AI with Amazon Bedrock AgentCore Policy",
+            category: "AWS User Group Mumbai",
+            src: `${prefix}/speaker/aws_agentcore.webp`,
+            link: "https://youtu.be/EkJC2drKKX0",
+            onYoutube: true
+        },
         {
             title: "Real Time CTR Analysis using Apache Flink and Kafka",
             category: "Kafka Meetup",
