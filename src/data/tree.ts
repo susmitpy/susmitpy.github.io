@@ -45,7 +45,7 @@ export const TREES: Record<string, TreeCollection> = {
     links: [
       {
         title: "ForQuiz",
-        description: "Quiz-led learning and readiness platform",
+        description: "Turn training into measurable knowledge checks",
         url: "https://forquiz.fusebytes.in",
       },
       {

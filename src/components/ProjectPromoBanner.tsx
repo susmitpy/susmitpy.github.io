@@ -126,7 +126,7 @@ export const ProjectPromoBanner: React.FC = () => {
                     {" "}Check out{" "}
                     <BrandWordmark className="text-base md:text-lg" />
                     {" "}- <span className="font-medium">
-                      <span className="text-[#0D47A1]">Quiz-led learning and readiness, with measurable outcomes.</span>
+                      <span className="text-[#0D47A1]">Turn training into measurable knowledge checks</span>
                     </span>
                   </p>
                 </div>
