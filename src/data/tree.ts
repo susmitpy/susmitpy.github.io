@@ -12,6 +12,29 @@ export type TreeCollection = {
 };
 
 export const TREES: Record<string, TreeCollection> = {
+  "prac-ai": {
+    title: "Practical AI Engineering: From Architecture to Working Systems",
+    description: "Resources",
+    emoji: "🎤",
+    links: [
+      {
+        title: "Slides",
+        description: "Presentation deck",
+        url: "https://susmitpy.github.io/talks/practical_ai_engineering",
+      },
+      {
+        title: "GitHub Repo",
+        description: "QA Agent",
+        url: "https://github.com/susmitpy/brow",
+      },
+      {
+        title: "Github Repo",
+        description: "Hands-On Workshop",
+        url: "https://github.com/susmitpy/mini-support-agent-workshop",
+      },
+    ],
+
+  },
   "awsug-aug-26": {
     title: "AWS UG Mumbai August 2026 Talk",
     description: "Resources from my AgentCore talk",
