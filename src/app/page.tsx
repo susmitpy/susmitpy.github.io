@@ -1,5 +1,6 @@
 "use client";
 
+import { AgenticSection } from "@/components/AgenticSection";
 import { ActionBar } from "@/components/ActionBar";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { BlogGrid } from "@/components/BlogGrid";
@@ -68,6 +69,13 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </section>
+
+        <SectionDivider />
+
+        {/* Agentic Development - Alternate background */}
+        <section id="agentic" className="section-wrapper">
+          <AgenticSection />
         </section>
 
         <SectionDivider />

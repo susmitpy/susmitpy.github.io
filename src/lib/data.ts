@@ -73,6 +73,94 @@ export const CaseStudies: CaseStudy[] = [
     }
 ];
 
+export interface AgenticTool {
+    title: string;
+    description: string;
+    tags: string[];
+    badge?: string;
+    link?: string;
+    linkLabel?: string;
+}
+
+export const AgenticData = {
+    eyebrow: "Agentic Development",
+    title: "An Autonomous Agent Fleet",
+    thesis: "On a US county property-tax client project at SkillRev, development is agentic with Claude Code, and I advocate for that way of working. The tooling I built with the team goes beyond assisting a developer: on a schedule, an unattended cloud run picks tickets, prepares a worktree for each, and launches an orchestrator with 10 specialist sub-agents that plans, implements, tests in a browser, reviews and delivers the change, then stops the instance. The code was built with a teammate contributing.",
+    pageLink: "/agentic-workflow",
+    pageLinkLabel: "Read the full write-up",
+    stats: [
+        { label: "Specialist sub-agents", value: "10 under one orchestrator" },
+        { label: "Runs", value: "Scheduled, unattended, in the cloud" },
+        { label: "Ticket selector", value: "LLM-based, Claude or Codex" },
+        { label: "QA agent", value: "narrated video evidence (brow)" },
+    ],
+    tools: [
+        {
+            title: "Scheduled unattended runs",
+            description: "A cloud instance boots on a schedule, pulls the code, syncs the code graph and the PR-history corpus, then runs the pipeline. The instance stops itself at the end of the run, and optional steps are written so they can never trigger shutdown.",
+            tags: ["systemd", "Cloud VM", "Shell"],
+        },
+        {
+            title: "LLM ticket selector",
+            description: "Lists backlog tickets, drops blacklisted ones and those that already have a worktree, then asks a CLI agent (Claude or Codex, switchable) to pick one urgent anchor plus independent tickets. Ticket content is treated as untrusted data.",
+            tags: ["Claude", "Codex", "Prompt safety"],
+        },
+        {
+            title: "Worktree per ticket",
+            description: "Each ticket gets its own git worktree with the lowest unused port prefix, its own infrastructure and a requirement file with attachment text and prior art, so several tickets run side by side.",
+            tags: ["git worktree", "Docker Compose", "Caddy"],
+        },
+        {
+            title: "Orchestrator and 10 sub-agents",
+            description: "Planner, implement, reviewer, browser-tester, pre-PR runner, bug-analyzer, data-detective, advisor, explorer and delivery, with a sub-agent depth limit, constrained spawning rules and checkpoint files so interrupted agents resume instead of restarting.",
+            tags: ["Sub-agents", "Playwright", "Checkpoint/resume"],
+        },
+        {
+            title: "Delivery agent",
+            description: "Runs a PR preflight and a merge-conflict check. It resolves only strictly mechanical conflicts by merging the target into the source (never rebase or force-push), hands intent-bearing conflicts back, and re-runs the pre-PR gates.",
+            tags: ["git", "Merge conflicts", "Gates"],
+        },
+        {
+            title: "Stall monitor and dashboard",
+            description: "Sweeps tickets, auto-heals stalled sessions and tracks per-ticket active or inactive state. A ticket-ready hook verifies the outcome report and tears the environment down. The dashboard shows token cost per thread.",
+            tags: ["Python", "SQLite", "Hooks"],
+        },
+        {
+            title: "PA supervisor from a phone",
+            description: "An always-on headless Claude session reachable from a phone via remote control. It reads the fleet through an ops MCP server and a CLI, under a strict read-only versus ask-first action policy.",
+            tags: ["MCP", "Claude Code", "Remote control"],
+        },
+        {
+            title: "PR history and prior art",
+            description: "Pull requests and tickets are normalised into a shared Postgres corpus and searched with a hand-written BM25 scorer. Ranking evidence, git evidence and ticket-link evidence are kept separate from inference, and retrieval evals with ablation measure quality.",
+            tags: ["Postgres", "BM25", "Evals"],
+        },
+        {
+            title: "Agent memory (MCP)",
+            description: "A Qdrant-backed memory service exposed over MCP with search, create, update and merge, secret-aware storage, per-agent ids, and memory-use and outcome tracking across the memory lifecycle.",
+            tags: ["Qdrant", "MCP", "Memory"],
+        },
+        {
+            title: "doc-extract MCP and code provenance",
+            description: "A read-only MCP server for PDF text and image OCR with typed errors and path, type and size guardrails. A provenance skill traces code to its commit, PR, ticket and description so agents learn intent.",
+            tags: ["MCP", "OCR", "git"],
+        },
+        {
+            title: "QA agent and brow",
+            description: "Records video of its testing, splits it into chapters and adds audio narration. A small part is open source as brow and works against any deployed URL.",
+            tags: ["Playwright", "ffmpeg", "TTS"],
+            badge: "Open source",
+            link: "https://github.com/susmitpy/brow",
+            linkLabel: "View brow on GitHub",
+        },
+        {
+            title: "Release automation",
+            description: "An Azure DevOps service hook calls a Python Azure Function that works out the newly deployed builds, follows build to PR to Asana task, and moves tasks on UAT and PROD stage success. Release notes and standups are generated by separate scripts.",
+            tags: ["Azure Functions", "Asana API", "Slack", "Python"],
+        },
+    ] as AgenticTool[],
+}
+
 export const SkillsData = {
     heading: "Tech Stack",
     description: "Expert tools and usecase matchmaker",
@@ -106,6 +194,14 @@ export const SkillsData = {
             { logoPath: `${prefix}/skills/fastapi.webp` },
             { logoPath: `${prefix}/skills/flask.webp` },
             { logoPath: `${prefix}/skills/nodejs.webp` },
+        ],
+        "Agentic Development": [
+            { name: "Claude Code" },
+            { name: "Sub-agents" },
+            { name: "Git Worktrees" },
+            { name: "Playwright" },
+            { name: "MCP" },
+            { name: "Context Engineering" },
         ],
         "Cloud & DevOps": [
             { logoPath: `${prefix}/skills/aws.webp` },
@@ -149,6 +245,15 @@ export const ProjectsData = {
 export const ReposData = {
     heading: "GitHub Repositories",
     repos: [
+        {
+            "name": "brow",
+            "description": "Browser testing kit for Claude Code: Playwright MCP validation with a CLI that merges recordings into one narrated evidence video",
+            "link": "https://github.com/susmitpy/brow",
+            "relatedVideo": {
+                "title": "Demo",
+                "link": "https://youtu.be/-8JNMW7W0Es"
+            }
+        },
         {
             "name": "Amazon Bedrock AgentCore Policy Enforcement",
             "description": "Temporal policies in Dogwood and Cedar policies with AgentCore Harness and Runtime",
@@ -418,8 +523,13 @@ export const ExpData = {
             heading: "Data Scientist & Solution Architect at SkillRev",
             timeline: "Feb 2026 - Present",
             points: [
-                "Integrating AIDEN AI capabilities into client solutions to enhance business insights."
-            ]
+                "Integrating AIDEN AI capabilities into client solutions to enhance business insights.",
+                "Full-stack developer on a property-tax management system for US counties; development is agentic with Claude Code, and I advocate for and improve the AI-led engineering workflow and tooling across projects.",
+                "Built, with a teammate contributing, an autonomous agent fleet: scheduled unattended cloud runs, an LLM ticket selector, a worktree per ticket, an orchestrator with 10 specialist sub-agents, a delivery agent that resolves only mechanical merge conflicts, a stall monitor with a token-cost dashboard, and a phone-reachable supervisor over an MCP server.",
+                "Built the agents' context layer: PR history in shared Postgres with hand-written BM25 and retrieval evals, a Qdrant memory MCP server, a doc-extract MCP server, code provenance, and a QA agent (open source: brow). Also built release automation (Azure DevOps hook to Azure Function to Asana) and release-note and standup generators.",
+                "Built an intermediate-representation tax and interest calculation engine that replays payments, NSFs, voids and refunds deterministically; now on a payment portal shared across multiple states."
+            ],
+            link: { href: "/agentic-workflow", label: "Agentic workflow write-up" }
         },
         aidax: {
             heading: "Founding Team Member at AIDAX",

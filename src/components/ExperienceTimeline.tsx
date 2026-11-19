@@ -2,8 +2,9 @@
 
 import { ExpData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase, GraduationCap, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -11,12 +12,13 @@ interface TimelineItemProps {
   heading: string;
   timeline?: string;
   points?: string[];
+  link?: { href: string; label: string };
   isLeft: boolean;
   index: number;
   icon: "work" | "education";
 }
 
-const TimelineItem = ({ heading, timeline, points, isLeft, index, icon }: TimelineItemProps) => {
+const TimelineItem = ({ heading, timeline, points, link, isLeft, index, icon }: TimelineItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const shouldCollapse = points && points.length > 3;
   const displayPoints = shouldCollapse && !isExpanded ? points.slice(0, 3) : points;
@@ -56,6 +58,16 @@ const TimelineItem = ({ heading, timeline, points, isLeft, index, icon }: Timeli
             </ul>
           )}
           
+
+          {link && (
+            <Link
+              href={link.href}
+              className="mt-3 inline-flex items-center gap-1 text-xs font-mono text-indigo-400/80 hover:text-indigo-400 transition-colors"
+            >
+              {link.label} <ArrowRight className="w-3 h-3" />
+            </Link>
+          )}
+
           {/* Expand/Collapse button */}
           {shouldCollapse && (
             <button
@@ -98,7 +110,7 @@ const TimelineItem = ({ heading, timeline, points, isLeft, index, icon }: Timeli
   );
 };
 
-const MobileTimelineItem = ({ heading, timeline, points, index, icon }: Omit<TimelineItemProps, 'isLeft'>) => {
+const MobileTimelineItem = ({ heading, timeline, points, link, index, icon }: Omit<TimelineItemProps, 'isLeft'>) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const shouldCollapse = points && points.length > 3;
   const displayPoints = shouldCollapse && !isExpanded ? points.slice(0, 3) : points;
@@ -151,6 +163,16 @@ const MobileTimelineItem = ({ heading, timeline, points, index, icon }: Omit<Tim
             </ul>
           )}
           
+
+          {link && (
+            <Link
+              href={link.href}
+              className="mt-2 inline-flex items-center gap-1 text-xs font-mono text-indigo-400/80 hover:text-indigo-400 transition-colors"
+            >
+              {link.label} <ArrowRight className="w-3 h-3" />
+            </Link>
+          )}
+
           {shouldCollapse && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
@@ -178,6 +200,7 @@ export const ExperienceTimeline = () => {
     heading: string;
     timeline?: string;
     points?: string[];
+    link?: { href: string; label: string };
     icon: "work" | "education";
   }> = [
     { ...ExpData.exp.skillrev, icon: "work" as const },
@@ -203,6 +226,7 @@ export const ExperienceTimeline = () => {
             heading={exp.heading}
             timeline={exp.timeline}
             points={exp.points}
+            link={exp.link}
             isLeft={idx % 2 === 0}
             index={idx}
             icon={exp.icon}
@@ -218,6 +242,7 @@ export const ExperienceTimeline = () => {
             heading={exp.heading}
             timeline={exp.timeline}
             points={exp.points}
+            link={exp.link}
             index={idx}
             icon={exp.icon}
           />

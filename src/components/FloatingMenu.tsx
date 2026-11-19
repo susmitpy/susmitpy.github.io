@@ -8,6 +8,7 @@ const menuItems = [
     { label: 'About', id: 'header' },
     { label: 'Talks', id: 'talks' },
     { label: 'Projects', id: 'projects' },
+    { label: 'Agentic', id: 'agentic' },
     { label: 'Experience', id: 'experience' },
     { label: 'Blogs', id: 'blogs' },
     { label: 'Open Source', id: 'opensource' },
